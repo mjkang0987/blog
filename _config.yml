@@ -1,0 +1,25 @@
+title: My Blog
+description: 마크다운으로 발행하는 개인 블로그
+# baseurl: ""        # 프로젝트 페이지(user.github.io/blog)면 "/blog" 으로 설정
+# url: "https://USERNAME.github.io"
+
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# 글 URL 형식: /2026/06/19/제목/
+permalink: /:year/:month/:day/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
