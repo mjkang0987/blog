@@ -296,6 +296,8 @@
   .site-header__inner { gap: 0.6rem 1rem; }
   .site-brand { width: 100%; margin-right: 0; }
   .site-brand__logo { height: 1.5rem; }
+  /* 모바일: 로고가 한 줄 차지 → 둘째 줄에서 언어 셀렉트 우측 정렬 */
+  .lang-switch { margin-left: auto; }
   .post__title, .page__title { font-size: 1.55rem; }
   .site-main { padding-top: 2rem; }
 
