@@ -74,8 +74,16 @@
 ## 작업 D: 추가 콘텐츠 자동화 (도구화됨)
 - humanize-korean 플러그인 설치 → 매일 작업의 한글판 발행 전 윤문 단계로 연결
 
+## 작업 E: SEO + OG 이미지 (완료)
+- jekyll-seo-tag(title·description·OG·트위터·canonical) + jekyll-feed 기존 적용
+- **hreflang** 태그(ko/en-US/ja + x-default) `default.html` head에 추가(동일 permalink 프리픽스 방식, polyglot static_href)
+- **jekyll-sitemap**(`/sitemap.xml`) + **robots.txt** 추가
+- **OG 이미지 자동 생성**: `scripts/og_image.py`(PIL+Noto CJK) — 1200×630 브랜드 카드(제목+카테고리+사이트명), 이모지 자동 제거. 글마다 `image:` front matter 연결 → og:image/twitter summary_large_image
+- 매일 자동화에 OG 이미지 생성 단계 포함(언어별 -ko/-en/-ja)
+
 ## 향후 작업(Backlog)
-- hreflang SEO 태그 점검
+- 다국어 sitemap 정밀화(현재 기본언어 중심 + hreflang 보완)
 - 카테고리별 글 템플릿 정교화
 - 첫 1~2주 글 품질 모니터링 후 프롬프트 조정
 - humanize 룰북 정밀 적용(플러그인 폴더 연결 검토)
+- 기본 OG 이미지/대표 이미지 디자인 고도화
