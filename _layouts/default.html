@@ -23,10 +23,11 @@
       <a class="site-brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
 
       <nav class="site-nav" aria-label="주 메뉴">
-        {% if site.active_lang == 'ja' %}{% assign nav_home = 'ホーム' %}{% assign nav_about = '概要' %}
-        {% elsif site.active_lang == 'en-US' %}{% assign nav_home = 'Home' %}{% assign nav_about = 'About' %}
-        {% else %}{% assign nav_home = '홈' %}{% assign nav_about = '소개' %}{% endif %}
+        {% if site.active_lang == 'ja' %}{% assign nav_home = 'ホーム' %}{% assign nav_about = '概要' %}{% assign nav_tags = 'タグ' %}
+        {% elsif site.active_lang == 'en-US' %}{% assign nav_home = 'Home' %}{% assign nav_about = 'About' %}{% assign nav_tags = 'Tags' %}
+        {% else %}{% assign nav_home = '홈' %}{% assign nav_about = '소개' %}{% assign nav_tags = '태그' %}{% endif %}
         <a class="site-nav__link" href="{{ '/' | relative_url }}">{{ nav_home }}</a>
+        <a class="site-nav__link" href="{{ '/tags/' | relative_url }}">{{ nav_tags }}</a>
         <a class="site-nav__link" href="{{ '/about/' | relative_url }}">{{ nav_about }}</a>
       </nav>
 
@@ -61,5 +62,27 @@
       <p class="site-footer__copy">© {{ site.time | date: '%Y' }} pikaworks. All rights reserved.</p>
     </div>
   </footer>
+
+  {%- if site.active_lang == 'ja' -%}{%- assign t_newwin = '（新しいウィンドウで開く）' -%}
+  {%- elsif site.active_lang == 'en-US' -%}{%- assign t_newwin = ' (opens in a new window)' -%}
+  {%- else -%}{%- assign t_newwin = ' (새 창에서 열림)' -%}{%- endif -%}
+  <script>
+    // 본문(.post-content) 내 외부 링크 → 새 창에서 열기 + 접근성 안내
+    (function () {
+      var hint = {{ t_newwin | jsonify }};
+      var links = document.querySelectorAll('.post-content a[href^="http"]');
+      Array.prototype.forEach.call(links, function (a) {
+        if (a.host && a.host !== window.location.host) {
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
+          a.classList.add('external-link');
+          var note = document.createElement('span');
+          note.className = 'visually-hidden';
+          note.textContent = hint;
+          a.appendChild(note);
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
