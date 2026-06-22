@@ -11,14 +11,21 @@ layout: default
   {% if site.posts.size == 0 %}
     <p class="home__empty">{{ t_empty }}</p>
   {% else %}
-    <ul class="post-list">
+    <ul class="post-grid">
       {% for post in site.posts %}
-        <li class="post-list__item">
-          <a class="post-list__link" href="{{ post.url | relative_url }}">
-            <time class="post-list__date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y.%m.%d' }}</time>
-            <span class="post-list__heading">{{ post.title }}</span>
+        <li class="post-card">
+          <a class="post-card__link" href="{{ post.url | relative_url }}">
+            {% if post.image %}
+              <img class="post-card__thumb" src="{{ post.image | relative_url }}" alt="" loading="lazy" width="1200" height="630">
+            {% else %}
+              <span class="post-card__thumb post-card__thumb--placeholder" aria-hidden="true">pikaworks</span>
+            {% endif %}
+            <span class="post-card__body">
+              <time class="post-card__date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y.%m.%d' }}</time>
+              <span class="post-card__title">{{ post.title }}</span>
+              {% if post.categories.size > 0 %}<span class="post-card__cat">{{ post.categories | join: ', ' }}</span>{% endif %}
+            </span>
           </a>
-          {% if post.categories.size > 0 %}<span class="post-list__cat">{{ post.categories | join: ', ' }}</span>{% endif %}
         </li>
       {% endfor %}
     </ul>
