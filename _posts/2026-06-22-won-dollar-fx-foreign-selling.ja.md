@@ -5,6 +5,7 @@ date: 2026-06-22 21:00:00 +0900
 lang: ja
 permalink: /2026/06/22/won-dollar-fx-foreign-selling/
 page_id: 2026-06-22-fx-foreign-selling
+image: /assets/og/2026-06-22-fx-foreign-selling-ja.png
 categories: [経済]
 tags: [為替, KOSPI, 外国人売り越し, 政策金利, ウォン安]
 ---

@@ -6,6 +6,7 @@ baseurl: ""
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
   - jekyll-polyglot
 
 # ── 다국어(polyglot) ───────────────────────────────

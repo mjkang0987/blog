@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {% seo %}
   {% feed_meta %}
+  {% comment %} 다국어 hreflang — 번역은 동일 permalink를 공유하므로 언어 프리픽스만 붙임 {% endcomment %}
+  {% if page.permalink %}
+    {% for lang in site.languages %}
+      {% if lang == site.default_lang %}{% assign hpfx = '' %}{% else %}{% assign hpfx = lang | append: '/' %}{% endif %}
+      <link rel="alternate" hreflang="{{ lang }}" {% static_href %}href="{{ site.url }}{{ site.baseurl }}/{{ hpfx }}{{ page.permalink | remove_first: '/' }}"{% endstatic_href %}>
+    {% endfor %}
+    <link rel="alternate" hreflang="x-default" {% static_href %}href="{{ site.url }}{{ site.baseurl }}/{{ page.permalink | remove_first: '/' }}"{% endstatic_href %}>
+  {% endif %}
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 </head>
 <body class="site">

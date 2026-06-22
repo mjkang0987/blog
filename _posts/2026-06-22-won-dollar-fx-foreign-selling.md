@@ -5,6 +5,7 @@ date: 2026-06-22 21:00:00 +0900
 lang: ko
 permalink: /2026/06/22/won-dollar-fx-foreign-selling/
 page_id: 2026-06-22-fx-foreign-selling
+image: /assets/og/2026-06-22-fx-foreign-selling-ko.png
 categories: [경제]
 tags: [환율, 코스피, 외국인순매도, 기준금리, 고환율]
 ---

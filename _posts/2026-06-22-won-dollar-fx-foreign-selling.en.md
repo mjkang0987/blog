@@ -5,6 +5,7 @@ date: 2026-06-22 21:00:00 +0900
 lang: en-US
 permalink: /2026/06/22/won-dollar-fx-foreign-selling/
 page_id: 2026-06-22-fx-foreign-selling
+image: /assets/og/2026-06-22-fx-foreign-selling-en.png
 categories: [Economy]
 tags: [FX, KOSPI, foreign-selling, base-rate, weak-won]
 ---
