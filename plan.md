@@ -74,6 +74,13 @@
 ## 작업 D: 추가 콘텐츠 자동화 (도구화됨)
 - humanize-korean 플러그인 설치 → 매일 작업의 한글판 발행 전 윤문 단계로 연결
 
+## 작업 F: UI 개선 (진행 중)
+- 언어 스위처를 네이티브 `<select>` 박스로 변경(🌐 + 한국어/English/日本語)
+- 홈 글 목록을 OG 썸네일 카드 그리드로(2열, 모바일 1열)
+- 카드 하단에 한 줄 요약(`summary` front matter, 없으면 excerpt 폴백) 추가
+- CSS 링크에 빌드 버전 쿼리 → 브라우저 캐시 무력화
+- 카드 썸네일 `height:auto`로 종횡비 정상화
+
 ## 작업 E: SEO + OG 이미지 (완료)
 - jekyll-seo-tag(title·description·OG·트위터·canonical) + jekyll-feed 기존 적용
 - **hreflang** 태그(ko/en-US/ja + x-default) `default.html` head에 추가(동일 permalink 프리픽스 방식, polyglot static_href)
