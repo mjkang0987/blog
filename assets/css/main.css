@@ -183,6 +183,15 @@
   letter-spacing: -0.01em;
 }
 .post-card__link:hover .post-card__title { color: var(--brand); }
+.post-card__summary {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 .post-card__cat {
   align-self: flex-start;
   font-size: 0.72rem;

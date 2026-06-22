@@ -23,6 +23,8 @@ layout: default
             <span class="post-card__body">
               <time class="post-card__date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y.%m.%d' }}</time>
               <span class="post-card__title">{{ post.title }}</span>
+              {% assign card_summary = post.summary | default: post.description | default: post.excerpt %}
+              {% if card_summary %}<span class="post-card__summary">{{ card_summary | strip_html | strip_newlines | truncate: 90 }}</span>{% endif %}
               {% if post.categories.size > 0 %}<span class="post-card__cat">{{ post.categories | join: ', ' }}</span>{% endif %}
             </span>
           </a>

@@ -6,6 +6,7 @@ lang: en-US
 permalink: /2026/06/22/won-dollar-fx-foreign-selling/
 page_id: 2026-06-22-fx-foreign-selling
 image: /assets/og/2026-06-22-fx-foreign-selling-en.png
+summary: "Korea's June market in brief — a weak won in the 1,500s, foreign net selling, and the base rate held at 2.50%."
 categories: [Economy]
 tags: [FX, KOSPI, foreign-selling, base-rate, weak-won]
 ---
