@@ -33,8 +33,15 @@
       <form class="lang-switch" aria-label="언어 선택">
         <label class="lang-switch__label" for="lang-select" aria-label="언어 선택">🌐</label>
         <select class="lang-switch__select" id="lang-select" onchange="if(this.value){location.href=this.value;}">
+          {%- comment -%} 현재 경로에서 언어 프리픽스만 교체 → 같은 페이지의 해당 언어 버전으로 {%- endcomment -%}
+          {%- assign basepath = page.url -%}
+          {%- unless site.active_lang == site.default_lang -%}
+            {%- assign langprefix = '/' | append: site.active_lang -%}
+            {%- assign basepath = basepath | remove_first: langprefix -%}
+          {%- endunless -%}
+          {%- if basepath == '' -%}{%- assign basepath = '/' -%}{%- endif -%}
           {% for lang in site.languages %}
-            {% if lang == site.default_lang %}{% assign lurl = '/' %}{% else %}{% assign lurl = '/' | append: lang | append: '/' %}{% endif %}
+            {% if lang == site.default_lang %}{% assign lurl = basepath %}{% else %}{% capture lurl %}/{{ lang }}{{ basepath }}{% endcapture %}{% endif %}
             {% if lang == 'ja' %}{% assign llabel = '日本語' %}{% elsif lang == 'en-US' %}{% assign llabel = 'English' %}{% else %}{% assign llabel = '한국어' %}{% endif %}
             <option value="{{ lurl | relative_url }}"{% if lang == site.active_lang %} selected{% endif %}>{{ llabel }}</option>
           {% endfor %}
