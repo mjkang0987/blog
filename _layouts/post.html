@@ -1,0 +1,24 @@
+---
+layout: default
+---
+<article class="post">
+  <header class="post__header">
+    <h1 class="post__title">{{ page.title }}</h1>
+    <p class="post__meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y.%m.%d' }}</time>
+      {% if page.categories.size > 0 %}<span class="post__cat">{{ page.categories | join: ', ' }}</span>{% endif %}
+    </p>
+  </header>
+
+  <div class="post__content post-content">
+    {{ content }}
+  </div>
+
+  {% if page.tags.size > 0 %}
+    <footer class="post__footer">
+      <ul class="tag-list">
+        {% for tag in page.tags %}<li class="tag-list__item">#{{ tag }}</li>{% endfor %}
+      </ul>
+    </footer>
+  {% endif %}
+</article>

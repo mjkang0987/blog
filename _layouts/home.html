@@ -1,0 +1,26 @@
+---
+layout: default
+---
+{% if site.active_lang == 'ja' %}{% assign t_latest = '最新の記事' %}{% assign t_empty = 'まだ記事がありません。' %}
+{% elsif site.active_lang == 'en-US' %}{% assign t_latest = 'Latest posts' %}{% assign t_empty = 'No posts yet.' %}
+{% else %}{% assign t_latest = '최근 글' %}{% assign t_empty = '아직 글이 없습니다.' %}{% endif %}
+
+<section class="home">
+  <h1 class="home__title">{{ t_latest }}</h1>
+
+  {% if site.posts.size == 0 %}
+    <p class="home__empty">{{ t_empty }}</p>
+  {% else %}
+    <ul class="post-list">
+      {% for post in site.posts %}
+        <li class="post-list__item">
+          <a class="post-list__link" href="{{ post.url | relative_url }}">
+            <time class="post-list__date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y.%m.%d' }}</time>
+            <span class="post-list__heading">{{ post.title }}</span>
+          </a>
+          {% if post.categories.size > 0 %}<span class="post-list__cat">{{ post.categories | join: ', ' }}</span>{% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</section>
