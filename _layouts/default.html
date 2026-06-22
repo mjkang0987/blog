@@ -14,13 +14,26 @@
     <link rel="alternate" hreflang="x-default" {% static_href %}href="{{ site.url }}{{ site.baseurl }}/{{ page.permalink | remove_first: '/' }}"{% endstatic_href %}>
   {% endif %}
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?{{ site.time | date: '%s' }}">
+  <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="icon" href="{{ '/assets/favicon-32.png' | relative_url }}" sizes="32x32" type="image/png">
+  <link rel="icon" href="{{ '/assets/favicon-256.png' | relative_url }}" sizes="256x256" type="image/png">
+  <link rel="apple-touch-icon" href="{{ '/assets/apple-touch-icon.png' | relative_url }}">
 </head>
 <body class="site">
   <a class="skip-link" href="#content">본문 바로가기</a>
 
   <header class="site-header">
     <div class="wrap site-header__inner">
-      <a class="site-brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      <a class="site-brand" href="{{ '/' | relative_url }}">
+        <svg class="site-brand__mark" viewBox="6 5 52 54" aria-hidden="true" focusable="false">
+          <path d="M37 7 L17 35 H29 L26 57 L48 28 H35 L40 7 Z" fill="#FFD60A"/>
+          <g stroke="#FFD60A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+            <path d="M12 20 l4 4 l-3 1 l4 5"/>
+            <path d="M52 34 l-4 5 l3 1 l-4 5"/>
+          </g>
+        </svg>
+        <span class="site-brand__text">{{ site.title }}</span>
+      </a>
 
       <nav class="site-nav" aria-label="주 메뉴">
         {% if site.active_lang == 'ja' %}{% assign nav_home = 'ホーム' %}{% assign nav_about = '概要' %}{% assign nav_tags = 'タグ' %}

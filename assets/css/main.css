@@ -66,6 +66,9 @@
   padding-bottom: 1rem;
 }
 .site-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   font-weight: 800;
   font-size: 1.2rem;
   letter-spacing: -0.02em;
@@ -74,6 +77,7 @@
   margin-right: auto;
 }
 .site-brand:hover { color: #fff; opacity: 0.9; }
+.site-brand__mark { width: 1.5rem; height: 1.5rem; flex-shrink: 0; display: block; }
 
 .site-nav { display: flex; gap: 1.1rem; }
 .site-nav__link {
