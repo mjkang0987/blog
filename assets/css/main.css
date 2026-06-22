@@ -380,3 +380,5 @@
 .chip[aria-current="true"] .chip__count { color: #efeaff; }
 .filter-status { font-size: 0.9rem; color: var(--muted); margin: 0.5rem 0 1.4rem; }
 .filter-empty { font-size: 0.95rem; color: var(--muted); padding: 1.5rem 0; }
+/* 필터링 시 숨김: .post-card{display:flex} 가 UA [hidden] 을 덮으므로 명시적으로 처리 */
+.post-card[hidden] { display: none; }
