@@ -84,21 +84,30 @@
 }
 .site-nav__link:hover { color: #fff; }
 
-.lang-switch { display: flex; gap: 0.35rem; }
-.lang-switch__link {
-  color: #b9b8c8;
-  text-decoration: none;
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 0.2rem 0.55rem;
-  border-radius: 999px;
-  border: 1px solid transparent;
-}
-.lang-switch__link:hover { color: #fff; border-color: #45454d; }
-.lang-switch__link.is-active {
+.lang-switch { display: flex; align-items: center; gap: 0.4rem; }
+.lang-switch__label { font-size: 1rem; line-height: 1; cursor: pointer; }
+.lang-switch__select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #2a2a30;
   color: #fff;
-  background: var(--brand);
+  border: 1px solid #45454d;
+  border-radius: 8px;
+  padding: 0.32rem 1.9rem 0.32rem 0.65rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23b9b8c8' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.6rem center;
 }
+.lang-switch__select:hover { border-color: var(--brand); }
+.lang-switch__select:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+.lang-switch__select option { color: #1c1c1e; background: #fff; }
 
 /* ── 본문 영역 ──────────────────────────── */
 .site-main {

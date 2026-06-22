@@ -30,13 +30,16 @@
         <a class="site-nav__link" href="{{ '/about/' | relative_url }}">{{ nav_about }}</a>
       </nav>
 
-      <nav class="lang-switch" aria-label="언어 선택">
-        {% for lang in site.languages %}
-          {% if lang == site.default_lang %}{% assign lurl = '/' %}{% else %}{% assign lurl = '/' | append: lang | append: '/' %}{% endif %}
-          {% if lang == 'ja' %}{% assign llabel = '日本語' %}{% elsif lang == 'en-US' %}{% assign llabel = 'EN' %}{% else %}{% assign llabel = '한국어' %}{% endif %}
-          <a class="lang-switch__link{% if lang == site.active_lang %} is-active{% endif %}" {% static_href %}href="{{ lurl }}"{% endstatic_href %} hreflang="{{ lang }}"{% if lang == site.active_lang %} aria-current="true"{% endif %}>{{ llabel }}</a>
-        {% endfor %}
-      </nav>
+      <form class="lang-switch" aria-label="언어 선택">
+        <label class="lang-switch__label" for="lang-select" aria-label="언어 선택">🌐</label>
+        <select class="lang-switch__select" id="lang-select" onchange="if(this.value){location.href=this.value;}">
+          {% for lang in site.languages %}
+            {% if lang == site.default_lang %}{% assign lurl = '/' %}{% else %}{% assign lurl = '/' | append: lang | append: '/' %}{% endif %}
+            {% if lang == 'ja' %}{% assign llabel = '日本語' %}{% elsif lang == 'en-US' %}{% assign llabel = 'English' %}{% else %}{% assign llabel = '한국어' %}{% endif %}
+            <option value="{{ lurl | relative_url }}"{% if lang == site.active_lang %} selected{% endif %}>{{ llabel }}</option>
+          {% endfor %}
+        </select>
+      </form>
     </div>
   </header>
 
