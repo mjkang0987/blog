@@ -13,7 +13,7 @@
     {% endfor %}
     <link rel="alternate" hreflang="x-default" {% static_href %}href="{{ site.url }}{{ site.baseurl }}/{{ page.permalink | remove_first: '/' }}"{% endstatic_href %}>
   {% endif %}
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?{{ site.time | date: '%s' }}">
 </head>
 <body class="site">
   <a class="skip-link" href="#content">본문 바로가기</a>
