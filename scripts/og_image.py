@@ -24,11 +24,27 @@ def clean(s):
     return s.strip(" -–—·")
 
 BG = (28, 28, 30)        # #1c1c1e
+GRAD_TO = (58, 29, 120)  # 딥퍼플 (대각선 그라디언트 끝색)
 BRAND = (101, 38, 217)   # #6526d9
 WHITE = (255, 255, 255)
-MUTED = (170, 168, 186)
+MUTED = (185, 183, 200)
 W, H = 1200, 630
 MARGIN = 90
+
+
+def diagonal_bg(w, h, c1, c2, scale=12):
+    """좌상단 c1 → 우하단 c2 대각선 그라디언트."""
+    sw, sh = max(2, w // scale), max(2, h // scale)
+    mask = Image.new("L", (sw, sh))
+    px = mask.load()
+    for y in range(sh):
+        for x in range(sw):
+            px[x, y] = int(255 * ((x / (sw - 1) + y / (sh - 1)) / 2))
+    mask = mask.resize((w, h), Image.BILINEAR)
+    base = Image.new("RGB", (w, h), c1)
+    top = Image.new("RGB", (w, h), c2)
+    base.paste(top, (0, 0), mask)
+    return base
 
 FONT_CANDIDATES_BOLD = [
     "/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc",
@@ -75,7 +91,7 @@ def main():
     ap.add_argument("--site", default="blog.pikaworks.kr")
     args = ap.parse_args()
 
-    img = Image.new("RGB", (W, H), BG)
+    img = diagonal_bg(W, H, BG, GRAD_TO)
     d = ImageDraw.Draw(img)
 
     # 상단 브랜드 바
