@@ -311,9 +311,9 @@
     justify-content: center;
     min-width: 0;
   }
-  .post-card__title { display: none; }          /* 제목은 썸네일 이미지에 있음 */
+  .post-card__title { font-size: 1rem; line-height: 1.4; -webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; }
   .post-card__date { font-size: 0.72rem; }
-  .post-card__summary { font-size: 0.84rem; line-height: 1.45; -webkit-line-clamp: 3; }
+  .post-card__summary { font-size: 0.82rem; line-height: 1.45; -webkit-line-clamp: 2; }
   .post-card__cat { font-size: 0.68rem; }
 }
 
