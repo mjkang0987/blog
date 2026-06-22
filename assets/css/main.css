@@ -291,8 +291,8 @@
   .post-grid { grid-template-columns: 1fr; gap: 0.75rem; }
   .post-card__link { flex-direction: row; align-items: stretch; }
   .post-card__thumb {
-    width: 42%;
-    max-width: 158px;
+    width: 32%;
+    max-width: 116px;
     flex-shrink: 0;
     aspect-ratio: auto;
     height: auto;
