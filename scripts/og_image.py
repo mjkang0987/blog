@@ -105,6 +105,10 @@ def main():
     ap.add_argument("--theme", default="dark", choices=list(THEMES.keys()))
     ap.add_argument("--chip-bolt", action="store_true",
                     help="칩(chip) 안 텍스트 앞에 브랜드 번개 마크를 그린다")
+    ap.add_argument("--logo", default="",
+                    help="상단에 칩 대신 넣을 로고 이미지(PNG) 경로")
+    ap.add_argument("--logo-h", type=int, default=78,
+                    help="로고 높이(px)")
     args = ap.parse_args()
     c = THEMES[args.theme]
 
@@ -113,7 +117,14 @@ def main():
     d.rectangle([0, 0, W, 12], fill=c["bar"])
 
     y = MARGIN
-    if args.category:
+    if args.logo and os.path.exists(args.logo):
+        logo = Image.open(args.logo).convert("RGBA")
+        lh = args.logo_h
+        lw = max(1, int(logo.width * lh / logo.height))
+        logo = logo.resize((lw, lh), Image.LANCZOS)
+        img.paste(logo, (MARGIN, y), logo)
+        y += lh + 40
+    elif args.category:
         cfont = load_font(30)
         tw = d.textlength(args.category, font=cfont)
         pad = 22
