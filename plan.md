@@ -137,6 +137,18 @@
 - `default.html` head에 아이콘 링크 연결, 헤더 `site-brand` 앞에 번개 마크 인라인(aria-hidden 장식)
 - 실험용 잡파일(_bolt_*, _logo_candidates 등)은 커밋 제외
 
+## 작업 I: SEO/GEO 강화 (완료)
+### 구조화 데이터 + 사이트 메타
+- `post.html`에 글별 JSON-LD 추가: **BlogPosting**(headline·description·image·datePublished·dateModified·inLanguage·author·publisher+logo·keywords) + **BreadcrumbList**
+- `_config.yml`에 `author`·`logo`(/assets/logo.png)·`social`·`twitter(card: summary_large_image)` 추가 → jekyll-seo-tag JSON-LD/트위터 카드 보강
+- 기존 글 9개(_posts ko/en/ja)에 `description`을 `summary`와 동일하게 매핑(검색 메타 설명·JSON-LD용). 향후 글은 스케줄러가 summary+description 동시 출력
+### GEO(AI 답변엔진 인용) 최적화
+- 자동 발행 프롬프트에 규칙 추가: **answer-first 도입**(첫 1~2문장 80단어 내 핵심 결론), **TL;DR 요약**, **질문형 명확한 소제목 + 섹션 첫 문장 요약**, **구체 수치·날짜·출처 강화**
+- `llms.txt`(루트) 추가: 사이트 개요·핵심 링크·언어별 진입점·인용 안내. `exclude_from_localization`에 등록(루트 1회 출력)
+- `robots.txt`에 주요 AI/LLM 크롤러(GPTBot·OAI-SearchBot·PerplexityBot·Google-Extended·ClaudeBot·CCBot 등) 허용 명시
+### 기존 강점(유지)
+- jekyll-seo-tag, sitemap.xml, hreflang(ko/en/ja+x-default), 글별 OG 이미지, 정적 사이트(SSR), 시맨틱 HTML
+
 ## 발행 로그
 - 2026-06-22 [경제] 원/달러 1,500원대 고환율·외국인 순매도 점검 (ko/en/ja)
 - 2026-06-22 [부동산] 수도권 전세난·서울 전셋값 1년 내 최고·경기 남부 확산 (ko/en/ja) — 같은 날 2번째 글, 경제글과 카테고리 분리
