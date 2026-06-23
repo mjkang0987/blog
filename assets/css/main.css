@@ -53,9 +53,38 @@
 
 /* ── 헤더 ───────────────────────────────── */
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
   background: var(--ink);
   color: #fff;
   border-bottom: 3px solid var(--brand);
+}
+
+/* 하단 보라 라인 = 스크롤 진행바 (CSS scroll-driven animation)
+   지원 브라우저: 페이지 스크롤에 따라 보라 라인이 좌→우로 채워짐
+   미지원(Safari·Firefox 등): 위의 solid 보라 라인이 그대로 폴백 */
+@keyframes header-scroll-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@supports (animation-timeline: scroll()) {
+  .site-header { border-bottom-color: rgba(101, 38, 217, 0.25); }
+  .site-header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -3px;
+    height: 3px;
+    background: var(--brand);
+    transform: scaleX(0);
+    transform-origin: left center;
+    animation: header-scroll-progress linear both;
+    animation-timeline: scroll(root block);
+  }
+}
+/* 모션 최소화 선호 시: 진행 애니메이션 끄고 solid 라인 유지 */
+@media (prefers-reduced-motion: reduce) {
+  .site-header { border-bottom-color: var(--brand); }
+  .site-header::after { display: none; }
 }
 .site-header__inner {
   display: flex;
