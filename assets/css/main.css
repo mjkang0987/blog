@@ -336,6 +336,8 @@
   .lang-switch { margin-left: auto; }
   /* 모바일: 발행글 카드 썸네일 이미지 숨김 (실제 이미지·플레이스홀더 모두) */
   .post-card__thumb { display: none; }
+  /* 모바일: 푸터 여백 축소 */
+  .site-footer__inner { padding-top: 1.4rem; padding-bottom: 1.4rem; }
   .post__title, .page__title { font-size: 1.55rem; }
   .site-main { padding-top: 2rem; }
 
