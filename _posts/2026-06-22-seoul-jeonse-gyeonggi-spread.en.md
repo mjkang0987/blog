@@ -7,6 +7,7 @@ permalink: /2026/06/22/seoul-jeonse-gyeonggi-spread/
 page_id: 2026-06-22-jeonse-gyeonggi
 image: /assets/og/2026-06-22-jeonse-gyeonggi-en.png
 summary: "With listings drying up after the land-transaction permit rules, Seoul jeonse rents jumped to a one-year high while buying demand spilled into southern Gyeonggi — a look at the June capital-area housing market."
+description: "With listings drying up after the land-transaction permit rules, Seoul jeonse rents jumped to a one-year high while buying demand spilled into southern Gyeonggi — a look at the June capital-area housing market."
 categories: [Real Estate]
 tags: [CapitalAreaHousing, SeoulJeonse, RentalCrunch, LandPermitZone, Dongtan, ThirdGenNewTowns, HousingRegulation]
 ---

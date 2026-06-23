@@ -7,6 +7,7 @@ permalink: /2026/06/23/fed-warsh-first-fomc/
 page_id: 2026-06-23-fed-warsh-first-fomc
 image: /assets/og/2026-06-23-fed-warsh-first-fomc-en.png
 summary: "A clear rundown of Chair Warsh's first FOMC 'hawkish hold,' the higher dot plot, and the KOSPI's record break above 9,000."
+description: "A clear rundown of Chair Warsh's first FOMC 'hawkish hold,' the higher dot plot, and the KOSPI's record break above 9,000."
 categories: [Economy]
 tags: [FOMC, Fed, Warsh, HawkishHold, InterestRates, DotPlot, Inflation, OilPrices, KOSPI, KOSPI9000, GlobalMarkets, GoldmanSachs, BankOfKorea, EconomicOutlook]
 ---

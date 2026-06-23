@@ -7,6 +7,7 @@ permalink: /2026/06/22/won-dollar-fx-foreign-selling/
 page_id: 2026-06-22-fx-foreign-selling
 image: /assets/og/2026-06-22-fx-foreign-selling-ja.png
 summary: "1,500ウォン台のウォン安と外国人売り越しが絡む6月の韓国市場を、政策金利・為替・需給で整理しました。"
+description: "1,500ウォン台のウォン安と外国人売り越しが絡む6月の韓国市場を、政策金利・為替・需給で整理しました。"
 categories: [経済]
 tags: [為替, KOSPI, 外国人売り越し, 政策金利, ウォン安]
 ---

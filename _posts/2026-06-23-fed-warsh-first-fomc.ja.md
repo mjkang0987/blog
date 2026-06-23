@@ -7,6 +7,7 @@ permalink: /2026/06/23/fed-warsh-first-fomc/
 page_id: 2026-06-23-fed-warsh-first-fomc
 image: /assets/og/2026-06-23-fed-warsh-first-fomc-ja.png
 summary: "ウォーシュ新議長初のFOMC「タカ派的据え置き」とドットチャートの上方修正、そしてKOSPIの9000突破までを一気に整理しました。"
+description: "ウォーシュ新議長初のFOMC「タカ派的据え置き」とドットチャートの上方修正、そしてKOSPIの9000突破までを一気に整理しました。"
 categories: [経済]
 tags: [FOMC, FRB, ウォーシュ議長, タカ派据え置き, 政策金利, ドットチャート, インフレ, 原油価格, KOSPI, KOSPI9000, 世界市場, ゴールドマンサックス, 韓国銀行, 経済見通し]
 ---

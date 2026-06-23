@@ -7,6 +7,7 @@ permalink: /2026/06/22/seoul-jeonse-gyeonggi-spread/
 page_id: 2026-06-22-jeonse-gyeonggi
 image: /assets/og/2026-06-22-jeonse-gyeonggi-ko.png
 summary: "토허제 이후 전세 매물이 마르며 서울 전셋값이 1년 내 최고로 뛰었고, 매수세는 경기 남부로 번지는 6월 수도권 주택시장을 정리했습니다."
+description: "토허제 이후 전세 매물이 마르며 서울 전셋값이 1년 내 최고로 뛰었고, 매수세는 경기 남부로 번지는 6월 수도권 주택시장을 정리했습니다."
 categories: [부동산]
 tags: [수도권부동산, 서울전세, 전세난, 토지거래허가구역, 동탄집값, 3기신도시, 부동산규제]
 ---

@@ -7,6 +7,7 @@ permalink: /2026/06/22/won-dollar-fx-foreign-selling/
 page_id: 2026-06-22-fx-foreign-selling
 image: /assets/og/2026-06-22-fx-foreign-selling-ko.png
 summary: "1,500원대 고환율과 외국인 순매도가 맞물린 6월 한국 시장을 기준금리·환율·수급으로 짚어봤습니다."
+description: "1,500원대 고환율과 외국인 순매도가 맞물린 6월 한국 시장을 기준금리·환율·수급으로 짚어봤습니다."
 categories: [경제]
 tags: [환율, 코스피, 외국인순매도, 기준금리, 고환율]
 ---

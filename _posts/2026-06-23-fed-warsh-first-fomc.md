@@ -7,6 +7,7 @@ permalink: /2026/06/23/fed-warsh-first-fomc/
 page_id: 2026-06-23-fed-warsh-first-fomc
 image: /assets/og/2026-06-23-fed-warsh-first-fomc-ko.png
 summary: "워시 신임 의장의 첫 FOMC '매파적 동결'과 점도표 상향, 그리고 코스피 9000 신고가까지 한눈에 정리했습니다."
+description: "워시 신임 의장의 첫 FOMC '매파적 동결'과 점도표 상향, 그리고 코스피 9000 신고가까지 한눈에 정리했습니다."
 categories: [경제]
 tags: [FOMC, 연준, 워시의장, 매파적동결, 기준금리, 점도표, 인플레이션, 국제유가, 코스피, 코스피9000, 글로벌증시, 골드만삭스, 한국은행, 경제전망]
 ---

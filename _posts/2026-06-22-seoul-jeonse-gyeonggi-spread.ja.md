@@ -7,6 +7,7 @@ permalink: /2026/06/22/seoul-jeonse-gyeonggi-spread/
 page_id: 2026-06-22-jeonse-gyeonggi
 image: /assets/og/2026-06-22-jeonse-gyeonggi-ja.png
 summary: "土地取引許可制の導入後に物件が枯渇し、ソウルのチョンセ家賃は1年ぶりの高さに。買い需要は京畿南部へ波及した6月の首都圏住宅市場を整理しました。"
+description: "土地取引許可制の導入後に物件が枯渇し、ソウルのチョンセ家賃は1年ぶりの高さに。買い需要は京畿南部へ波及した6月の首都圏住宅市場を整理しました。"
 categories: [不動産]
 tags: [首都圏不動産, ソウルチョンセ, 賃貸難, 土地取引許可区域, 東灘, 第3期新都市, 不動産規制]
 ---
