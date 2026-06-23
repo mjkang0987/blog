@@ -4,18 +4,44 @@ OG 이미지(1200x630) 생성기 — pikaworks blog
 브랜드 컬러 타이틀 카드 자동 생성. 한/영/일 모두 Noto Sans CJK로 렌더링.
 
 사용:
-  python3 scripts/og_image.py --title "글 제목" --out assets/og/slug-ko.png [--category 경제]
+  python3 scripts/og_image.py --title "글 제목" --out assets/og/slug-ko.png [--category 경제] [--theme dark|yellow]
 """
 import argparse
 import re
+import os
 from PIL import Image, ImageDraw, ImageFont
 
-# 이모지·기호 제거(폰트 미지원으로 두부 방지)
+W, H = 1200, 630
+MARGIN = 90
+
+# 테마 팔레트
+THEMES = {
+    # 블랙 톤 그라디언트 + 브랜드 보라 포인트
+    "dark": {
+        "bg": (28, 28, 30), "grad": (62, 62, 70),
+        "bar": (101, 38, 217), "chip_bg": (101, 38, 217), "chip_fg": (255, 255, 255),
+        "title": (255, 255, 255), "site": (185, 183, 200), "dot": (101, 38, 217),
+        "bolt": (255, 214, 10),
+    },
+    # 피카츄 옐로우 ⚡
+    "yellow": {
+        "bg": (255, 228, 84), "grad": (255, 198, 0),
+        "bar": (28, 28, 30), "chip_bg": (28, 28, 30), "chip_fg": (255, 214, 10),
+        "title": (24, 24, 26), "site": (90, 78, 20), "dot": (28, 28, 30),
+        "bolt": (28, 28, 30),
+    },
+}
+
 EMOJI_RE = re.compile(
     "[\U0001F000-\U0001FAFF\U00002600-\U000027BF\U0001F1E6-\U0001F1FF"
     "\U00002190-\U000021FF\U00002B00-\U00002BFF\U0000FE00-\U0000FE0F\U00002B50]",
     flags=re.UNICODE,
 )
+
+FONT_BOLD = [
+    "/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc",
+    "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+]
 
 
 def clean(s):
@@ -23,17 +49,17 @@ def clean(s):
     s = re.sub(r"\s{2,}", " ", s)
     return s.strip(" -–—·")
 
-BG = (28, 28, 30)        # #1c1c1e
-GRAD_TO = (62, 62, 70)   # 밝은 차콜 (대각선 그라디언트 끝색, 블랙 톤)
-BRAND = (101, 38, 217)   # #6526d9
-WHITE = (255, 255, 255)
-MUTED = (185, 183, 200)
-W, H = 1200, 630
-MARGIN = 90
+
+def load_font(size):
+    for p in FONT_BOLD:
+        try:
+            return ImageFont.truetype(p, size)
+        except Exception:
+            continue
+    return ImageFont.load_default()
 
 
 def diagonal_bg(w, h, c1, c2, scale=12):
-    """좌상단 c1 → 우하단 c2 대각선 그라디언트."""
     sw, sh = max(2, w // scale), max(2, h // scale)
     mask = Image.new("L", (sw, sh))
     px = mask.load()
@@ -42,45 +68,32 @@ def diagonal_bg(w, h, c1, c2, scale=12):
             px[x, y] = int(255 * ((x / (sw - 1) + y / (sh - 1)) / 2))
     mask = mask.resize((w, h), Image.BILINEAR)
     base = Image.new("RGB", (w, h), c1)
-    top = Image.new("RGB", (w, h), c2)
-    base.paste(top, (0, 0), mask)
+    base.paste(Image.new("RGB", (w, h), c2), (0, 0), mask)
     return base
-
-FONT_CANDIDATES_BOLD = [
-    "/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc",
-    "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
-]
-FONT_CANDIDATES_REG = [
-    "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
-]
-
-
-def load_font(size, bold=True):
-    paths = FONT_CANDIDATES_BOLD if bold else FONT_CANDIDATES_REG
-    for p in paths:
-        try:
-            return ImageFont.truetype(p, size)
-        except Exception:
-            continue
-    return ImageFont.load_default()
 
 
 def wrap(draw, text, font, max_w):
-    """문자 단위 줄바꿈(CJK 대응) + 공백 우선."""
     lines, cur = [], ""
     for ch in text:
-        test = cur + ch
-        if draw.textlength(test, font=font) <= max_w or not cur:
-            cur = test
+        if draw.textlength(cur + ch, font=font) <= max_w or not cur:
+            cur += ch
         else:
             lines.append(cur)
             cur = ch
-        if ch == "\n":
-            lines.append(cur.rstrip("\n"))
-            cur = ""
     if cur:
         lines.append(cur)
     return lines
+
+
+def draw_bolt(d, ox, oy, sc, color):
+    """64-단위 좌표의 번개(+양옆 지지직 스파크)를 (ox,oy) 기준 sc 배율로 그림."""
+    pts = [(37, 7), (17, 35), (29, 35), (26, 57), (48, 28), (35, 28), (40, 7)]
+    d.polygon([(ox + px * sc, oy + py * sc) for px, py in pts], fill=color)
+    sw = max(2, int(round(2.6 * sc)))
+    for seg in [[(12, 20), (16, 24), (13, 25), (17, 30)],
+                [(56, 34), (52, 39), (55, 40), (51, 45)]]:
+        d.line([(ox + px * sc, oy + py * sc) for px, py in seg],
+               fill=color, width=sw, joint="curve")
 
 
 def main():
@@ -89,49 +102,43 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--category", default="")
     ap.add_argument("--site", default="blog.pikaworks.kr")
+    ap.add_argument("--theme", default="dark", choices=list(THEMES.keys()))
     args = ap.parse_args()
+    c = THEMES[args.theme]
 
-    img = diagonal_bg(W, H, BG, GRAD_TO)
+    img = diagonal_bg(W, H, c["bg"], c["grad"])
     d = ImageDraw.Draw(img)
-
-    # 상단 브랜드 바
-    d.rectangle([0, 0, W, 12], fill=BRAND)
+    d.rectangle([0, 0, W, 12], fill=c["bar"])
 
     y = MARGIN
-    # 카테고리 칩
     if args.category:
-        cfont = load_font(30, bold=True)
-        ctext = args.category
-        tw = d.textlength(ctext, font=cfont)
+        cfont = load_font(30)
+        tw = d.textlength(args.category, font=cfont)
         pad = 22
-        d.rounded_rectangle([MARGIN, y, MARGIN + tw + pad * 2, y + 54],
-                            radius=27, fill=BRAND)
-        d.text((MARGIN + pad, y + 8), ctext, font=cfont, fill=WHITE)
+        d.rounded_rectangle([MARGIN, y, MARGIN + tw + pad * 2, y + 54], radius=27, fill=c["chip_bg"])
+        d.text((MARGIN + pad, y + 8), args.category, font=cfont, fill=c["chip_fg"])
         y += 92
 
-    # 제목 (길이에 따라 폰트 크기 자동 조절)
     title = clean(args.title)
     max_w = W - MARGIN * 2
     size = 70
     while size >= 44:
-        tfont = load_font(size, bold=True)
+        tfont = load_font(size)
         lines = wrap(d, title, tfont, max_w)
         line_h = int(size * 1.32)
         if len(lines) * line_h <= (H - y - 130):
             break
         size -= 6
     for ln in lines[:6]:
-        d.text((MARGIN, y), ln, font=tfont, fill=WHITE)
+        d.text((MARGIN, y), ln, font=tfont, fill=c["title"])
         y += line_h
 
-    # 하단: 브랜드 점 + 사이트명
-    sfont = load_font(34, bold=True)
-    dot_r = 11
+    sfont = load_font(34)
     by = H - MARGIN + 6
-    d.ellipse([MARGIN, by, MARGIN + dot_r * 2, by + dot_r * 2], fill=BRAND)
-    d.text((MARGIN + dot_r * 2 + 16, by - 8), args.site, font=sfont, fill=MUTED)
+    sc = 0.96  # 번개 마크 배율(높이 약 48px)
+    draw_bolt(d, MARGIN - 12 * sc, by + 11 - 32 * sc, sc, c["bolt"])
+    d.text((MARGIN + int(44 * sc) + 18, by - 8), args.site, font=sfont, fill=c["site"])
 
-    import os
     os.makedirs(os.path.dirname(args.out), exist_ok=True)
     img.save(args.out, "PNG")
     print("saved:", args.out)
