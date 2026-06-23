@@ -1,0 +1,25 @@
+# pikaworks blog
+
+> 경제·부동산·IT 인사이트를 한국어·영어·일본어로 매일 전하는 블로그입니다. 모든 글은 공개된 1차 출처(정부·통계기관·중앙은행·주요 언론)를 교차 검증해 작성하며, 핵심 수치·날짜·출처를 본문에 함께 표기합니다.
+
+## 개요
+- 운영: pikaworks
+- 주제: 경제(금리·환율·증시·물가), 부동산(시세·거래량·정책), IT(AI·반도체·빅테크·신제품·IT 정책)
+- 발행: 평일 오전·오후 브리핑, 매주 일요일 주간 회고, 매월 1일 월간 회고
+- 언어: 한국어(기본), English, 日本語 — 동일 글의 번역본은 같은 경로를 언어 프리픽스로 공유
+
+## 핵심 링크
+- 홈: https://blog.pikaworks.kr/
+- 소개: https://blog.pikaworks.kr/about/
+- 태그·카테고리 필터: https://blog.pikaworks.kr/tags/
+- 사이트맵: https://blog.pikaworks.kr/sitemap.xml
+- RSS 피드: https://blog.pikaworks.kr/feed.xml
+
+## 언어별 진입점
+- 한국어: https://blog.pikaworks.kr/
+- English: https://blog.pikaworks.kr/en-US/
+- 日本語: https://blog.pikaworks.kr/ja/
+
+## 이용 안내
+- 본 사이트의 모든 글은 정보 제공 목적이며 투자 조언이 아닙니다.
+- 콘텐츠 인용을 환영합니다. 인용 시 출처로 "pikaworks blog (blog.pikaworks.kr)" 표기를 권장합니다.
