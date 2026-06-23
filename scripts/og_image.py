@@ -103,6 +103,8 @@ def main():
     ap.add_argument("--category", default="")
     ap.add_argument("--site", default="blog.pikaworks.kr")
     ap.add_argument("--theme", default="dark", choices=list(THEMES.keys()))
+    ap.add_argument("--chip-bolt", action="store_true",
+                    help="칩(chip) 안 텍스트 앞에 브랜드 번개 마크를 그린다")
     args = ap.parse_args()
     c = THEMES[args.theme]
 
@@ -115,8 +117,15 @@ def main():
         cfont = load_font(30)
         tw = d.textlength(args.category, font=cfont)
         pad = 22
-        d.rounded_rectangle([MARGIN, y, MARGIN + tw + pad * 2, y + 54], radius=27, fill=c["chip_bg"])
-        d.text((MARGIN + pad, y + 8), args.category, font=cfont, fill=c["chip_fg"])
+        bsc = 0.62 if args.chip_bolt else 0          # 칩 안 번개 마크 배율
+        bolt_w = int(48 * bsc)                        # 번개가 차지하는 가로폭(약 30px)
+        gap = 16 if args.chip_bolt else 0             # 번개와 텍스트 사이 간격
+        chip_w = pad + bolt_w + gap + tw + pad
+        d.rounded_rectangle([MARGIN, y, MARGIN + chip_w, y + 54], radius=27, fill=c["chip_bg"])
+        if args.chip_bolt:
+            # 번개 64-그리드 기준 x≈8~56, y≈7~57 → 칩 높이 54 중앙에 배치
+            draw_bolt(d, MARGIN + pad - 8 * bsc, y + 8, bsc, c["bolt"])
+        d.text((MARGIN + pad + bolt_w + gap, y + 8), args.category, font=cfont, fill=c["chip_fg"])
         y += 92
 
     title = clean(args.title)
