@@ -40,7 +40,3 @@ tags: [환율, 코스피, 외국인순매도, 기준금리, 고환율]
 - [한국은행 기준금리 추이](https://www.bok.or.kr/portal/singl/baseRate/list.do?dataSeCd=01&menuNo=200643)
 - [외국인, 코스피 19일 연속 순매도 (머니투데이, 2026-06-04)](https://www.mt.co.kr/stock/2026/06/04/2026060411201651250)
 - [USD/KRW 환율 (Investing.com)](https://kr.investing.com/currencies/usd-krw)
-
----
-
-#원달러환율 #고환율 #환율전망 #코스피 #외국인순매도 #기준금리 #한국은행 #환율1500원 #경제뉴스 #증시전망 #달러환율 #금융시장 #경제브리핑 #환율상승 #서학개미

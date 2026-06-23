@@ -49,5 +49,3 @@ In short, the June capital-area housing market shows clearer pressure in jeonse 
 - [Dongtan transactions surge: 1,224 actual May apartment deals top 1,000 for the first time — News1](https://www.news1.kr/realestate/general/6194811)
 - [2026 Gyeonggi-Incheon public and private presale trends — Kyeongin Ilbo](https://www.kyeongin.com/article/1759122)
 - [Korea Real Estate Board Statistics System](https://www.reb.or.kr/r-one/)
-
-#CapitalAreaHousing #SeoulJeonse #RentalCrunch #LandPermitZone #Dongtan #SouthernGyeonggi #ThirdGenNewTowns #GoyangChangneung #ApartmentPresale #RisingRents #HousingRegulation #HouseholdDebt #KoreaRealEstate #JeonseMarket #PropertyOutlook

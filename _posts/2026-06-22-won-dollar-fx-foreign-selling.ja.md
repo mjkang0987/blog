@@ -40,7 +40,3 @@ tags: [為替, KOSPI, 外国人売り越し, 政策金利, ウォン安]
 - [韓国銀行 政策金利の推移](https://www.bok.or.kr/portal/singl/baseRate/list.do?dataSeCd=01&menuNo=200643)
 - [外国人、KOSPIで19営業日連続の売り越し（マネートゥデイ、2026-06-04）](https://www.mt.co.kr/stock/2026/06/04/2026060411201651250)
 - [USD/KRW 為替レート（Investing.com）](https://kr.investing.com/currencies/usd-krw)
-
----
-
-#ウォン安 #ウォンドル #為替 #KOSPI #外国人売り越し #韓国銀行 #政策金利 #ドルウォン #韓国経済 #市場見通し #USDKRW #金融市場 #経済ブリーフィング #為替相場 #韓国株

@@ -40,7 +40,3 @@ In June, Korea's market is turning on two interlocking variables — a weak won 
 - [Bank of Korea base rate history](https://www.bok.or.kr/portal/singl/baseRate/list.do?dataSeCd=01&menuNo=200643)
 - [Foreigners net-sell KOSPI for 19 sessions (Money Today, 2026-06-04)](https://www.mt.co.kr/stock/2026/06/04/2026060411201651250)
 - [USD/KRW exchange rate (Investing.com)](https://kr.investing.com/currencies/usd-krw)
-
----
-
-#WonDollar #KRW #FXrate #KOSPI #ForeignSelling #BankOfKorea #BaseRate #WeakWon #KoreaEconomy #MarketOutlook #USDKRW #FinancialMarkets #EconomyBriefing #Forex #KoreaStocks
