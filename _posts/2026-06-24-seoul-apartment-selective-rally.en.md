@@ -52,8 +52,8 @@ Three points stand out. First, whether the weekly pace is slowing from the 0.3% 
 ※ This article is for informational purposes only and is not investment advice.
 
 **Sources**
-- Korea Real Estate Board, weekly apartment price trends: https://www.reb.or.kr/reb/cm/cntnts/cntntsView.do?mi=10001&cntntsId=1308
-- Nationwide weekly apartment sale-price trends, week 1 of June 2026 (Elderly Press): https://www.elderlypress.co.kr/news/articleView.html?idxno=55313
-- Seoul real-transaction trends, week 3 of June 2026 (Bizhankook): https://www.bizhankook.com/bk/article/32587
-- Seoul real-transaction trends, week 2 of June 2026 (Bizhankook): https://www.bizhankook.com/bk/article/32536
-- 2026 assessed apartment values and holding-tax survey (ZDNet Korea): https://ameet.zdnet.co.kr/uploads/1223247b.html
+- [Korea Real Estate Board — weekly apartment price trends](https://www.reb.or.kr/reb/cm/cntnts/cntntsView.do?mi=10001&cntntsId=1308)
+- [Elderly Press — nationwide weekly apartment sale-price trends, week 1 of June 2026](https://www.elderlypress.co.kr/news/articleView.html?idxno=55313)
+- [Bizhankook — Seoul real-transaction trends, week 3 of June 2026](https://www.bizhankook.com/bk/article/32587)
+- [Bizhankook — Seoul real-transaction trends, week 2 of June 2026](https://www.bizhankook.com/bk/article/32536)
+- [ZDNet Korea — 2026 assessed apartment values and holding-tax survey](https://ameet.zdnet.co.kr/uploads/1223247b.html)
