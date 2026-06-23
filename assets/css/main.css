@@ -315,7 +315,7 @@
   margin-top: auto;
 }
 .site-footer__inner { padding-top: 2.25rem; padding-bottom: 2.25rem; }
-.site-footer__logo { height: 0.85rem; width: auto; display: block; margin: 0 0 0.7rem; opacity: 0.6; }
+.site-footer__logo { height: 0.7rem; width: auto; display: block; margin: 0 0 0.7rem; }
 .site-footer__desc { font-size: 0.9rem; margin: 0 0 0.75rem; color: #a9a8ba; }
 .site-footer__copy { font-size: 0.8rem; margin: 0; color: #7d7c8f; }
 
@@ -327,6 +327,8 @@
   .site-brand__logo { height: 1.5rem; }
   /* 모바일: 로고가 한 줄 차지 → 둘째 줄에서 언어 셀렉트 우측 정렬 */
   .lang-switch { margin-left: auto; }
+  /* 모바일: 푸터 로고 이미지 숨김 */
+  .site-footer__logo { display: none; }
   .post__title, .page__title { font-size: 1.55rem; }
   .site-main { padding-top: 2rem; }
 
