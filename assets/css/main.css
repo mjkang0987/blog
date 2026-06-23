@@ -315,7 +315,7 @@
   margin-top: auto;
 }
 .site-footer__inner { padding-top: 2.25rem; padding-bottom: 2.25rem; }
-.site-footer__logo { height: 0.7rem; width: auto; display: block; margin: 0 0 0.7rem; }
+.site-footer__logo { height: 0.95rem; width: auto; display: block; margin: 0 0 0.7rem; }
 .site-footer__desc { font-size: 0.9rem; margin: 0 0 0.75rem; color: #a9a8ba; }
 .site-footer__copy { font-size: 0.8rem; margin: 0; color: #7d7c8f; }
 
