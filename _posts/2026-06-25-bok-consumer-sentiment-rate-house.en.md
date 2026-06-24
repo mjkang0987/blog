@@ -50,9 +50,9 @@ Two points are worth watching. First, that consumers lean toward a hike rather t
 This article is for informational purposes only and is not investment advice.
 
 **Sources**
-- Newspim, "June consumer sentiment improves for second month... rate outlook posts largest jump in 9.5 years" https://www.newspim.com/news/view/20260622001035
-- Financial News, "Sentiment improves again on chips and equities... worries over rates and home prices grow" https://www.fnnews.com/news/202606221531126114
-- Herald Corp, "'Chip effect': consumers optimistic for two straight months... 'home prices will rise' sentiment intensifies" https://biz.heraldcorp.com/article/10784264
-- Edaily, "Sentiment improves for second month on 'buoyant market'... rate outlook posts largest jump in 9.5 years" https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02102486645484672
-- Etoday, "June consumer sentiment improves for second straight month... rate outlook posts largest jump in about 9 years" https://www.etoday.co.kr/news/view/2596086
-- Newsway, "June Consumer Sentiment Index at 106.6 on strong exports and rising share prices... improves for second month" https://www.newsway.co.kr/news/view?ud=2026062216462494720
+- [Newspim, "June consumer sentiment improves for second month... rate outlook posts largest jump in 9.5 years"](https://www.newspim.com/news/view/20260622001035)
+- [Financial News, "Sentiment improves again on chips and equities... worries over rates and home prices grow"](https://www.fnnews.com/news/202606221531126114)
+- [Herald Corp, "'Chip effect': consumers optimistic for two straight months... 'home prices will rise' sentiment intensifies"](https://biz.heraldcorp.com/article/10784264)
+- [Edaily, "Sentiment improves for second month on 'buoyant market'... rate outlook posts largest jump in 9.5 years"](https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02102486645484672)
+- [Etoday, "June consumer sentiment improves for second straight month... rate outlook posts largest jump in about 9 years"](https://www.etoday.co.kr/news/view/2596086)
+- [Newsway, "June Consumer Sentiment Index at 106.6 on strong exports and rising share prices... improves for second month"](https://www.newsway.co.kr/news/view?ud=2026062216462494720)
