@@ -18,8 +18,9 @@ twitter:
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
-  - jekyll-sitemap
   - jekyll-polyglot
+  # jekyll-sitemap 제거: polyglot 번역본을 인식하지 못해 기본언어만 색인됨.
+  # 다국어 + hreflang 사이트맵은 /sitemap.xml 템플릿에서 직접 출력한다.
 
 # ── 다국어(polyglot) ───────────────────────────────
 # 표준 구성: 기본언어(ko)는 루트, en-US/ja 는 서브폴더(/en-US/, /ja/)

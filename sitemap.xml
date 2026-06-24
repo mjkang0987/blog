@@ -1,0 +1,50 @@
+---
+permalink: /sitemap.xml
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+{%- comment -%}
+  polyglot 다국어 사이트맵: 모든 글/주요 페이지를 언어별(ko/en-US/ja) URL로 출력하고
+  각 URL에 hreflang 대체 링크를 명시한다. 번역본은 같은 permalink를 언어 프리픽스로 공유한다.
+  (jekyll-sitemap 은 polyglot 출력을 인식하지 못해 기본언어만 색인됨 → 직접 출력)
+{%- endcomment -%}
+{%- assign langs = site.languages -%}
+{%- comment -%} ── 주요 페이지 (홈/소개/태그 등 permalink가 '/'로 끝나는 정적 페이지) ── {%- endcomment -%}
+{%- for p in site.pages -%}
+  {%- if p.sitemap == false -%}{%- continue -%}{%- endif -%}
+  {%- if p.lang and p.lang != site.default_lang -%}{%- continue -%}{%- endif -%}
+  {%- assign lastchar = p.url | slice: -1 -%}
+  {%- unless lastchar == '/' -%}{%- continue -%}{%- endunless -%}
+  {%- assign base = p.url | remove_first: '/' -%}
+  {%- for lang in langs -%}
+    {%- if lang == site.default_lang -%}{%- assign pfx = '' -%}{%- else -%}{%- assign pfx = lang | append: '/' -%}{%- endif -%}
+  <url>
+    <loc>{{ site.url }}{{ site.baseurl }}/{{ pfx }}{{ base }}</loc>
+    {%- for alt in langs -%}
+      {%- if alt == site.default_lang -%}{%- assign apfx = '' -%}{%- else -%}{%- assign apfx = alt | append: '/' -%}{%- endif -%}
+    <xhtml:link rel="alternate" hreflang="{{ alt }}" href="{{ site.url }}{{ site.baseurl }}/{{ apfx }}{{ base }}" />
+    {%- endfor -%}
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ site.baseurl }}/{{ base }}" />
+  </url>
+  {%- endfor -%}
+{%- endfor -%}
+{%- comment -%} ── 글(posts) ── {%- endcomment -%}
+{%- for post in site.posts -%}
+  {%- if post.sitemap == false -%}{%- continue -%}{%- endif -%}
+  {%- assign base = post.permalink | default: post.url | remove_first: '/' -%}
+  {%- for lang in langs -%}
+    {%- if lang == site.default_lang -%}{%- assign pfx = '' -%}{%- else -%}{%- assign pfx = lang | append: '/' -%}{%- endif -%}
+  <url>
+    <loc>{{ site.url }}{{ site.baseurl }}/{{ pfx }}{{ base }}</loc>
+    <lastmod>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</lastmod>
+    {%- for alt in langs -%}
+      {%- if alt == site.default_lang -%}{%- assign apfx = '' -%}{%- else -%}{%- assign apfx = alt | append: '/' -%}{%- endif -%}
+    <xhtml:link rel="alternate" hreflang="{{ alt }}" href="{{ site.url }}{{ site.baseurl }}/{{ apfx }}{{ base }}" />
+    {%- endfor -%}
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ site.baseurl }}/{{ base }}" />
+  </url>
+  {%- endfor -%}
+{%- endfor -%}
+</urlset>
