@@ -18,7 +18,19 @@
    ```
 
 3. 그 아래에 마크다운으로 본문을 작성합니다.
-4. 커밋 후 푸시하면 GitHub Pages 가 자동으로 발행합니다.
+4. **(한글판) 발행 전 윤문 도구를 돌립니다.** 번역투·이중피동을 교정하고 어미 모노톤·장문을 리포트합니다.
+
+   ```bash
+   # 점검만(번역투 발견 시 종료코드 1)
+   python3 scripts/humanize_ko.py --check _posts/YYYY-MM-DD-제목.md
+   # 교정 적용(파일 덮어씀)
+   python3 scripts/humanize_ko.py --fix _posts/YYYY-MM-DD-제목.md
+   ```
+
+   - 머리말(front matter)·코드블록·링크 URL은 자동으로 보호됩니다.
+   - 어미 모노톤(동일 종결어미 5회+ 연속)·120자 초과 장문은 자동 교정하지 않고 ⚠ 경고만 합니다(문법 손상 방지). 경고가 뜨면 손으로 어미를 변주해 주세요.
+
+5. 커밋 후 푸시하면 GitHub Pages 가 자동으로 발행합니다.
 
 ## GitHub Pages 배포 설정 (최초 1회)
 
