@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "🏠 Is 'the Land of Jeonse' Fading? — Monthly Rent Tops Half of Seoul Apartment Leases for the First Time"
-date: 2026-06-28 07:00:00 +0900
+date: 2026-06-28 19:00:00 +0900
 lang: en-US
 permalink: /2026/06/28/seoul-apartment-monthly-rent-majority/
 page_id: 2026-06-28-seoul-apartment-monthly-rent-majority

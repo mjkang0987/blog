@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "🏠 'チョンセの国'は昔話に？ — ソウルのマンション賃貸、月貰が初の過半超え"
-date: 2026-06-28 07:00:00 +0900
+date: 2026-06-28 19:00:00 +0900
 lang: ja
 permalink: /2026/06/28/seoul-apartment-monthly-rent-majority/
 page_id: 2026-06-28-seoul-apartment-monthly-rent-majority

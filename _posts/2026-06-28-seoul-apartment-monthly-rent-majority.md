@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "🏠 '전세의 나라' 옛말 되나 — 서울 아파트 월세, 첫 과반 넘었다"
-date: 2026-06-28 07:00:00 +0900
+date: 2026-06-28 19:00:00 +0900
 lang: ko
 permalink: /2026/06/28/seoul-apartment-monthly-rent-majority/
 page_id: 2026-06-28-seoul-apartment-monthly-rent-majority
