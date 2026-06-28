@@ -28,7 +28,7 @@ The government contribution varies by income. The standard type matches 6% of de
 
 ## Who can apply, and when?
 
-The product is for those aged 19 to 34. Income requirements apply on top, but the exact thresholds differ slightly across reports, so it's safest to confirm them through official channels. Broadly, the standard type has more relaxed personal- and median-income criteria, while the preferential type targets lower-income youth and doubles the match to 12%.
+The product is for those aged 19 to 34. Income requirements apply on top: per the Financial Services Commission, personal income must be no more than ₩75 million in total pay (₩63 million in composite income), and household income no more than 200% of the median (250% for dual-income two-person households). You don't choose your type — it's set automatically by the income review. The standard type covers total pay up to ₩60 million (composite income ₩48 million) with household income at or below 200% of the median; the preferential type, which doubles the match to 12%, covers groups such as SME employees earning up to ₩36 million in total pay (composite income ₩26 million) or small-business owners with annual revenue up to ₩100 million, with household income at or below 150% of the median. Since the detailed criteria are intricate, it's safest to confirm which bracket you fall under through official channels.
 
 The schedule matters. Eligibility-check applications run for about two weeks, from June 22 to July 3. To avoid a crush in the first week, a five-day rotation by the last digit of one's birth year applied; from June 29, anyone can apply regardless of birth year. Since the deadline is July 3, eligible applicants shouldn't miss the window.
 
@@ -40,7 +40,7 @@ Also, because it's a three-year product, keep in mind that early termination may
 
 ## The bottom line
 
-Youth Future Savings bundles two benefits — a government match plus tax exemption — and is designed to support lower-income youth more generously. With the five-day rotation lifted from June 29 so anyone can apply, eligible young people should at least run an eligibility check before the July 3 deadline. That said, income requirements, match rates and dual-enrollment rules differ in the fine print across reports, so before deciding, be sure to confirm your own conditions via official channels such as the Financial Services Commission, participating banks, or Bokjiro.
+Youth Future Savings bundles two benefits — a government match plus tax exemption — and is designed to support lower-income youth more generously. With the five-day rotation lifted from June 29 so anyone can apply, eligible young people should at least run an eligibility check before the July 3 deadline. That said, income requirements, which type you qualify for, and the Youth Leap Account switch-over procedure vary by individual circumstance, so before deciding, be sure to confirm your own conditions via official channels such as the Financial Services Commission, participating banks, or the Korea Inclusive Finance Agency.
 
 ※ This article is for informational purposes only and is not a solicitation to sign up or investment advice. Eligibility and benefit details may change; please confirm via official channels.
 
