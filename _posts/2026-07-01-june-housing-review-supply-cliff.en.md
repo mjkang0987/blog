@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "🏠 One Year After the 6·27 Rules: Seoul Home Prices +11.8% — June Housing Recap and the H2 'Supply Cliff'"
+title: "🏠 [Monthly Review] One Year After the 6·27 Rules: Seoul Home Prices +11.8% — June Housing Recap and the H2 'Supply Cliff'"
 date: 2026-07-01 04:00:00 +0900
 lang: en-US
 permalink: /2026/07/01/june-housing-review-supply-cliff/

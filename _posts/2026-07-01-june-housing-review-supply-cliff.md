@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "🏠 6·27 대책 1년, 서울 집값 11.8%↑ — 6월 부동산 결산과 '공급절벽' 하반기 전망"
+title: "🏠 [월간회고] 6·27 대책 1년, 서울 집값 11.8%↑ — 6월 부동산 결산과 '공급절벽' 하반기 전망"
 date: 2026-07-01 04:00:00 +0900
 lang: ko
 permalink: /2026/07/01/june-housing-review-supply-cliff/
