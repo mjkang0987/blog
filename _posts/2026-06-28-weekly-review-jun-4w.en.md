@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "🗓️ Weekly Review (Jun 22–28) — 'AI Memory Crunch,' Reaccelerating Inflation, Korea's Shift to Monthly Rent, Plus the Week Ahead"
+title: "🗓️ [Weekly Review] (Jun 22–28) — 'AI Memory Crunch,' Reaccelerating Inflation, Korea's Shift to Monthly Rent, Plus the Week Ahead"
 date: 2026-06-28 07:00:00 +0900
 lang: en-US
 permalink: /2026/06/28/weekly-review-jun-4w/
