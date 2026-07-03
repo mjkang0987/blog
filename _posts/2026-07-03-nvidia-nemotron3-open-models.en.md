@@ -1,11 +1,11 @@
 ---
 layout: post
 title: "🟢 NVIDIA Just 'Open-Sourced' Its Own AI Models — A Full Guide to Nemotron 3, With Weights, Data and Recipes"
-date: 2026-06-29 19:00:00 +0900
+date: 2026-07-03 19:00:00 +0900
 lang: en-US
-permalink: /2026/06/29/nvidia-nemotron3-open-models/
-page_id: 2026-06-29-nvidia-nemotron3-open-models
-image: /assets/og/2026-06-29-nvidia-nemotron3-open-models-en.png
+permalink: /2026/07/03/nvidia-nemotron3-open-models/
+page_id: 2026-07-03-nvidia-nemotron3-open-models
+image: /assets/og/2026-07-03-nvidia-nemotron3-open-models-en.png
 summary: "NVIDIA has released its own Nemotron 3 AI models as open models — weights, training data and recipes under a permissive license. Here's the Nano/Super/Ultra lineup and what 'free and open' really means."
 description: "NVIDIA has released its own Nemotron 3 AI models as open models — weights, training data and recipes under a permissive license. Here's the Nano/Super/Ultra lineup and what 'free and open' really means."
 categories: [IT]

@@ -1,11 +1,11 @@
 ---
 layout: post
 title: "🟢 엔비디아, 자사 AI 모델을 통째로 '오픈'했습니다 — 가중치·데이터·레시피까지 공개한 Nemotron 3 개방형 모델 총정리"
-date: 2026-06-29 19:00:00 +0900
+date: 2026-07-03 19:00:00 +0900
 lang: ko
-permalink: /2026/06/29/nvidia-nemotron3-open-models/
-page_id: 2026-06-29-nvidia-nemotron3-open-models
-image: /assets/og/2026-06-29-nvidia-nemotron3-open-models-ko.png
+permalink: /2026/07/03/nvidia-nemotron3-open-models/
+page_id: 2026-07-03-nvidia-nemotron3-open-models
+image: /assets/og/2026-07-03-nvidia-nemotron3-open-models-ko.png
 summary: "엔비디아가 자사 AI 모델 Nemotron 3를 가중치·학습 데이터·레시피까지 개방형 라이선스로 공개했습니다. Nano·Super·Ultra 라인업과 '무료·오픈'의 실제 범위를 정리합니다."
 description: "엔비디아가 자사 AI 모델 Nemotron 3를 가중치·학습 데이터·레시피까지 개방형 라이선스로 공개했습니다. Nano·Super·Ultra 라인업과 '무료·오픈'의 실제 범위를 정리합니다."
 categories: [IT]

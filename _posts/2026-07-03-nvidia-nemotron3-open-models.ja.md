@@ -1,11 +1,11 @@
 ---
 layout: post
 title: "🟢 エヌビディア、自社AIモデルを丸ごと「オープン」公開 — 重み・データ・レシピまで開放したNemotron 3 総まとめ"
-date: 2026-06-29 19:00:00 +0900
+date: 2026-07-03 19:00:00 +0900
 lang: ja
-permalink: /2026/06/29/nvidia-nemotron3-open-models/
-page_id: 2026-06-29-nvidia-nemotron3-open-models
-image: /assets/og/2026-06-29-nvidia-nemotron3-open-models-ja.png
+permalink: /2026/07/03/nvidia-nemotron3-open-models/
+page_id: 2026-07-03-nvidia-nemotron3-open-models
+image: /assets/og/2026-07-03-nvidia-nemotron3-open-models-ja.png
 summary: "エヌビディアが自社AIモデルNemotron 3を、重み・学習データ・レシピまで含めた寛容なライセンスでオープン公開。Nano/Super/Ultraのラインナップと「無料・オープン」の実際の範囲を整理します。"
 description: "エヌビディアが自社AIモデルNemotron 3を、重み・学習データ・レシピまで含めた寛容なライセンスでオープン公開。Nano/Super/Ultraのラインナップと「無料・オープン」の実際の範囲を整理します。"
 categories: [IT]
