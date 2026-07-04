@@ -8,7 +8,7 @@ page_id: 2026-06-29-youth-future-savings-account
 image: /assets/og/2026-06-29-youth-future-savings-account-en.png
 summary: "Korea's 'Youth Future Savings' account for ages 19–34 opens to all applicants regardless of birth year from June 29. It offers up to ₩500,000 a month over three years, tax-free interest, and a government match of 6–12% of deposits; applications close July 3."
 description: "Korea's 'Youth Future Savings' account for ages 19–34 opens to all applicants regardless of birth year from June 29. It offers up to ₩500,000 a month over three years, tax-free interest, and a government match of 6–12% of deposits; applications close July 3."
-categories: [경제]
+categories: [Economy]
 tags: [Youth Future Savings, youth policy, policy finance, savings, government match, tax-free, wealth building, FSC, youth account, personal finance, youth support, economy news]
 ---
 

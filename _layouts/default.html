@@ -29,11 +29,15 @@
       </a>
 
       <nav class="site-nav" aria-label="주 메뉴">
-        {% if site.active_lang == 'ja' %}{% assign nav_home = 'ホーム' %}{% assign nav_about = '概要' %}{% assign nav_tags = 'タグ' %}
-        {% elsif site.active_lang == 'en-US' %}{% assign nav_home = 'Home' %}{% assign nav_about = 'About' %}{% assign nav_tags = 'Tags' %}
-        {% else %}{% assign nav_home = '홈' %}{% assign nav_about = '소개' %}{% assign nav_tags = '태그' %}{% endif %}
+        {% if site.active_lang == 'ja' %}{% assign nav_home = 'ホーム' %}{% assign nav_about = '概要' %}{% assign nav_tags = 'タグ' %}{% assign cat_re = '不動産' %}{% assign cat_ec = '経済' %}
+        {% elsif site.active_lang == 'en-US' %}{% assign nav_home = 'Home' %}{% assign nav_about = 'About' %}{% assign nav_tags = 'Tags' %}{% assign cat_re = 'Real Estate' %}{% assign cat_ec = 'Economy' %}
+        {% else %}{% assign nav_home = '홈' %}{% assign nav_about = '소개' %}{% assign nav_tags = '태그' %}{% assign cat_re = '부동산' %}{% assign cat_ec = '경제' %}{% endif %}
+        {%- assign tags_url = '/tags/' | relative_url -%}
         <a class="site-nav__link" href="{{ '/' | relative_url }}">{{ nav_home }}</a>
-        <a class="site-nav__link" href="{{ '/tags/' | relative_url }}">{{ nav_tags }}</a>
+        <a class="site-nav__link site-nav__link--cat" href="{{ tags_url }}?cat={{ cat_re | uri_escape }}">{{ cat_re }}</a>
+        <a class="site-nav__link site-nav__link--cat" href="{{ tags_url }}?cat={{ cat_ec | uri_escape }}">{{ cat_ec }}</a>
+        <a class="site-nav__link site-nav__link--cat" href="{{ tags_url }}?cat=IT">IT</a>
+        <a class="site-nav__link" href="{{ tags_url }}">{{ nav_tags }}</a>
         <a class="site-nav__link" href="{{ '/about/' | relative_url }}">{{ nav_about }}</a>
       </nav>
 

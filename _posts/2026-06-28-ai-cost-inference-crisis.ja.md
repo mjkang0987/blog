@@ -8,7 +8,7 @@ page_id: 2026-06-28-ai-cost-inference-crisis
 image: /assets/og/2026-06-28-ai-cost-inference-crisis-ja.png
 summary: "今の安いAI料金は、実は業界の大規模な赤字に支えられています。OpenAIは2026年に約140億ドルの赤字が見込まれ、推論コストが核心の原因です。補助が引けば、AI料金は徐々に正常化（値上げ）する可能性が高いです。"
 description: "今の安いAI料金は、実は業界の大規模な赤字に支えられています。OpenAIは2026年に約140億ドルの赤字が見込まれ、推論コストが核心の原因です。補助が引けば、AI料金は徐々に正常化（値上げ）する可能性が高いです。"
-categories: [경제]
+categories: [経済]
 tags: [AIコスト, 推論コスト, AI料金, OpenAI, Anthropic, トークン, AIエージェント, データセンター, 電気料金, メモリ半導体, ゴールドマンサックス, AI経済, 経済ニュース]
 ---
 

@@ -8,7 +8,7 @@ page_id: 2026-06-28-ai-cost-inference-crisis
 image: /assets/og/2026-06-28-ai-cost-inference-crisis-en.png
 summary: "Today's cheap AI prices are actually propped up by massive industry losses. OpenAI is projected to lose about $14 billion in 2026, with inference costs the core driver. As subsidies fade, AI prices are likely to normalize — that is, rise."
 description: "Today's cheap AI prices are actually propped up by massive industry losses. OpenAI is projected to lose about $14 billion in 2026, with inference costs the core driver. As subsidies fade, AI prices are likely to normalize — that is, rise."
-categories: [경제]
+categories: [Economy]
 tags: [AI costs, inference cost, AI pricing, OpenAI, Anthropic, tokens, AI agents, data centers, electricity prices, memory chips, Goldman Sachs, AI economics, economy news]
 ---
 

@@ -8,7 +8,7 @@ page_id: 2026-06-28-seoul-apartment-monthly-rent-majority
 image: /assets/og/2026-06-28-seoul-apartment-monthly-rent-majority-en.png
 summary: "This year, monthly rent (wolse) made up 54.1% of new Seoul apartment leases — topping half for the first time. It's a shift from 43% in 2023, driven by jeonse-loan curbs, deposit-fraud trauma, and a clampdown on gap investing. The nationwide monthly-rent price index also hit a record."
 description: "This year, monthly rent (wolse) made up 54.1% of new Seoul apartment leases — topping half for the first time. It's a shift from 43% in 2023, driven by jeonse-loan curbs, deposit-fraud trauma, and a clampdown on gap investing. The nationwide monthly-rent price index also hit a record."
-categories: [부동산]
+categories: [Real Estate]
 tags: [jeonse, monthly rent, wolse, Seoul apartments, lease market, jeonse loan, gap investing, housing costs, deposit fraud, rental market, real estate policy, real estate news]
 ---
 
