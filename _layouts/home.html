@@ -1,9 +1,9 @@
 ---
 layout: default
 ---
-{% if site.active_lang == 'ja' %}{% assign t_latest = '最新の記事' %}{% assign t_empty = 'まだ記事がありません。' %}
-{% elsif site.active_lang == 'en-US' %}{% assign t_latest = 'Latest posts' %}{% assign t_empty = 'No posts yet.' %}
-{% else %}{% assign t_latest = '최근 글' %}{% assign t_empty = '아직 글이 없습니다.' %}{% endif %}
+{% if site.active_lang == 'ja' %}{% assign t_latest = '最新の記事' %}{% assign t_empty = 'まだ記事がありません。' %}{% assign t_prev = '前へ' %}{% assign t_next = '次へ' %}{% assign t_pageword = 'ページ' %}
+{% elsif site.active_lang == 'en-US' %}{% assign t_latest = 'Latest posts' %}{% assign t_empty = 'No posts yet.' %}{% assign t_prev = 'Prev' %}{% assign t_next = 'Next' %}{% assign t_pageword = 'Page' %}
+{% else %}{% assign t_latest = '최근 글' %}{% assign t_empty = '아직 글이 없습니다.' %}{% assign t_prev = '이전' %}{% assign t_next = '다음' %}{% assign t_pageword = '페이지' %}{% endif %}
 
 <section class="home">
   <h1 class="home__title">{{ t_latest }}</h1>
@@ -11,7 +11,7 @@ layout: default
   {% if site.posts.size == 0 %}
     <p class="home__empty">{{ t_empty }}</p>
   {% else %}
-    <ul class="post-grid">
+    <ul class="post-grid" id="home-grid">
       {% for post in site.posts %}
         <li class="post-card">
           <a class="post-card__link" href="{{ post.url | relative_url }}">
@@ -31,5 +31,99 @@ layout: default
         </li>
       {% endfor %}
     </ul>
+    <nav class="pagination" id="home-pagination" aria-label="{{ t_pageword }}" hidden></nav>
   {% endif %}
 </section>
+
+<script>
+  (function () {
+    var PER_PAGE = 20;
+    var STR = {
+      prev: {{ t_prev | jsonify }},
+      next: {{ t_next | jsonify }},
+      page: {{ t_pageword | jsonify }}
+    };
+    var grid = document.getElementById('home-grid');
+    var nav = document.getElementById('home-pagination');
+    if (!grid || !nav) { return; }
+
+    var cards = Array.prototype.slice.call(grid.children);
+    var total = cards.length;
+    var pages = Math.ceil(total / PER_PAGE);
+    if (pages <= 1) { return; }
+
+    function clampPage(n) {
+      n = parseInt(n, 10);
+      if (isNaN(n) || n < 1) { return 1; }
+      if (n > pages) { return pages; }
+      return n;
+    }
+
+    function currentPage() {
+      var params = new URLSearchParams(window.location.search);
+      return clampPage(params.get('page') || 1);
+    }
+
+    function makeLink(label, page, opts) {
+      opts = opts || {};
+      var el = document.createElement(opts.disabled || opts.current ? 'span' : 'a');
+      el.className = 'pagination__item' + (opts.current ? ' pagination__item--current' : '') + (opts.disabled ? ' pagination__item--disabled' : '') + (opts.nav ? ' pagination__item--nav' : '');
+      el.textContent = label;
+      if (opts.current) { el.setAttribute('aria-current', 'page'); }
+      if (!opts.disabled && !opts.current) {
+        var params = new URLSearchParams(window.location.search);
+        params.set('page', page);
+        el.setAttribute('href', window.location.pathname + '?' + params.toString());
+        el.addEventListener('click', function (e) {
+          e.preventDefault();
+          go(page);
+        });
+      }
+      return el;
+    }
+
+    function render(page) {
+      // 카드 표시/숨김
+      var start = (page - 1) * PER_PAGE;
+      var end = start + PER_PAGE;
+      cards.forEach(function (card, i) {
+        card.hidden = (i < start || i >= end);
+      });
+
+      // 페이지 컨트롤 재생성
+      nav.innerHTML = '';
+      nav.appendChild(makeLink(STR.prev, page - 1, { disabled: page === 1, nav: true }));
+
+      // 페이지 번호(현재 주변 최대 5개 윈도우)
+      var win = 2;
+      var from = Math.max(1, page - win);
+      var to = Math.min(pages, page + win);
+      if (from > 1) {
+        nav.appendChild(makeLink('1', 1, {}));
+        if (from > 2) { nav.appendChild(makeLink('…', 0, { disabled: true })); }
+      }
+      for (var p = from; p <= to; p++) {
+        nav.appendChild(makeLink(String(p), p, { current: p === page }));
+      }
+      if (to < pages) {
+        if (to < pages - 1) { nav.appendChild(makeLink('…', 0, { disabled: true })); }
+        nav.appendChild(makeLink(String(pages), pages, {}));
+      }
+
+      nav.appendChild(makeLink(STR.next, page + 1, { disabled: page === pages, nav: true }));
+      nav.hidden = false;
+    }
+
+    function go(page) {
+      page = clampPage(page);
+      var params = new URLSearchParams(window.location.search);
+      params.set('page', page);
+      history.pushState({ page: page }, '', window.location.pathname + '?' + params.toString());
+      render(page);
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+
+    window.addEventListener('popstate', function () { render(currentPage()); });
+    render(currentPage());
+  })();
+</script>

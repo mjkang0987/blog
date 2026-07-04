@@ -8,7 +8,7 @@ page_id: 2026-06-27-us-pce-4percent-fed-rate-hike
 image: /assets/og/2026-06-27-us-pce-4percent-fed-rate-hike-en.png
 summary: "U.S. PCE inflation rose to 4.1% in May, the highest in about three years. Core PCE jumped to 3.4%, and Minneapolis Fed President Kashkari flipped his outlook from 'one cut' to 'one hike' this year. The market's hopes for rate cuts have all but vanished."
 description: "U.S. PCE inflation rose to 4.1% in May, the highest in about three years. Core PCE jumped to 3.4%, and Minneapolis Fed President Kashkari flipped his outlook from 'one cut' to 'one hike' this year. The market's hopes for rate cuts have all but vanished."
-categories: [경제]
+categories: [Economy]
 tags: [PCE, US inflation, inflation, Federal Reserve, base rate, rate hike, Kashkari, core inflation, oil prices, Middle East risk, USD/KRW, KOSPI, macro, economy news]
 ---
 

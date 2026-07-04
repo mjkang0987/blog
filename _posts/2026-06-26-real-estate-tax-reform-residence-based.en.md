@@ -8,7 +8,7 @@ page_id: 2026-06-26-real-estate-tax-reform-residence-based
 image: /assets/og/2026-06-26-real-estate-tax-reform-residence-based-en.png
 summary: "Korea's government is reworking property taxes around actual residence, spanning acquisition, holding and capital-gains taxes. For capital-gains tax, the plan trims the deduction for mere holding while boosting the live-in benefit; for the holding tax, raising the 'fair market value ratio' (now 60%) is the key lever. A blueprint is expected late this month."
 description: "Korea's government is reworking property taxes around actual residence, spanning acquisition, holding and capital-gains taxes. For capital-gains tax, the plan trims the deduction for mere holding while boosting the live-in benefit; for the holding tax, raising the 'fair market value ratio' (now 60%) is the key lever. A blueprint is expected late this month."
-categories: [부동산]
+categories: [Real Estate]
 tags: [property tax, tax reform, capital gains tax, long-term holding deduction, comprehensive real estate tax, holding tax, fair market value ratio, owner-occupier, multiple homeowners, acquisition tax, tax bill, real estate policy, real estate news]
 ---
 

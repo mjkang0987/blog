@@ -8,7 +8,7 @@ page_id: 2026-06-28-weekly-review-jun-4w
 image: /assets/og/2026-06-28-weekly-review-jun-4w-en.png
 summary: "Three threads ran through the fourth week of June (Jun 22–28): an AI-driven memory crunch, reaccelerating inflation and rate-hike pressure, and property curbs alongside a shift to monthly rent. Here's the week in economy, real estate and tech — plus what to watch as July begins."
 description: "Three threads ran through the fourth week of June (Jun 22–28): an AI-driven memory crunch, reaccelerating inflation and rate-hike pressure, and property curbs alongside a shift to monthly rent. Here's the week in economy, real estate and tech — plus what to watch as July begins."
-categories: [경제]
+categories: [Economy]
 tags: [weekly review, weekly outlook, economy, real estate, IT, memory chips, inflation, interest rates, monthly rent, tax reform, on-device AI, market wrap]
 ---
 
