@@ -162,7 +162,7 @@
 .site-search__link {
   display: flex;
   flex-direction: column;
-  gap: 0.15rem;
+  gap: 0.2rem;
   padding: 0.5rem 0.6rem;
   border-radius: 8px;
   text-decoration: none;
@@ -170,9 +170,66 @@
 }
 .site-search__item:hover .site-search__link,
 .site-search__item.is-active .site-search__link { background: var(--bg-soft); }
+.site-search__row { display: flex; align-items: baseline; justify-content: space-between; gap: 0.6rem; }
 .site-search__t { font-size: 0.9rem; font-weight: 600; line-height: 1.35; }
-.site-search__d { font-size: 0.72rem; color: var(--muted); }
+.site-search__d { flex: 0 0 auto; font-size: 0.72rem; color: var(--muted); }
+.site-search__s {
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.site-search__results mark {
+  background: rgba(101, 38, 217, 0.16);
+  color: inherit;
+  border-radius: 3px;
+  padding: 0 0.05em;
+}
 .site-search__empty { padding: 0.7rem 0.6rem; font-size: 0.88rem; color: var(--muted); }
+/* 최근 검색어 */
+.site-search__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.35rem 0.6rem 0.25rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.site-search__clear {
+  border: 0;
+  background: none;
+  color: var(--brand);
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.1rem 0.2rem;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.site-search__clear:hover { text-decoration: underline; }
+.site-search__recent { margin: 0; }
+.site-search__recent-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  border: 0;
+  background: none;
+  color: var(--text);
+  font-size: 0.88rem;
+  text-align: left;
+  padding: 0.45rem 0.6rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.site-search__recent-btn:hover { background: var(--bg-soft); }
+.site-search__recent-ico { color: var(--muted); font-size: 0.85rem; }
 
 .site-nav { display: flex; gap: 1.1rem; }
 .site-nav__link {
