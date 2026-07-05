@@ -28,6 +28,20 @@
         <img class="site-brand__logo" src="{{ '/assets/logo.svg' | relative_url }}" alt="{{ site.title }}" width="683" height="98">
       </a>
 
+      {%- if site.active_lang == 'ja' -%}{%- assign t_search_ph = '記事を検索' -%}{%- assign t_search_lbl = '検索' -%}{%- assign t_search_none = '該当する記事がありません' -%}
+      {%- elsif site.active_lang == 'en-US' -%}{%- assign t_search_ph = 'Search posts' -%}{%- assign t_search_lbl = 'Search' -%}{%- assign t_search_none = 'No matching posts' -%}
+      {%- else -%}{%- assign t_search_ph = '글 검색' -%}{%- assign t_search_lbl = '검색' -%}{%- assign t_search_none = '검색 결과가 없습니다' -%}{%- endif -%}
+      {%- assign search_lp = '' -%}
+      {%- unless site.active_lang == site.default_lang -%}{%- assign search_lp = '/' | append: site.active_lang -%}{%- endunless -%}
+      <div class="site-search" data-index="{{ search_lp | append: '/search.json' | relative_url }}" data-empty="{{ t_search_none }}">
+        <label class="visually-hidden" for="site-search-input">{{ t_search_lbl }}</label>
+        <span class="site-search__icon" aria-hidden="true">🔍</span>
+        <input class="site-search__input" id="site-search-input" type="search" placeholder="{{ t_search_ph }}"
+               autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list"
+               aria-controls="site-search-results">
+        <ul class="site-search__results" id="site-search-results" role="listbox" aria-label="{{ t_search_lbl }}" hidden></ul>
+      </div>
+
       <nav class="site-nav" aria-label="주 메뉴">
         {% if site.active_lang == 'ja' %}{% assign nav_home = 'ホーム' %}{% assign nav_about = '概要' %}{% assign nav_tags = 'タグ' %}{% assign cat_re = '不動産' %}{% assign cat_ec = '経済' %}
         {% elsif site.active_lang == 'en-US' %}{% assign nav_home = 'Home' %}{% assign nav_about = 'About' %}{% assign nav_tags = 'Tags' %}{% assign cat_re = 'Real Estate' %}{% assign cat_ec = 'Economy' %}
@@ -93,6 +107,109 @@
           a.appendChild(note);
         }
       });
+    })();
+  </script>
+
+  <script>
+    // 헤더 클라이언트 검색: search.json 인덱스를 지연 로드 후 제목/요약/태그/카테고리로 필터
+    (function () {
+      var box = document.querySelector('.site-search');
+      if (!box) { return; }
+      var input = box.querySelector('.site-search__input');
+      var list = box.querySelector('.site-search__results');
+      var indexUrl = box.getAttribute('data-index');
+      var emptyText = box.getAttribute('data-empty') || '';
+      var MAX = 8;
+      var data = null, loading = false, active = -1, items = [];
+
+      function loadIndex() {
+        if (data || loading) { return; }
+        loading = true;
+        fetch(indexUrl).then(function (r) { return r.json(); }).then(function (json) {
+          data = json;
+          if (document.activeElement === input && input.value.trim()) { run(input.value); }
+        }).catch(function () { loading = false; });
+      }
+
+      function norm(s) { return (s || '').toString().toLowerCase(); }
+
+      function search(q) {
+        var terms = norm(q).split(/\s+/).filter(Boolean);
+        if (!terms.length || !data) { return []; }
+        var out = [];
+        for (var i = 0; i < data.length; i++) {
+          var p = data[i];
+          var hay = norm(p.t) + ' ' + norm(p.s) + ' ' + norm((p.g || []).join(' ')) + ' ' + norm((p.c || []).join(' '));
+          var ok = true;
+          for (var j = 0; j < terms.length; j++) { if (hay.indexOf(terms[j]) === -1) { ok = false; break; } }
+          if (ok) { out.push(p); if (out.length >= MAX) { break; } }
+        }
+        return out;
+      }
+
+      function close() {
+        list.hidden = true;
+        list.innerHTML = '';
+        items = [];
+        active = -1;
+        input.setAttribute('aria-expanded', 'false');
+        input.removeAttribute('aria-activedescendant');
+      }
+
+      function render(results) {
+        list.innerHTML = '';
+        items = results;
+        active = -1;
+        if (!input.value.trim()) { close(); return; }
+        if (!results.length) {
+          var li = document.createElement('li');
+          li.className = 'site-search__empty';
+          li.textContent = emptyText;
+          list.appendChild(li);
+        } else {
+          results.forEach(function (p, i) {
+            var li = document.createElement('li');
+            li.className = 'site-search__item';
+            li.id = 'site-search-opt-' + i;
+            li.setAttribute('role', 'option');
+            var a = document.createElement('a');
+            a.className = 'site-search__link';
+            a.href = p.u;
+            a.innerHTML = '<span class="site-search__t"></span><span class="site-search__d"></span>';
+            a.querySelector('.site-search__t').textContent = p.t;
+            a.querySelector('.site-search__d').textContent = p.d;
+            li.appendChild(a);
+            list.appendChild(li);
+          });
+        }
+        list.hidden = false;
+        input.setAttribute('aria-expanded', 'true');
+      }
+
+      function run(q) { render(search(q)); }
+
+      function move(delta) {
+        if (!items.length) { return; }
+        active = (active + delta + items.length) % items.length;
+        var nodes = list.querySelectorAll('.site-search__item');
+        nodes.forEach(function (n, i) { n.classList.toggle('is-active', i === active); });
+        if (nodes[active]) {
+          input.setAttribute('aria-activedescendant', nodes[active].id);
+          nodes[active].scrollIntoView({ block: 'nearest' });
+        }
+      }
+
+      input.addEventListener('focus', loadIndex);
+      input.addEventListener('input', function () { run(input.value); });
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowDown') { e.preventDefault(); move(1); }
+        else if (e.key === 'ArrowUp') { e.preventDefault(); move(-1); }
+        else if (e.key === 'Enter') {
+          var target = (active >= 0 && items[active]) ? items[active] : items[0];
+          if (target) { e.preventDefault(); window.location.href = target.u; }
+        } else if (e.key === 'Escape') { input.value = ''; close(); }
+      });
+      document.addEventListener('click', function (e) { if (!box.contains(e.target)) { close(); } });
     })();
   </script>
 </body>

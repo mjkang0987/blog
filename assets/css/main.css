@@ -107,10 +107,72 @@
   letter-spacing: -0.02em;
   color: #fff;
   text-decoration: none;
-  margin-right: auto;
 }
 .site-brand:hover { opacity: 0.9; }
 .site-brand__logo { height: 1.75rem; width: auto; display: block; }
+
+/* ── 헤더 검색: 로고 오른쪽에 붙고, 나머지 메뉴는 오른쪽으로 밀어냄 ── */
+.site-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-right: auto;
+  padding: 0.3rem 0.7rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+.site-search:focus-within {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+.site-search__icon { font-size: 0.85rem; line-height: 1; opacity: 0.85; }
+.site-search__input {
+  width: 12rem;
+  max-width: 42vw;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 0.9rem;
+  outline: none;
+}
+.site-search__input::placeholder { color: rgba(255, 255, 255, 0.6); }
+.site-search__input::-webkit-search-cancel-button { filter: invert(1); opacity: 0.6; }
+.site-search__results {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  min-width: 20rem;
+  max-height: 70vh;
+  overflow-y: auto;
+  list-style: none;
+  margin: 0;
+  padding: 0.3rem;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+  z-index: 60;
+}
+.site-search__item { margin: 0; }
+.site-search__link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.5rem 0.6rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text);
+}
+.site-search__item:hover .site-search__link,
+.site-search__item.is-active .site-search__link { background: var(--bg-soft); }
+.site-search__t { font-size: 0.9rem; font-weight: 600; line-height: 1.35; }
+.site-search__d { font-size: 0.72rem; color: var(--muted); }
+.site-search__empty { padding: 0.7rem 0.6rem; font-size: 0.88rem; color: var(--muted); }
 
 .site-nav { display: flex; gap: 1.1rem; }
 .site-nav__link {
@@ -372,6 +434,10 @@ a.pagination__item:hover { background: var(--brand); color: #fff; border-color: 
   .site-header__inner { gap: 0.6rem 1rem; }
   .site-brand { width: 100%; margin-right: 0; }
   .site-brand__logo { height: 1.5rem; }
+  /* 모바일: 검색은 로고 아래 한 줄 전체 차지 */
+  .site-search { width: 100%; margin-right: 0; order: 1; }
+  .site-search__input { width: auto; max-width: none; flex: 1 1 auto; }
+  .site-search__results { min-width: 0; }
   /* 모바일: 로고가 한 줄 차지 → 둘째 줄에서 언어 셀렉트 우측 정렬 */
   .lang-switch { margin-left: auto; }
   /* 모바일: 발행글 카드 썸네일 이미지 숨김 (실제 이미지·플레이스홀더 모두) */
