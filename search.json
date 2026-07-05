@@ -1,0 +1,14 @@
+---
+layout: null
+permalink: /search.json
+---
+{%- comment -%} 언어별 클라이언트 검색 인덱스. polyglot이 언어별로 이 파일을 생성한다.
+  JSON 문자열 안의 URL은 polyglot이 자동 프리픽스하지 않으므로 직접 언어 프리픽스를 붙인다. {%- endcomment -%}
+{%- assign lp = '' -%}
+{%- unless site.active_lang == site.default_lang -%}{%- assign lp = '/' | append: site.active_lang -%}{%- endunless -%}
+[
+{%- for post in site.posts -%}
+{%- assign s = post.summary | default: post.description | default: post.excerpt -%}
+{"t":{{ post.title | jsonify }},"u":{{ lp | append: post.url | relative_url | jsonify }},"d":{{ post.date | date: '%Y.%m.%d' | jsonify }},"s":{{ s | strip_html | strip_newlines | truncate: 120 | jsonify }},"g":{{ post.tags | jsonify }},"c":{{ post.categories | jsonify }}}{%- unless forloop.last -%},{%- endunless -%}
+{%- endfor -%}
+]

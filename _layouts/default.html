@@ -28,6 +28,20 @@
         <img class="site-brand__logo" src="{{ '/assets/logo.svg' | relative_url }}" alt="{{ site.title }}" width="683" height="98">
       </a>
 
+      {%- if site.active_lang == 'ja' -%}{%- assign t_search_ph = '記事を検索' -%}{%- assign t_search_lbl = '検索' -%}{%- assign t_search_none = '該当する記事がありません' -%}{%- assign t_search_recent = '最近の検索' -%}{%- assign t_search_clear = 'クリア' -%}
+      {%- elsif site.active_lang == 'en-US' -%}{%- assign t_search_ph = 'Search posts' -%}{%- assign t_search_lbl = 'Search' -%}{%- assign t_search_none = 'No matching posts' -%}{%- assign t_search_recent = 'Recent searches' -%}{%- assign t_search_clear = 'Clear' -%}
+      {%- else -%}{%- assign t_search_ph = '글 검색' -%}{%- assign t_search_lbl = '검색' -%}{%- assign t_search_none = '검색 결과가 없습니다' -%}{%- assign t_search_recent = '최근 검색어' -%}{%- assign t_search_clear = '지우기' -%}{%- endif -%}
+      {%- assign search_lp = '' -%}
+      {%- unless site.active_lang == site.default_lang -%}{%- assign search_lp = '/' | append: site.active_lang -%}{%- endunless -%}
+      <div class="site-search" data-index="{{ search_lp | append: '/search.json' | relative_url }}" data-empty="{{ t_search_none }}" data-recent="{{ t_search_recent }}" data-clear="{{ t_search_clear }}">
+        <label class="visually-hidden" for="site-search-input">{{ t_search_lbl }}</label>
+        <span class="site-search__icon" aria-hidden="true">🔍</span>
+        <input class="site-search__input" id="site-search-input" type="search" placeholder="{{ t_search_ph }}"
+               autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list"
+               aria-controls="site-search-results">
+        <ul class="site-search__results" id="site-search-results" role="listbox" aria-label="{{ t_search_lbl }}" hidden></ul>
+      </div>
+
       <nav class="site-nav" aria-label="주 메뉴">
         {% if site.active_lang == 'ja' %}{% assign nav_home = 'ホーム' %}{% assign nav_about = '概要' %}{% assign nav_tags = 'タグ' %}{% assign cat_re = '不動産' %}{% assign cat_ec = '経済' %}
         {% elsif site.active_lang == 'en-US' %}{% assign nav_home = 'Home' %}{% assign nav_about = 'About' %}{% assign nav_tags = 'Tags' %}{% assign cat_re = 'Real Estate' %}{% assign cat_ec = 'Economy' %}
@@ -93,6 +107,194 @@
           a.appendChild(note);
         }
       });
+    })();
+  </script>
+
+  <script>
+    // 헤더 클라이언트 검색: search.json 인덱스를 지연 로드 후 제목/요약/태그/카테고리로 필터
+    // + 결과 요약 표시 · 검색어 하이라이트 · 최근 검색어(localStorage)
+    (function () {
+      var box = document.querySelector('.site-search');
+      if (!box) { return; }
+      var input = box.querySelector('.site-search__input');
+      var list = box.querySelector('.site-search__results');
+      var indexUrl = box.getAttribute('data-index');
+      var emptyText = box.getAttribute('data-empty') || '';
+      var recentLabel = box.getAttribute('data-recent') || '';
+      var clearLabel = box.getAttribute('data-clear') || '';
+      var MAX = 8, RECENT_MAX = 6, RECENT_KEY = 'pw-recent-search';
+      var data = null, loading = false, active = -1, items = [], terms = [];
+
+      function loadIndex() {
+        if (data || loading) { return; }
+        loading = true;
+        fetch(indexUrl).then(function (r) { return r.json(); }).then(function (json) {
+          data = json;
+          if (document.activeElement === input && input.value.trim()) { run(input.value); }
+        }).catch(function () { loading = false; });
+      }
+
+      function norm(s) { return (s || '').toString().toLowerCase(); }
+
+      // 최근 검색어 저장소
+      function getRecent() {
+        try { return JSON.parse(localStorage.getItem(RECENT_KEY)) || []; } catch (e) { return []; }
+      }
+      function saveRecent(q) {
+        q = (q || '').trim();
+        if (!q) { return; }
+        try {
+          var arr = getRecent().filter(function (x) { return x !== q; });
+          arr.unshift(q);
+          localStorage.setItem(RECENT_KEY, JSON.stringify(arr.slice(0, RECENT_MAX)));
+        } catch (e) {}
+      }
+      function clearRecent() { try { localStorage.removeItem(RECENT_KEY); } catch (e) {} }
+
+      // HTML 이스케이프 후 검색어를 <mark>로 강조
+      function esc(s) {
+        return (s || '').replace(/[&<>"]/g, function (c) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+        });
+      }
+      function highlight(text, ts) {
+        var out = esc(text);
+        if (!ts.length) { return out; }
+        var pat = ts.map(function (t) { return t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); })
+                    .filter(Boolean).join('|');
+        if (!pat) { return out; }
+        try { return out.replace(new RegExp('(' + pat + ')', 'gi'), '<mark>$1</mark>'); }
+        catch (e) { return out; }
+      }
+
+      function search(q) {
+        var ts = norm(q).split(/\s+/).filter(Boolean);
+        if (!ts.length || !data) { return { list: [], terms: ts }; }
+        var out = [];
+        for (var i = 0; i < data.length; i++) {
+          var p = data[i];
+          var hay = norm(p.t) + ' ' + norm(p.s) + ' ' + norm((p.g || []).join(' ')) + ' ' + norm((p.c || []).join(' '));
+          var ok = true;
+          for (var j = 0; j < ts.length; j++) { if (hay.indexOf(ts[j]) === -1) { ok = false; break; } }
+          if (ok) { out.push(p); if (out.length >= MAX) { break; } }
+        }
+        return { list: out, terms: ts };
+      }
+
+      function close() {
+        list.hidden = true;
+        list.innerHTML = '';
+        items = [];
+        active = -1;
+        input.setAttribute('aria-expanded', 'false');
+        input.removeAttribute('aria-activedescendant');
+      }
+
+      // 빈 입력 + 포커스 시: 최근 검색어 레이어
+      function renderRecent() {
+        var recent = getRecent();
+        items = [];
+        active = -1;
+        input.removeAttribute('aria-activedescendant');
+        if (!recent.length) { close(); return; }
+        list.innerHTML = '';
+        var head = document.createElement('li');
+        head.className = 'site-search__head';
+        var span = document.createElement('span');
+        span.textContent = recentLabel;
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'site-search__clear';
+        btn.textContent = clearLabel;
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          clearRecent();
+          renderRecent();
+          input.focus();
+        });
+        head.appendChild(span);
+        head.appendChild(btn);
+        list.appendChild(head);
+        recent.forEach(function (q) {
+          var li = document.createElement('li');
+          li.className = 'site-search__recent';
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'site-search__recent-btn';
+          b.innerHTML = '<span class="site-search__recent-ico" aria-hidden="true">↩</span>';
+          var label = document.createElement('span');
+          label.textContent = q;
+          b.appendChild(label);
+          b.addEventListener('click', function () { input.value = q; run(q); input.focus(); });
+          li.appendChild(b);
+          list.appendChild(li);
+        });
+        list.hidden = false;
+        input.setAttribute('aria-expanded', 'true');
+      }
+
+      function render(res) {
+        var results = res.list;
+        list.innerHTML = '';
+        items = results;
+        terms = res.terms;
+        active = -1;
+        input.removeAttribute('aria-activedescendant');
+        if (!input.value.trim()) { renderRecent(); return; }
+        if (!results.length) {
+          var li = document.createElement('li');
+          li.className = 'site-search__empty';
+          li.textContent = emptyText;
+          list.appendChild(li);
+        } else {
+          results.forEach(function (p, i) {
+            var li = document.createElement('li');
+            li.className = 'site-search__item';
+            li.id = 'site-search-opt-' + i;
+            li.setAttribute('role', 'option');
+            var a = document.createElement('a');
+            a.className = 'site-search__link';
+            a.href = p.u;
+            var html = '<span class="site-search__row"><span class="site-search__t">' + highlight(p.t, terms) +
+                       '</span><span class="site-search__d">' + esc(p.d) + '</span></span>';
+            if (p.s) { html += '<span class="site-search__s">' + highlight(p.s, terms) + '</span>'; }
+            a.innerHTML = html;
+            a.addEventListener('click', function () { saveRecent(input.value); });
+            li.appendChild(a);
+            list.appendChild(li);
+          });
+        }
+        list.hidden = false;
+        input.setAttribute('aria-expanded', 'true');
+      }
+
+      function run(q) { render(search(q)); }
+
+      function move(delta) {
+        if (!items.length) { return; }
+        active = (active + delta + items.length) % items.length;
+        var nodes = list.querySelectorAll('.site-search__item');
+        nodes.forEach(function (n, i) { n.classList.toggle('is-active', i === active); });
+        if (nodes[active]) {
+          input.setAttribute('aria-activedescendant', nodes[active].id);
+          nodes[active].scrollIntoView({ block: 'nearest' });
+        }
+      }
+
+      input.addEventListener('focus', function () {
+        loadIndex();
+        if (input.value.trim()) { run(input.value); } else { renderRecent(); }
+      });
+      input.addEventListener('input', function () { run(input.value); });
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowDown') { e.preventDefault(); move(1); }
+        else if (e.key === 'ArrowUp') { e.preventDefault(); move(-1); }
+        else if (e.key === 'Enter') {
+          var target = (active >= 0 && items[active]) ? items[active] : items[0];
+          if (target) { e.preventDefault(); saveRecent(input.value); window.location.href = target.u; }
+        } else if (e.key === 'Escape') { input.value = ''; close(); }
+      });
+      document.addEventListener('click', function (e) { if (!box.contains(e.target)) { close(); } });
     })();
   </script>
 </body>
