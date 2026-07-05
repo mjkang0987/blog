@@ -32,8 +32,8 @@ permalink: /tags/
   <h1 class="filter-page__title">{{ t_title }}</h1>
 
   {% if all_cats.size > 0 %}
-  <nav class="filter-nav" aria-label="{{ t_cats }}">
-    <h2 class="filter-nav__heading">{{ t_cats }}</h2>
+  <details class="filter-nav" id="filter-nav-cats" open>
+    <summary class="filter-nav__heading">{{ t_cats }} <span class="filter-nav__count">{{ all_cats.size }}</span></summary>
     <ul class="chip-list">
       <li><a class="chip chip--all" href="{{ base_url }}" data-clear="true">{{ t_all }}</a></li>
       {% for cat in all_cats %}
@@ -41,19 +41,19 @@ permalink: /tags/
         <li><a class="chip" href="{{ base_url }}?cat={{ cat | uri_escape }}" data-cat="{{ cat }}">{{ cat }} <span class="chip__count">{{ cat_count }}</span></a></li>
       {% endfor %}
     </ul>
-  </nav>
+  </details>
   {% endif %}
 
   {% if all_tags.size > 0 %}
-  <nav class="filter-nav" aria-label="{{ t_tags }}">
-    <h2 class="filter-nav__heading">{{ t_tags }}</h2>
+  <details class="filter-nav" id="filter-nav-tags">
+    <summary class="filter-nav__heading">{{ t_tags }} <span class="filter-nav__count">{{ all_tags.size }}</span></summary>
     <ul class="chip-list">
       {% for tag in all_tags %}
         {%- assign tag_count = site.posts | where_exp: "p", "p.tags contains tag" | size -%}
         <li><a class="chip" href="{{ base_url }}?tag={{ tag | uri_escape }}" data-tag="{{ tag }}">#{{ tag }} <span class="chip__count">{{ tag_count }}</span></a></li>
       {% endfor %}
     </ul>
-  </nav>
+  </details>
   {% endif %}
 
   <p class="filter-status" id="filter-status" role="status" aria-live="polite"></p>
@@ -111,7 +111,13 @@ permalink: /tags/
     if (tagFilter) { active = document.querySelector('.chip[data-tag="' + (window.CSS && CSS.escape ? CSS.escape(tagFilter) : tagFilter) + '"]'); }
     else if (catFilter) { active = document.querySelector('.chip[data-cat="' + (window.CSS && CSS.escape ? CSS.escape(catFilter) : catFilter) + '"]'); }
     else { active = document.querySelector('.chip--all'); }
-    if (active) { active.setAttribute('aria-current', 'true'); active.classList.add('chip--active'); }
+    if (active) {
+      active.setAttribute('aria-current', 'true');
+      active.classList.add('chip--active');
+      // 활성 칩이 접힌 섹션 안에 있으면 펼쳐서 보이게
+      var host = active.closest('details.filter-nav');
+      if (host && !host.open) { host.open = true; }
+    }
 
     // 상태 안내(aria-live)
     var label = tagFilter ? ('#' + tagFilter) : (catFilter ? catFilter : null);
