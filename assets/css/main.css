@@ -290,6 +290,10 @@
    :has() 로 글 페이지에만 적용 → 홈·소개·태그 페이지의 상단 여백은 유지 */
 .site-main:has(.post__header) { padding-top: 0; }
 .post__header { padding-top: 1.5rem; }
+/* sticky 고정 감지용 센티널: 레이아웃에 영향 없도록 글 상단에 absolute 배치.
+   이 지점이 sticky 라인 위로 올라가면 JS 가 .post__header 에 is-sticky 를 토글 */
+.post { position: relative; }
+.post__sticky-sentinel { position: absolute; top: 0; left: 0; width: 1px; height: 1px; pointer-events: none; }
 
 /* 홈 글 목록 */
 .home__title {
@@ -426,6 +430,25 @@ a.pagination__item:hover { background: var(--brand); color: #fff; border-color: 
   padding-bottom: 0.85rem;
   background: var(--bg);
   border-bottom: 1px solid var(--border);
+  transition: padding 0.15s ease, box-shadow 0.15s ease;
+}
+/* 고정된 상태: 컴팩트하게 — 상단 여백 제거, 제목 축소·1줄 말줄임, 메타 숨김, 살짝 그림자 */
+.post__header.is-sticky {
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
+}
+.post__header.is-sticky .post__title {
+  font-size: 1.1rem;
+  line-height: 1.35;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.post__header.is-sticky .post__meta { display: none; }
+@media (prefers-reduced-motion: reduce) {
+  .post__header { transition: none; }
 }
 .post__title, .page__title {
   font-size: 1.9rem;

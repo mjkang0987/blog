@@ -42,6 +42,8 @@ layout: default
 }
 </script>
 <article class="post">
+  {%- comment -%} sticky 고정 순간 감지용 센티널: 이 지점이 sticky 라인 위로 올라가면 헤더가 고정됨 {%- endcomment -%}
+  <span class="post__sticky-sentinel" aria-hidden="true"></span>
   <header class="post__header">
     <h1 class="post__title">{{ page.title }}</h1>
     <p class="post__meta">
