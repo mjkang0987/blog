@@ -433,15 +433,12 @@ a.pagination__item:hover { background: var(--brand); color: #fff; border-color: 
   background: var(--bg);
   border-bottom: 1px solid var(--border);
 }
-/* 고정된 상태: 컴팩트하게 — 메타 숨김 + 제목 폰트 축소(1줄 말줄임). padding 은 그대로 유지 */
+/* 고정된 상태: 컴팩트하게 — 메타 숨김 + 제목 폰트 축소. padding 은 그대로 유지 */
 .post__header.is-sticky .post__meta { display: none; }
 .post__header.is-sticky .post__title {
   font-size: 1.1rem;
   line-height: 1.35;
   margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 .post__title, .page__title {
   font-size: 1.9rem;
