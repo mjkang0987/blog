@@ -93,8 +93,8 @@
   .site-header { border-bottom-color: var(--brand); }
   .site-header::after { display: none; }
 }
-/* 헤더 높이 = 글 헤더 sticky top (Chromium 1px 단위 실측). 헤더는 폭·언어에 따라
-   줄바꿈되므로 기본(한국어) 구간을 :root 에 두고, 줄바꿈 폭이 다른 en-US·ja 만 재정의.
+/* 헤더 높이 = 글 헤더 sticky top. 폰트·OS별로 헤더 높이가 달라 JS(default.html)가
+   실측값으로 --header-h 를 덮어쓰며, 아래 값들은 JS 미실행 시의 폴백(근사)이다.
    ko: >600px→104 · ≤600→135(로고·검색 줄바꿈) · ≤418→171(메뉴 줄바꿈) */
 @media (max-width: 600px) { :root { --header-h: 135px; } }
 @media (max-width: 418px) { :root { --header-h: 171px; } }
@@ -286,6 +286,11 @@
   padding-top: 3rem;
   padding-bottom: 4rem;
 }
+/* 글 페이지: 상단 여백을 site-main 대신 글 헤더(.post__header)가 갖도록 이동.
+   sticky 요소이므로 padding 이 아닌 margin-top 을 써야 고정 시 제목 위에 빈 공간이 안 생김.
+   :has() 로 글 페이지에만 적용 → 홈·소개·태그 페이지의 상단 여백은 유지 */
+.site-main:has(.post__header) { padding-top: 0; }
+.post__header { margin-top: 3rem; }
 
 /* 홈 글 목록 */
 .home__title {
@@ -526,7 +531,8 @@ a.pagination__item:hover { background: var(--brand); color: #fff; border-color: 
   /* 모바일: 푸터 여백 축소 */
   .site-footer__inner { padding-top: 1.4rem; padding-bottom: 1.4rem; }
   .post__title, .page__title { font-size: 1.55rem; }
-  .site-main { padding-top: 2rem; }
+  .site-main { padding-top: 2rem; }        /* 홈·소개·태그 등 비-글 페이지 */
+  .post__header { margin-top: 2rem; }      /* 글 페이지: 이동한 상단 여백(모바일) */
 
   /* 모바일: 가로형 컴팩트 카드 (썸네일 좌 + 텍스트 우) */
   .post-grid { grid-template-columns: 1fr; gap: 0.75rem; }
