@@ -286,11 +286,10 @@
   padding-top: 3rem;
   padding-bottom: 4rem;
 }
-/* 글 페이지: 상단 여백을 site-main 대신 글 헤더(.post__header)가 갖도록 이동.
-   sticky 요소이므로 padding 이 아닌 margin-top 을 써야 고정 시 제목 위에 빈 공간이 안 생김.
+/* 글 페이지: 상단 여백을 site-main 대신 글 헤더(.post__header)가 padding-top 으로 가짐.
    :has() 로 글 페이지에만 적용 → 홈·소개·태그 페이지의 상단 여백은 유지 */
 .site-main:has(.post__header) { padding-top: 0; }
-.post__header { margin-top: 3rem; }
+.post__header { padding-top: 1.5rem; }
 
 /* 홈 글 목록 */
 .home__title {
@@ -532,7 +531,7 @@ a.pagination__item:hover { background: var(--brand); color: #fff; border-color: 
   .site-footer__inner { padding-top: 1.4rem; padding-bottom: 1.4rem; }
   .post__title, .page__title { font-size: 1.55rem; }
   .site-main { padding-top: 2rem; }        /* 홈·소개·태그 등 비-글 페이지 */
-  .post__header { margin-top: 2rem; }      /* 글 페이지: 이동한 상단 여백(모바일) */
+  .post__header { padding-top: 1rem; }     /* 글 페이지: 이동한 상단 여백(모바일) */
 
   /* 모바일: 가로형 컴팩트 카드 (썸네일 좌 + 텍스트 우) */
   .post-grid { grid-template-columns: 1fr; gap: 0.75rem; }
