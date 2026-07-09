@@ -398,7 +398,17 @@ a.pagination__item:hover { background: var(--brand); color: #fff; border-color: 
 }
 
 /* 글 / 페이지 */
-.post__header { margin-bottom: 2rem; }
+/* 글 헤더: 상단 sticky 헤더 바로 아래에 함께 고정
+   --header-h 는 헤더 높이(줄바꿈 대응)를 JS가 실측해 주입, 미실행 시 폴백값 사용 */
+.post__header {
+  position: sticky;
+  top: var(--header-h, 4.5rem);
+  z-index: 40;
+  margin-bottom: 2rem;
+  padding-bottom: 0.85rem;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
 .post__title, .page__title {
   font-size: 1.9rem;
   font-weight: 800;
