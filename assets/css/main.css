@@ -286,10 +286,10 @@
   padding-top: 3rem;
   padding-bottom: 4rem;
 }
-/* 글 페이지: 상단 여백을 site-main 대신 글 헤더(.post__header)가 padding-top 으로 가짐.
-   :has() 로 글 페이지에만 적용 → 홈·소개·태그 페이지의 상단 여백은 유지 */
+/* 글 페이지: 상단 여백을 site-main 대신 글 헤더(.post__header)가 가짐.
+   :has() 로 글 페이지에만 적용 → 홈·소개·태그 페이지의 상단 여백은 유지.
+   (상하 padding 은 아래 .post__header 규칙에서 top·bottom 동일 값으로 지정) */
 .site-main:has(.post__header) { padding-top: 0; }
-.post__header { padding-top: 1.5rem; }
 /* sticky 고정 감지용 센티널: 레이아웃에 영향 없도록 글 상단에 absolute 배치.
    이 지점이 sticky 라인 위로 올라가면 JS 가 .post__header 에 is-sticky 를 토글 */
 .post { position: relative; }
@@ -427,17 +427,14 @@ a.pagination__item:hover { background: var(--brand); color: #fff; border-color: 
   top: var(--header-h);
   z-index: 40;
   margin-bottom: 2rem;
-  padding-bottom: 0.85rem;
+  /* sticky 여부와 무관하게 상·하 padding 동일 값 유지 */
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
   background: var(--bg);
   border-bottom: 1px solid var(--border);
-  transition: padding 0.15s ease, box-shadow 0.15s ease;
 }
-/* 고정된 상태: 컴팩트하게 — 상단 여백 제거, 제목 축소·1줄 말줄임, 메타 숨김, 살짝 그림자 */
-.post__header.is-sticky {
-  padding-top: 0.6rem;
-  padding-bottom: 0.6rem;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
-}
+/* 고정된 상태: 컴팩트하게 — 메타 숨김 + 제목 폰트 축소(1줄 말줄임). padding 은 그대로 유지 */
+.post__header.is-sticky .post__meta { display: none; }
 .post__header.is-sticky .post__title {
   font-size: 1.1rem;
   line-height: 1.35;
@@ -445,10 +442,6 @@ a.pagination__item:hover { background: var(--brand); color: #fff; border-color: 
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-.post__header.is-sticky .post__meta { display: none; }
-@media (prefers-reduced-motion: reduce) {
-  .post__header { transition: none; }
 }
 .post__title, .page__title {
   font-size: 1.9rem;
@@ -554,7 +547,7 @@ a.pagination__item:hover { background: var(--brand); color: #fff; border-color: 
   .site-footer__inner { padding-top: 1.4rem; padding-bottom: 1.4rem; }
   .post__title, .page__title { font-size: 1.55rem; }
   .site-main { padding-top: 2rem; }        /* 홈·소개·태그 등 비-글 페이지 */
-  .post__header { padding-top: 1rem; }     /* 글 페이지: 이동한 상단 여백(모바일) */
+  .post__header { padding-top: 1rem; padding-bottom: 1rem; }  /* 글 페이지: 상·하 동일(모바일) */
 
   /* 모바일: 가로형 컴팩트 카드 (썸네일 좌 + 텍스트 우) */
   .post-grid { grid-template-columns: 1fr; gap: 0.75rem; }
