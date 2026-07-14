@@ -7,8 +7,8 @@ lint_structure.py — 글 구조(섹션 제목/총평/출처) 검증기 · pikaw
 섹션 소제목에 '## ' 가 빠져 본문과 같은 크기로 렌더되던 반복 문제를 발행 전에 차단한다.
 
 검사 항목:
-  [ERROR] no-heading    : 본문에 '## ' 섹션 제목이 하나도 없음 → 소제목이 본문
-                          크기로 렌더되는 반복 버그. 발행 차단(종료코드 1).
+  [ERROR] no-heading    : 본문에 섹션 헤딩(##~######)이 하나도 없음 → 소제목이
+                          본문 크기로 렌더되는 반복 버그. 발행 차단(종료코드 1).
   [ERROR] dup-title     : 머리말 title 과 (이모지 제외) 동일한 줄이 본문에 중복 등장
   [ERROR] plain-section : 이모지로 시작하고 ' — ' 를 포함하는 섹션 제목이 '## ' 없이 평문
   [WARN ] plain-label   : 총평/출처/TL;DR 라벨이 '## '/볼드 없이 평문(경미·게이트 통과)
@@ -100,7 +100,8 @@ def lint(path):
             continue
         if in_code:
             continue
-        if s.startswith("## "):
+        # ATX 헤딩(##~######) 모두 헤딩으로 집계 — h3(###)도 실제 소제목임
+        if re.match(r"^#{2,6} ", s):
             heading_count += 1
             continue
         kind = classify_plain(line)
@@ -112,7 +113,7 @@ def lint(path):
             errors.append(("ERROR", i + 1, "dup-title", s[:60]))
 
     if heading_count == 0:
-        errors.insert(0, ("ERROR", 0, "no-heading", "본문에 '## ' 섹션 제목이 없음"))
+        errors.insert(0, ("ERROR", 0, "no-heading", "본문에 섹션 헤딩(##~######)이 없음"))
     return errors, heading_count
 
 
@@ -143,12 +144,12 @@ def main():
             warn_files += 1
         if errors:
             mark = "✗" if has_err else "△"
-            print(f"\n{mark} {name}  (## {hc}개)")
+            print(f"\n{mark} {name}  (헤딩 {hc}개)")
             for sev, ln, code, msg in errors:
                 loc = f"L{ln}" if ln else "  "
                 print(f"    [{sev:5}] {code} {loc}: {msg}")
         elif not args.quiet:
-            print(f"✓ {name}  (## {hc}개)")
+            print(f"✓ {name}  (헤딩 {hc}개)")
 
     print(f"\n검사 {len(files)}건 · ERROR {err_files}건 · WARN {warn_files}건")
     fail = err_files or (args.strict and warn_files)
