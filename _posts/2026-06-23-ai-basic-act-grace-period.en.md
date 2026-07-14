@@ -14,7 +14,7 @@ tags: [AI Basic Act, AI Framework Act Korea, high-impact AI, generative AI, AI r
 
 Korea's AI Basic Act took effect on January 22, 2026. But because the government paired it with a grace period of at least one year during which no fines will be imposed, the law is up and running while actual enforcement is pushed back to 2027 or later. As the world's second comprehensive AI regulation after the EU, it's worth looking at where the law stands today and what companies and users should be getting ready for.
 
-TL;DR
+**TL;DR**
 - The AI Basic Act and its enforcement decree took effect on January 22, 2026, and the government is running a grace period of at least one year (fines suspended).
 - The core duties cover transparency and safety for "high-impact AI" and "generative AI," with an added risk-management requirement for large-scale AI trained on 10²⁶ FLOP or more of cumulative compute.
 - Enforcement is delayed, but the labeling and disclosure duties themselves are already in force, so companies are safer treating the grace period as preparation time.

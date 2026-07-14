@@ -20,37 +20,37 @@ Korea's information and communications technology (ICT) exports came in at $253.
 - 📌 Semiconductors led the way at $192.43 billion (up 162.5%), while SSDs surged more than threefold to $19.94 billion (up 317.5%)
 - 📌 ICT trade surplus of $160.65 billion—already surpassing the previous full-year record of $113.22 billion (2018) in just six months
 
-📊 How Much Did It Grow? — $253.9B in H1, Past Half of All Exports
+## 📊 How Much Did It Grow? — $253.9B in H1, Past Half of All Exports
 
 H1 ICT exports totaled $253.86 billion, up 120.5% from the same period a year earlier ($115.12 billion). That is the largest half-year figure on record. The standout point is ICT's share of the nation's total industrial exports. At 51.1%, it topped half for the first time, showing in hard numbers that the center of gravity of Korean exports has clearly tilted toward ICT.
 
 The monthly trend was a record run as well. June ICT exports crossed $50 billion for the first time in a single month, with semiconductors alone accounting for $44.8 billion of that. From $42.7 billion in April to $47.8 billion in May and past $50 billion in June, monthly records fell one after another throughout the first half.
 
-🧠 What Drove It? — $192.4B in Chips, SSDs Up Threefold
+## 🧠 What Drove It? — $192.4B in Chips, SSDs Up Threefold
 
 The engine behind the record was semiconductors. H1 chip exports came to $192.43 billion, up 162.5% year-on-year for an all-time high. As AI server investment expanded worldwide, demand for memory chips—including high-bandwidth memory (HBM)—jumped, and rising unit prices piled on top to lift the numbers.
 
 The hidden strength was SSDs. Exports of SSDs, a type of data storage device, surged 317.5% to $19.94 billion, powering growth in the computer and peripherals segment. As AI data centers bought up storage in bulk, SSDs—long overshadowed by chips—emerged as a genuine export standout. Mobile phones also rose 38.0% to $8.4 billion, helped by stronger premium sales and solid exports of high-value parts such as camera modules.
 
-🌎 Where Did It Go? — U.S.-Bound Chips Up Fourfold on AI Infrastructure
+## 🌎 Where Did It Go? — U.S.-Bound Chips Up Fourfold on AI Infrastructure
 
 Looking at destinations, the U.S. market clearly stands out. With AI infrastructure investment concentrated there, H1 chip exports to the U.S. jumped 397.9% to $26.39 billion, while computer and peripheral exports rose 341.9% to $11.92 billion. The rush among Big Tech firms to build data centers and expand AI compute fed directly into Korean exports of components and storage.
 
-💰 What About the Trade Balance? — Already Past 2018's Full-Year Record in Six Months
+## 💰 What About the Trade Balance? — Already Past 2018's Full-Year Record in Six Months
 
 The trade surplus was record-setting too. H1 ICT trade surplus—exports minus imports—reached $160.65 billion. That already exceeds the previous full-year record of $113.22 billion set in 2018, in just six months. It shows how the ICT industry, led by semiconductors, is holding up Korea's entire trade balance.
 
-⚠️ Worth Watching — Chip Concentration and Price/Demand Variables Behind the Record
+## ⚠️ Worth Watching — Chip Concentration and Price/Demand Variables Behind the Record
 
 The better the results, the more it pays to look at what's inside them. This record leans heavily on semiconductors—specifically demand for AI-server memory and rising unit prices. If the gains came more from price than from volume, the growth rate could cool quickly should memory prices correct or AI server investment slow. Chip stocks have in fact turned volatile enough to swing by double digits in a single day. The heavy dependence on a specific product and specific downstream demand is a point to keep in mind on the flip side of the record.
 
-Overall
+## 🧭 Overall
 
 This H1 ICT export report rewrote "all-time record" across several metrics at once. From $253.86 billion in exports, a first-ever majority share (51.1%), $192.43 billion in chips, to a $160.65 billion trade surplus, it shows the global spread of AI infrastructure flowing directly into results for Korea's chip and storage industries. That said, with growth concentrated on chip prices and AI-server demand, whether the momentum holds will hinge on second-half memory prices and the intensity of Big Tech's investment. This is a moment to watch the balance of that mix rather than rest easy on the record.
 
 ※ This article is for informational purposes only and is not investment advice.
 
-Sources
+**Sources**
 
 - [ICT exports $253.8B 'record high'… past 51% of total exports (Cheonji Ilbo)](https://www.newscj.com/news/articleView.html?idxno=3416891)
 - [Korea ICT exports hit record $253.9B in H1… past 50% of total exports for first time (Segye Ilbo)](https://segye.com/newsView/20260714509543)
