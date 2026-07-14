@@ -19,19 +19,19 @@ HBM (high-bandwidth memory), the heart of AI memory, has entered a "sold-out" ph
 - Its 2026 HBM volume is already fully contracted, and the supply shortage is expected to persist into early 2027.
 - In Korea, SK Hynix holds the No. 1 spot in the HBM market while Samsung pushes back with HBM4 volume production, intensifying the fight for next-generation leadership.
 
-## Why Are Micron's Results an 'AI Memory Litmus Test'?
+## 💾 Why Are Micron's Results an 'AI Memory Litmus Test'?
 
 The market watches Micron's results because they are the first gateway where AI memory demand shows up in actual numbers. As one of the first U.S.-listed major memory makers to report each quarter, Micron is read as a leading indicator for the mood of the Korean memory firms that report afterward.
 
 The fiscal-Q3 guidance the company gave earlier is revenue of about $33.5 billion (±$0.75B), non-GAAP EPS of about $19.15 (±$0.40), and a gross margin of roughly 81%. If that gross margin holds, it would be the most profitable quarter in Micron's 47-year history. That said, it is only the company's prior forecast, and some in the market peg the revenue consensus higher, in the $34 billion range. Because the real figures are confirmed only once results are out, this post deliberately frames everything as pre-announcement guidance and expectations.
 
-## How True Is the 'HBM Sold Out' Claim?
+## 📊 How True Is the 'HBM Sold Out' Claim?
 
 Micron has already sold all the HBM it will make in 2026. On its previous earnings call, management explained that the entire 2026 HBM shipment volume is filled with supply contracts at fixed prices and quantities, and that the tightness will continue beyond 2027. Some sources say bookings already extend into early-2027 volume.
 
 Where the demand comes from is clear: AI data centers. In the prior quarter, Micron's data-center revenue rose sharply — by roughly 150% year over year — and HBM revenue is reported to have topped $1 billion in a quarter for the first time. Each accelerator running a generative-AI model packs in a large amount of HBM, so GPU demand flows straight into memory demand. That is exactly why the word "supercycle" gets attached.
 
-## How Far Along Is Korea's Industry on Next-Gen HBM4?
+## 🇰🇷 How Far Along Is Korea's Industry on Next-Gen HBM4?
 
 HBM4, the next-generation standard, is the battleground where SK Hynix and Samsung Electronics square off for leadership. It is the memory set to go into Nvidia's next-gen AI platform (Vera Rubin) and others, a standard that lifts bandwidth and efficiency by a notch.
 
@@ -39,7 +39,7 @@ SK Hynix is expected to hold the No. 1 spot by revenue in the 2026 HBM market (e
 
 In the end, while Micron uses its results to prove that "AI memory demand is real," Korea's two firms will see leadership of the next cycle decided by which of them can supply faster, more efficient HBM4 reliably first.
 
-## The Bottom Line — What to Watch
+## 🧭 The Bottom Line — What to Watch
 
 The crux of this phase is whether AI memory demand is a short-lived fad or a structural trend locked in by multi-year contracts. The fact that Micron has already sold out its 2026 volume, and that data-center revenue has climbed steeply, signals firm demand. At the same time, memory has long been a cyclical industry where prices cool quickly once supply rises — so the possibility of oversupply after HBM capacity expansion kicks in beyond 2027, and the risk of a demand adjustment if AI investment slows, are worth keeping in view.
 

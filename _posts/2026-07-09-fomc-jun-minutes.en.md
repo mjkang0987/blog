@@ -44,13 +44,13 @@ For Korea, these minutes signal that the Korea–U.S. rate gap and downward pres
 
 That backdrop makes the math harder for the Bank of Korea's Monetary Policy Board on July 16. With June consumer inflation at 3.2% — the highest in two and a half years — prices alone make easing hard to justify hastily, and the currency burden narrows the room for a cut further still. Conversely, thinking of growth and domestic demand, dragging out high rates is a burden too. Whether the Bank of Korea extends its eight-meeting hold amid the tug between the exchange rate, prices, and the economy, this meeting looks set to be a turning point for second-half monetary policy.
 
-## Overall Take
+## 🧭 Overall Take
 
 These June FOMC minutes showed "how divided the Fed is inside" more vividly than "where the Fed is headed." With hike and hold-or-cut locked one vote apart, Warsh made clear he would judge from the data rather than signal direction in advance. Three points to watch: first, as long as upside inflation risks (tariffs, the Middle East, AI demand) go unresolved, the "tightening bias" won't fade easily. Second, the coming July FOMC (July 28–29) won't include a dot plot (released only in March, June, September, and December), so confirmation of direction is pushed back that much further. Third, Korea heads into its July 16 rate meeting under a triple burden of a wider rate gap, a weak won, and inflation in the 3% range. For a while yet, both the Fed and the Bank of Korea look set to stay in a "move when the data tells you" mode.
 
 ※ This article is for informational purposes only and is not investment advice.
 
-## Sources
+## 📚 Sources
 
 - [Fed minutes June 2026: officials split on rates (CNBC)](https://www.cnbc.com/2026/07/08/fed-minutes-june-2026-.html)
 - [Fed meeting minutes to show 'family fight' over rates (CNBC)](https://www.cnbc.com/2026/07/08/with-minutes-due-feds-family-fight-over-interest-rates-could-drag-on.html)

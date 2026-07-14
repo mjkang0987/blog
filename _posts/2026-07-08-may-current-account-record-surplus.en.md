@@ -35,13 +35,13 @@ This year's cumulative surplus has already passed the whole of last year, and th
 
 The reason the won is weak despite a record surplus is that the dollars coming in through trade and the dollars leaving through capital markets are moving in different directions. The current account shows the dollars earned from "real economy and income" transactions such as exports, imports, and dividends — and through this channel, dollars are flowing in generously. The issue lies in the capital and financial account. As foreigners sold the Korean shares they had accumulated and converted the proceeds into dollars, the pressure from dollars leaving via securities investment grew. As a result, the won-dollar rate stayed on a weak path around 1,530 in early July. A current-account surplus is a factor supporting the won's underlying strength, but this episode shows clearly that the short-term exchange rate reacts more sensitively to the direction of foreign capital.
 
-## Overall Take
+## 🧭 Overall Take
 
 The May current account can be summed up in one line: "a new record rewritten by chips." As the goods balance hit a record and the dividend-season effect cleared, the current-account surplus jumped to $38.61 billion, and the cumulative surplus has already overtaken all of last year. Still, the sight of a record surplus and a weak won near 1,530 side by side is a fresh reminder that a trade surplus does not translate directly into a stronger currency. Three points to watch from here: whether chip exports stay strong enough to underpin the surplus beyond June, whether foreign securities-investment money turns back to inflows, and whether the annual $250 billion surplus path the Bank of Korea projects actually holds. Reading the won and the economy in the second half starts with watching the dollars earned through trade and the dollars moving through capital markets together.
 
 ※ This article is for informational purposes only and is not investment advice.
 
-## Sources
+## 📚 Sources
 
 - [Chip strength drives record May current-account surplus — already past all of last year (Newspim)](https://www.newspim.com/news/view/20260708000402)
 - [May current-account surplus at a record $38.61B — the unquenchable power of chips (Herald Economy)](https://biz.heraldcorp.com/article/10801501)

@@ -43,7 +43,7 @@ The path to a final figure runs into early August. The statutory deadline for th
 
 From there, the process follows a set sequence. Based on the submitted proposal, and after objection procedures and the like, the Minister of Employment and Labor finalizes and announces the 2027 minimum wage by August 5. The confirmed figure applies uniformly to every workplace nationwide from January 1, 2027.
 
-## The Bottom Line
+## 🧭 The Bottom Line
 
 The 2027 deliberation has locked in the broad framework of a "single rate," and what remains is how to close the gap, now narrowed to around 1,540 won. As in most years, if the two sides fail to reach a full agreement, the outcome is likely to be decided by a vote on a mediating proposal put forward by the public-interest members.
 

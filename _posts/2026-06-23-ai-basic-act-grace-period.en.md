@@ -19,27 +19,27 @@ Korea's AI Basic Act took effect on January 22, 2026. But because the government
 - The core duties cover transparency and safety for "high-impact AI" and "generative AI," with an added risk-management requirement for large-scale AI trained on 10²⁶ FLOP or more of cumulative compute.
 - Enforcement is delayed, but the labeling and disclosure duties themselves are already in force, so companies are safer treating the grace period as preparation time.
 
-## Where does the AI Basic Act stand right now?
+## 📋 Where does the AI Basic Act stand right now?
 The law is already in force, but penalties are on hold. Its full title is the "Framework Act on the Development of Artificial Intelligence and Establishment of a Foundation of Trust." Promulgated in January 2025, it took effect on January 22, 2026, alongside its enforcement decree — making it the world's second comprehensive, state-level AI regulatory framework after the EU's AI Act.
 
 That said, the Ministry of Science and ICT (MSIT) decided to defer application of the rules under the law and decree for at least one year so companies have time to prepare on the ground. During this period, fines and fact-finding investigations are deferred as a rule, with investigations carried out only in exceptional cases involving serious social harm such as loss of life or violations of human rights. As a result, full enforcement is unlikely to kick in before 2027 at the earliest.
 
-## What is "high-impact AI" and why does it carry heavier duties?
+## 🤖 What is "high-impact AI" and why does it carry heavier duties?
 It exists to apply stricter rules to AI that can heavily affect people's lives, bodies, and fundamental rights. The AI Basic Act classifies AI used in fields where a single malfunction can directly harm people — such as medical care, credit scoring, hiring and personnel evaluation, and autonomous driving — as "high-impact AI."
 
 Operators of high-impact AI face heavier duties than those running ordinary AI. They must put in place measures to identify, assess, and mitigate risks in advance, and they must clearly notify users that a service is based on high-impact AI before they use it. Impact assessments and a duty to explain are also required.
 
-## What labeling duties apply to generative AI?
+## 📌 What labeling duties apply to generative AI?
 The key point is that outputs created by generative AI must be labeled as AI-generated. Services that produce text, images, or video — such as blog generators or image-creation tools — must mark their outputs as having been produced by generative AI.
 
 Labeling comes in two forms. One is a label a person can recognize at a glance; the other is machine-readable metadata such as C2PA. In particular, deepfakes or virtual figures that look like real people must be marked clearly enough for ordinary users to spot at once. The aim is to reduce the confusion caused by fake information and synthetic content.
 
-## What gets added for large-scale AI (10²⁶ FLOP)?
+## 📊 What gets added for large-scale AI (10²⁶ FLOP)?
 Very large models whose cumulative training compute exceeds a set threshold carry separate safety duties. The decree designates large-scale AI trained on more than 10 to the 26th power (10²⁶) floating-point operations as a distinct oversight category, on the view that such systems use cutting-edge technology and can have broad effects on fundamental rights.
 
 Operators that meet this threshold must submit to the Minister of Science and ICT the results of identifying, assessing, and mitigating risks across the AI lifecycle, along with details of the risk-management system they have built. They must also maintain systems to monitor AI-related safety incidents. Since many of global Big Tech's latest large models fall into this compute range, overseas operators serving the Korean market are also within scope.
 
-## What should companies and users do now?
+## 📰 What should companies and users do now?
 The safer view is to treat the grace period as "preparation time" rather than "time to do nothing." The labeling and disclosure duties themselves are already in force; what's suspended is enforcement such as fines. MSIT is running an "AI Basic Act Support Desk" offering practical advice on the law and decree, so this is a good window for companies to check whether their services count as high-impact, generative, or large-scale AI and to put labeling systems and risk-management procedures in order.
 
 There's also a gap worth flagging. Some analyses point out that, unlike the EU AI Act, Korea's law does not mandate "bias" management directly, leaving a hole. How upcoming subordinate regulations and guidelines fill that gap is something to watch.

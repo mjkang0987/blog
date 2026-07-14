@@ -20,25 +20,25 @@ Applications for the "Youth Future Savings" account — a policy savings product
 - Applications run June 22–July 3. The first week used a five-day rotation by birth-year digit; from June 29 anyone can apply.
 - By income, it splits into a standard type (6% match) and a preferential type (12% match). Some estimates suggest a maturity lump sum of up to about ₩22.55 million.
 
-## What is it?
+## 📌 What is it?
 
 Youth Future Savings is a policy savings product in which the government helps young people build a lump sum over three years through a contribution and a tax break. The structure is simple: deposit up to ₩500,000 freely each month, and at the three-year maturity your principal, interest, and the government contribution combine. Unlike ordinary deposits, it isn't subject to the 15.4% interest-income tax — a meaningful plus.
 
 The government contribution varies by income. The standard type matches 6% of deposits; the preferential type matches 12%. In other words, for the same deposit, lower earners receive more support. Some estimates suggest that, combining the match, tax exemption and a preferential rate, the annualized return could reach double digits.
 
-## Who can apply, and when?
+## 📝 Who can apply, and when?
 
 The product is for those aged 19 to 34. Income requirements apply on top: per the Financial Services Commission, personal income must be no more than ₩75 million in total pay (₩63 million in composite income), and household income no more than 200% of the median (250% for dual-income two-person households). You don't choose your type — it's set automatically by the income review. The standard type covers total pay up to ₩60 million (composite income ₩48 million) with household income at or below 200% of the median; the preferential type, which doubles the match to 12%, covers groups such as SME employees earning up to ₩36 million in total pay (composite income ₩26 million) or small-business owners with annual revenue up to ₩100 million, with household income at or below 150% of the median. Since the detailed criteria are intricate, it's safest to confirm which bracket you fall under through official channels.
 
 The schedule matters. Eligibility-check applications run for about two weeks, from June 22 to July 3. To avoid a crush in the first week, a five-day rotation by the last digit of one's birth year applied; from June 29, anyone can apply regardless of birth year. Since the deadline is July 3, eligible applicants shouldn't miss the window.
 
-## What should you weigh?
+## 🔮 What should you weigh?
 
 The starting point is checking whether you meet the income requirement and whether you fall under the standard or preferential type — since the same ₩500,000 yields a match that differs twofold between the preferential (12%) and standard (6%) tiers. If you already hold another youth policy product, such as the Youth Leap Account, check whether you can hold both or switch.
 
 Also, because it's a three-year product, keep in mind that early termination may forfeit the contribution and tax benefits. If ₩500,000 a month feels heavy, you can use the flexible-deposit feature to adjust your contribution to your situation. You can sign up via participating banks' apps or branches, and exact rates and preferential terms may vary by bank.
 
-## The bottom line
+## 🧭 The bottom line
 
 Youth Future Savings bundles two benefits — a government match plus tax exemption — and is designed to support lower-income youth more generously. With the five-day rotation lifted from June 29 so anyone can apply, eligible young people should at least run an eligibility check before the July 3 deadline. That said, income requirements, which type you qualify for, and the Youth Leap Account switch-over procedure vary by individual circumstance, so before deciding, be sure to confirm your own conditions via official channels such as the Financial Services Commission, participating banks, or the Korea Inclusive Finance Agency.
 

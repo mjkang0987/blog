@@ -50,7 +50,7 @@ ChatGPT Work sits squarely in the industry-wide 'agent competition.' Around July
 
 This trend shows the center of gravity in the AI industry moving from 'model performance' to 'the work the model actually gets done.' That said, how accurately and reliably autonomous agents finish tasks — and whether they can earn trust in real workplaces — still needs to be proven.
 
-## The Takeaway
+## 🧭 The Takeaway
 
 The arrival of ChatGPT Work marks a turning point where AI moves from a 'tool that answers' to a 'tool that works.' Producing finished output by carrying on tasks by itself for hours, and shifting pricing from a flat fee to a usage basis to match, are the biggest departures from the previous generation of chatbots.
 

@@ -35,13 +35,13 @@ FX reserves, a measure of external payment capacity, remain solid. According to 
 
 The July 16 Monetary Policy Committee is where the won, inflation, and housing prices are all weighed on one scale. The Bank of Korea's base rate currently sits at 2.5%, held for eight straight meetings through May. The problem is that FX and inflation point in opposite directions. Looking only at won weakness, 3%-plus inflation, and housing pressure, it is hard to cut rates — and some argue a hawkish signal is needed. Indeed, an earlier meeting saw a minority opinion calling for a hike. On the other hand, given the economy, domestic demand, and real-estate project-financing burdens, an abrupt turn to tightening is also uncomfortable. That Bank of Korea Governor Hyun Song Shin attended the European Central Bank's Sintra forum to survey global monetary policy trends is not unrelated to this moment of weighing major-economy rate paths against the exchange rate.
 
-## Overall Take
+## 🧭 Overall Take
 
 The won weakness of early July is the underside of a first half in which "stocks were strong but the currency was weak." Behind the won/dollar rate lingering near 1,530 are foreign net selling and dollar demand; reserves are solid, but 3%-plus inflation remains a burden. Three things are worth watching from here: whether foreign money returns and flips to buying won, whether inflation stays in the 3% range after June, and what signal the July 16 rate meeting sends between FX, inflation, and growth. The exchange rate is a single number, but woven into it are equity flows, inflation, and rate expectations — reading these three strands together is the starting point for navigating the second half.
 
 ※ This post is for informational purposes only and is not investment advice.
 
-## Sources
+## 📚 Sources
 
 - [South Korean Won — Price, Chart, Historical Data (Trading Economics)](https://ko.tradingeconomics.com/south-korea/currency)
 - [USD KRW Exchange Rate (Investing.com)](https://kr.investing.com/currencies/usd-krw)

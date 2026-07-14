@@ -42,7 +42,7 @@ A softer dollar gives the won some breathing room, but foreign capital flows rem
 
 At home, June consumer inflation climbed to 3.2%, complicating the Bank of Korea's math. Markets are watching whether the July 16 Monetary Policy Board meeting delivers a response aimed at prices. In effect, the US picture of "inflation pressure amid cooling jobs" is playing out in a similar way in Korea.
 
-## The bottom line
+## 🧭 The bottom line
 
 The June US jobs report was a study in statistical illusion. The unemployment rate fell, but that was an illusion created by a drop in participation, and payroll growth came in at half of what markets expected. As a result, fears of a rate hike this year have eased considerably—yet with wage growth still firm and inflation elevated for a fifth year, the Fed cannot easily turn toward easing. Three things to watch: first, how next week's inflation data reshapes the picture painted by this jobs slowdown; second, whether the won/dollar rate stabilizes in the 1,530s or is pushed back up by foreign net selling; and third, what signal the Bank of Korea sends on July 16 as it weighs inflation against growth.
 

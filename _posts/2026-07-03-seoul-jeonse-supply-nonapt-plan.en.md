@@ -50,7 +50,7 @@ Experts acknowledge the supply-signal effect but point to two walls: "speed" and
 
 Kim In-man, head of the Kim In-man Real Estate Economy Research Institute, said the country needs to move faster on non-apartment supply that can substitute for jeonse and monthly rentals. Kwon Dae-jung, a chair professor at Hansung University, stressed that instability in the rental market won't be easily resolved amid a listings shortage, and that a fine-grained policy managing both prices and the rental market at once is needed. Yang Ji-young, an expert adviser at Shinhan Bank's Premier Pathfinder, praised non-apartments as a "housing ladder" for young professionals and newlyweds, while noting that overcoming the preference for apartments and the aversion to non-apartments requires improvements in living conditions.
 
-## The Bottom Line
+## 🧭 The Bottom Line
 
 Seoul's jeonse crunch right now is less a short-term spike than the surfacing of a supply cliff that has built up over years. Jeonse prices logged their highest gains in roughly 12 years on both monthly and weekly measures, and at the root sits record-low supply — just 4,564 starts in January–April this year. The government's non-apartment card points in the right direction in that it can send a supply signal faster than apartments, but whether it translates into actual housing stability is a separate question.
 

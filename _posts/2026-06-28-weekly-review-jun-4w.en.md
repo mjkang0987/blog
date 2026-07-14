@@ -20,25 +20,25 @@ The fourth week of June (Jun 22–28) brought three threads into sharp focus at 
 - Real estate: Seoul held a selective rally despite curbs, and the government kicked off a "residence-focused" tax overhaul. In leases, monthly rent topped half for the first time.
 - IT: The "memory crunch" ran from the HBM supercycle to Apple's price hikes to Samsung's UFS 5.0, while ChatGPT's market share fell below half for the first time.
 
-## Economy — Reaccelerating inflation and rate-hike pressure
+## 🏦 Economy — Reaccelerating inflation and rate-hike pressure
 
 The core of the week in economy was the retreat of rate-cut hopes. Late in the week, U.S. [May PCE inflation hit 4.1%, a three-year high](/2026/06/27/us-pce-4percent-fed-rate-hike/), and even Kashkari — long seen as a dove — flipped his outlook from "one cut" to "one hike" this year. That followed [new Chair Warsh's first FOMC, a hawkish hold](/2026/06/23/fed-warsh-first-fomc/) that rattled the market; the inflation print then added weight to the hike-caution camp.
 
 Domestic data pointed the same way. [June consumer sentiment stayed above 100 for a second month, but expectations for rates and home prices heated up together](/2026/06/25/bok-consumer-sentiment-rate-house/), and early in the week [a high won-dollar rate and foreign net selling](/2026/06/22/won-dollar-fx-foreign-selling/) weighed on markets. That the price gains stem from supply factors — Middle East oil, tariffs — rather than demand is what makes the policy response so hard.
 
-## Real estate — A rally despite curbs, and the shift to monthly rent
+## 🏠 Real estate — A rally despite curbs, and the shift to monthly rent
 
 Real estate boils down to "curbs and gains moving together," plus "structural change." [Seoul apartments kept up a selective rally in June despite curbs](/2026/06/24/seoul-apartment-selective-rally/), while early in the week [a jeonse crunch and rising deposits in the capital region](/2026/06/22/seoul-jeonse-gyeonggi-spread/) stood out. In response, the government kicked off a [residence-focused overhaul spanning acquisition, holding and capital-gains taxes](/2026/06/26/real-estate-tax-reform-residence-based/).
 
 The weekend brought a statistic that captures the structural shift: [monthly rent topped half (54.1%) of Seoul apartment leases for the first time](/2026/06/28/seoul-apartment-monthly-rent-majority/). With jeonse-loan curbs, deposit-fraud trauma and the gap-investing clampdown interlocking, the "land of jeonse" default is wobbling. The week's takeaway: curbs meant to suppress prices are reshaping the very structure of transactions.
 
-## IT — The domino set off by the 'AI memory crunch'
+## 💾 IT — The domino set off by the 'AI memory crunch'
 
 The keyword in tech was, unmistakably, memory. The thread that began with [the sold-out HBM supercycle and Micron's record results](/2026/06/24/hbm-supercycle-micron-earnings/) spread to finished products as [Apple abruptly raised Mac and iPad prices](/2026/06/26/apple-mac-ipad-korea-price-hike/), and late in the week extended to next-gen storage as [Samsung developed the industry's first on-device-AI UFS 5.0](/2026/06/27/samsung-ufs-5-on-device-ai/).
 
 The AI landscape shifted too. [ChatGPT's share fell below half for the first time](/2026/06/25/chatgpt-market-share-below-50/), and on the policy side, [the grace-period operation of the AI Framework Act](/2026/06/23/ai-basic-act-grace-period/) was clarified. The chain of "AI investment → surging memory demand → spiking component costs → higher product and device prices" was the big through-line tying economy and tech together this week.
 
-## The week ahead (Jun 29–Jul 5)
+## 🔮 The week ahead (Jun 29–Jul 5)
 
 Next week is a quarter- and half-year turning point as July begins. Things to watch:
 
@@ -49,7 +49,7 @@ Next week is a quarter- and half-year turning point as July begins. Things to wa
 
 (Per the monthly-review schedule on the 1st, a separate June wrap-up and July outlook will follow on July 1.)
 
-## The bottom line
+## 🧭 The bottom line
 
 In one sentence, this was "a week in which supply-driven inflation and the AI memory cycle shook prices, rates, companies and real estate all at once." Rates swung from cuts to hike caution, tech saw memory shortages translate into prices, and in real estate curbs spilled over into structural change. All three carry a structural character that's hard to reverse quickly, so it's worth following the same threads into next week.
 

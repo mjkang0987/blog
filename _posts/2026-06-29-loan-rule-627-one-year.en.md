@@ -19,7 +19,7 @@ A full year has passed since the June 27 lending curbs took effect. Yet Seoul ap
 - The share of transactions in apartments priced at or below 900 million won grew from 38% to 50%, and smaller 40–60㎡ units outpaced large ones. Demand shifted toward lower-priced, smaller, outer homes.
 - Buyers who rely on loans were sidelined, while cash-rich demand kept buying — a textbook balloon effect, critics say.
 
-## What did the June 27 measures regulate?
+## 📋 What did the June 27 measures regulate?
 
 The June 27 package was a household-debt management plan that sharply tightened mortgages in the capital region and regulated zones. The Financial Services Commission announced it on June 27, 2025, with enforcement from the 28th. The core elements:
 
@@ -30,7 +30,7 @@ The June 27 package was a household-debt management plan that sharply tightened 
 
 In short, it narrowed from every direction the path of "borrowing big to buy an expensive home."
 
-## What happened to Seoul prices a year later?
+## 📌 What happened to Seoul prices a year later?
 
 Despite the rules, Seoul apartment prices rose by nearly double digits over the year — though the exact figure varies by source.
 
@@ -39,7 +39,7 @@ Despite the rules, Seoul apartment prices rose by nearly double digits over the 
 
 The numbers differ by source, but the direction agrees: gains widened after the rules, not before. In June 2026, all 25 of Seoul's districts turned higher together for the first time in about four months.
 
-## Why didn't the rules cool prices?
+## 🔍 Why didn't the rules cool prices?
 
 When the curbs pressed down on demand for pricier homes, that demand didn't disappear — it moved to cheaper listings. A classic balloon effect.
 
@@ -47,13 +47,13 @@ When the curbs pressed down on demand for pricier homes, that demand didn't disa
 - **Small units outpacing large**: The sale price index for 40–60㎡ Seoul apartments rose about 6.72% from late last year through the fourth week of June, well ahead of larger units.
 - **From Gangnam to the outskirts**: Trading in the three Gangnam districts slowed, while gains stood out in outer areas like Nowon, Dobong, and Gangbuk, and in non-Gangnam districts such as Dongdaemun (about 13.89% over a year), Mapo (about 12.04%), and Seongdong (about 8.49%).
 
-## How were genuine homebuyers affected?
+## ⚠️ How were genuine homebuyers affected?
 
 The more a buyer depended on loans, the higher the purchase hurdle became, critics note. Cash-rich buyers felt less of a hit, while loan-dependent, home-less owner-occupiers faced the bigger constraint.
 
 The presale and move-in market also cooled. By one tally, in the two months after the June 27 measures, Seoul apartment presale-right and occupancy-right transactions came to 110 cases — about 48.9% of the prior two months' 225, roughly a halving. As deals thinned, so did the market's vigor.
 
-## The bottom line — what to watch after one year
+## 🧭 The bottom line — what to watch after one year
 
 The one-year report card for the June 27 measures reads less as "price stability" and more as "a shift in demand." Tightening loan limits pressed down high-end and large-unit demand, but that demand flowed to cheaper, smaller, outer homes, so Seoul's overall climb never broke. A roughly 11% one-year rise on the Korea Real Estate Board index is in fact faster than the 6.7% before the rules.
 
