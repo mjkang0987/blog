@@ -14,7 +14,7 @@ tags: [HBM, HBM4, Micron, MicronEarnings, SKHynix, Samsung, Nvidia, MemoryChips,
 
 HBM (high-bandwidth memory), the heart of AI memory, has entered a "sold-out" phase. Micron reports its fiscal third-quarter results just after the market close on June 24 local time — early morning on the 25th Korea time. The company has already said its entire 2026 HBM output is locked up under price-and-volume contracts, and that the shortage will run into 2027. In this post we look at how far the memory supercycle has actually come, and at the shape of the next-generation HBM4 race that SK Hynix and Samsung Electronics have joined.
 
-TL;DR
+**TL;DR**
 - Micron reports after the close on June 24 local time. Its own guidance is revenue of about $33.5 billion (±$0.75B), non-GAAP EPS of about $19.15, and a gross margin of roughly 81% — which, if met, would be the highest in the company's 47-year history.
 - Its 2026 HBM volume is already fully contracted, and the supply shortage is expected to persist into early 2027.
 - In Korea, SK Hynix holds the No. 1 spot in the HBM market while Samsung pushes back with HBM4 volume production, intensifying the fight for next-generation leadership.
@@ -47,7 +47,7 @@ In tonight's Micron results, management's comments on HBM4 allocation plans and 
 
 ※ This post is for informational purposes only and is not investment advice. The earnings figures are pre-announcement guidance and market expectations; please confirm actual results via official disclosures.
 
-Sources
+**Sources**
 - [Micron Q3 FY2026 earnings preview — IG](https://www.ig.com/en/news-and-trade-ideas/micron-q3-fy2026-earnings-preview-260623)
 - [Micron HBM sold out, data center revenue — TradingKey](https://www.tradingkey.com/analysis/stocks/us-stocks/261930650-micron-mu-hbm-ai-datacenter-sold-out-margin-expansion-fibonacci-breakout-memory-scarcity-guidance-raise-tradingkey)
 - [Micron to report after market close on the 24th — Moomoo](https://www.moomoo.com/community/feed/earnings-outlook-micron-to-announce-after-market-close-on-the-116796947693574)

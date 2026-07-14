@@ -14,7 +14,7 @@ tags: [HBM, HBM4, 마이크론, 마이크론실적, SK하이닉스, 삼성전자
 
 AI 메모리의 핵심인 HBM(고대역폭 메모리)이 지금 '완판' 국면에 들어섰습니다. 마이크론이 현지시간 6월 24일 장 마감 직후, 우리 시간으로 25일 새벽에 회계연도 3분기 실적을 내놓습니다. 회사는 이미 2026년 한 해 HBM 생산물량을 가격·수량 계약으로 전부 묶어 팔았고, 그 부족이 2027년까지 이어진다고 밝혀 둔 상태입니다. 이 글에서는 메모리 슈퍼사이클이 실제로 어디까지 왔는지, 그리고 SK하이닉스·삼성전자가 뛰어든 차세대 HBM4 경쟁이 어떤 구도인지를 함께 짚어 보겠습니다.
 
-핵심 요약(TL;DR)
+**핵심 요약(TL;DR)**
 - 마이크론은 현지시간 6월 24일 장 마감 후 실적을 발표합니다. 자체 가이던스는 매출 약 335억 달러(±7.5억), 비GAAP 주당순이익 약 19.15달러, 매출총이익률 약 81%로, 그대로 나오면 47년 역사상 최고치입니다.
 - 2026년 HBM 물량은 이미 전량 계약이 끝났고, 공급 부족은 2027년 초까지 이어질 전망입니다.
 - 한국에서는 SK하이닉스가 HBM 시장 1위를 지키는 가운데 삼성전자가 HBM4 양산으로 반격에 나서면서, 차세대 주도권을 둘러싼 경쟁이 본격화되고 있습니다.
@@ -47,7 +47,7 @@ SK하이닉스는 2026년 HBM 시장에서 매출 기준 점유율 1위(약 50% 
 
 ※ 본 글은 정보 제공 목적이며 투자 조언이 아닙니다. 실적 수치는 발표 전 가이던스·시장 전망이며, 실제 결과는 공식 발표로 확인하시기 바랍니다.
 
-출처
+**출처**
 - [Micron Q3 FY2026 earnings preview — IG](https://www.ig.com/en/news-and-trade-ideas/micron-q3-fy2026-earnings-preview-260623)
 - [Micron HBM sold out, data center revenue — TradingKey](https://www.tradingkey.com/analysis/stocks/us-stocks/261930650-micron-mu-hbm-ai-datacenter-sold-out-margin-expansion-fibonacci-breakout-memory-scarcity-guidance-raise-tradingkey)
 - [Micron to report after market close on the 24th — Moomoo](https://www.moomoo.com/community/feed/earnings-outlook-micron-to-announce-after-market-close-on-the-116796947693574)
