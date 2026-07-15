@@ -449,18 +449,23 @@
       var input = search.querySelector('.site-search__input');
       var closeBtn = search.querySelector('[data-search-close]');
       var backdrop = null;
+      // 원래 위치 기억 — 헤더(z-index 50 stacking context) 안에 있으면 backdrop 아래로 깔리므로
+      // 열 때 body 로 빼냈다가 닫을 때 되돌린다.
+      var homeParent = search.parentNode;
+      var homeAnchor = search.nextSibling;
 
       function open() {
-        search.classList.add('is-open');
-        document.body.classList.add('search-open');
-        openBtn.setAttribute('aria-expanded', 'true');
         if (!backdrop) {
           backdrop = document.createElement('div');
           backdrop.className = 'search-backdrop';
           backdrop.addEventListener('click', close);
-          document.body.appendChild(backdrop);
         }
+        document.body.appendChild(backdrop);
+        document.body.appendChild(search); // 헤더 stacking context 밖으로
         backdrop.hidden = false;
+        search.classList.add('is-open');
+        document.body.classList.add('search-open');
+        openBtn.setAttribute('aria-expanded', 'true');
         if (input) { setTimeout(function () { input.focus(); }, 30); }
       }
       function close() {
@@ -469,6 +474,9 @@
         openBtn.setAttribute('aria-expanded', 'false');
         if (backdrop) { backdrop.hidden = true; }
         if (input) { input.blur(); }
+        // 헤더 원래 자리로 복귀
+        if (homeAnchor && homeAnchor.parentNode === homeParent) { homeParent.insertBefore(search, homeAnchor); }
+        else { homeParent.appendChild(search); }
       }
       openBtn.addEventListener('click', function (e) { e.stopPropagation(); open(); });
       if (closeBtn) { closeBtn.addEventListener('click', close); }
