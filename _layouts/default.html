@@ -264,7 +264,7 @@
       var emptyText = box.getAttribute('data-empty') || '';
       var recentLabel = box.getAttribute('data-recent') || '';
       var clearLabel = box.getAttribute('data-clear') || '';
-      var MAX = 8, RECENT_MAX = 6, RECENT_KEY = 'pw-recent-search';
+      var MAX = 50, RECENT_MAX = 6, RECENT_KEY = 'pw-recent-search';
       var data = null, loading = false, active = -1, items = [], terms = [];
 
       function loadIndex() {
