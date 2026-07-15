@@ -88,6 +88,95 @@
     </div>
   </footer>
 
+  {%- comment -%} 공유 위젯: (UA) 데스크톱=가로 바(카카오·페북·X), 그 외=플로팅 버튼+네이티브 공유 {%- endcomment -%}
+  {%- if site.active_lang == 'ja' -%}{%- assign t_share = '共有' -%}{%- assign t_copied = 'リンクをコピーしました' -%}
+  {%- elsif site.active_lang == 'en-US' -%}{%- assign t_share = 'Share' -%}{%- assign t_copied = 'Link copied' -%}
+  {%- else -%}{%- assign t_share = '공유' -%}{%- assign t_copied = '링크가 복사되었어요' -%}{%- endif -%}
+  <div class="share-widget" data-share data-kakao="{{ site.kakao_js_key }}" data-copied="{{ t_copied }}" hidden>
+    <div class="share-bar" role="group" aria-label="{{ t_share }}">
+      <span class="share-bar__label">{{ t_share }}</span>
+      <button type="button" class="share-btn share-btn--kakao" data-share-kakao aria-label="{{ t_share }} KakaoTalk">
+        <svg viewBox="0 0 24 24" fill="#3C1E1E" aria-hidden="true"><path d="M12 3C6.48 3 2 6.53 2 10.86c0 2.8 1.9 5.26 4.76 6.62-.16.55-.9 3.13-.94 3.33 0 0-.02.16.08.22.11.06.23.02.23.02.3-.04 3.42-2.25 3.96-2.63.63.09 1.27.14 1.91.14 5.52 0 10-3.53 10-7.86S17.52 3 12 3z"/></svg>
+      </button>
+      <a class="share-btn share-btn--facebook" data-share-facebook target="_blank" rel="noopener" aria-label="{{ t_share }} Facebook">
+        <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M13.5 21v-8h2.66l.4-3.1h-3.06V7.92c0-.9.25-1.51 1.54-1.51h1.63V3.64c-.28-.04-1.25-.12-2.38-.12-2.36 0-3.97 1.44-3.97 4.08v2.3H7.66V13h2.69v8h3.15z"/></svg>
+      </a>
+      <a class="share-btn share-btn--x" data-share-x target="_blank" rel="noopener" aria-label="{{ t_share }} X">
+        <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26L22.82 21.75h-6.66l-5.21-6.82-5.97 6.82H1.67l7.73-8.84L1.18 2.25h6.83l4.71 6.23 5.52-6.23zm-1.16 17.52h1.83L7.01 4.13H5.05L17.08 19.77z"/></svg>
+      </a>
+    </div>
+    <button type="button" class="share-fab" data-share-native aria-label="{{ t_share }}">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+    </button>
+  </div>
+  {%- if site.kakao_js_key and site.kakao_js_key != '' -%}
+  <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js" crossorigin="anonymous"></script>
+  {%- endif -%}
+  <script>
+    // 공유 위젯: user-agent 로 데스크톱/모바일 분기
+    (function () {
+      var widget = document.querySelector('[data-share]');
+      if (!widget) { return; }
+      function meta(sel, attr) { var el = document.querySelector(sel); return el ? (el.getAttribute(attr) || '') : ''; }
+      var url = meta('link[rel="canonical"]', 'href') || window.location.href;
+      var title = meta('meta[property="og:title"]', 'content') || document.title;
+      var desc = meta('meta[name="description"]', 'content') || '';
+      var image = meta('meta[property="og:image"]', 'content') || '';
+      var copied = widget.getAttribute('data-copied') || 'Copied';
+
+      // (요청) user-agent 기반 판별 — 데스크톱이 아니면 모바일/태블릿
+      var ua = navigator.userAgent || '';
+      var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|Tablet|Silk|Kindle|PlayBook/i.test(ua);
+      widget.classList.add(isMobile ? 'is-mobile' : 'is-desktop');
+      widget.hidden = false;
+
+      function toast(msg) {
+        var t = document.createElement('div');
+        t.className = 'share-toast'; t.textContent = msg;
+        document.body.appendChild(t);
+        requestAnimationFrame(function () { t.classList.add('is-show'); });
+        setTimeout(function () { t.classList.remove('is-show'); setTimeout(function () { t.remove(); }, 250); }, 1800);
+      }
+      function copyLink() {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url).then(function () { toast(copied); }, function () { window.prompt('URL', url); });
+        } else { window.prompt('URL', url); }
+      }
+      function popup(href) { window.open(href, '_blank', 'noopener,noreferrer,width=600,height=620'); }
+
+      var fb = widget.querySelector('[data-share-facebook]');
+      if (fb) {
+        fb.setAttribute('href', 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url));
+        fb.addEventListener('click', function (e) { e.preventDefault(); popup(fb.href); });
+      }
+      var x = widget.querySelector('[data-share-x]');
+      if (x) {
+        x.setAttribute('href', 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(title) + '&url=' + encodeURIComponent(url));
+        x.addEventListener('click', function (e) { e.preventDefault(); popup(x.href); });
+      }
+      var kakaoKey = widget.getAttribute('data-kakao') || '';
+      if (kakaoKey && window.Kakao) { try { if (!window.Kakao.isInitialized()) { window.Kakao.init(kakaoKey); } } catch (e) {} }
+      var kakao = widget.querySelector('[data-share-kakao]');
+      if (kakao) {
+        kakao.addEventListener('click', function () {
+          if (window.Kakao && window.Kakao.isInitialized() && window.Kakao.Share) {
+            window.Kakao.Share.sendDefault({
+              objectType: 'feed',
+              content: { title: title, description: desc, imageUrl: image, link: { mobileWebUrl: url, webUrl: url } }
+            });
+          } else { copyLink(); }
+        });
+      }
+      var fab = widget.querySelector('[data-share-native]');
+      if (fab) {
+        fab.addEventListener('click', function () {
+          if (navigator.share) { navigator.share({ title: title, url: url }).catch(function () {}); }
+          else { copyLink(); }
+        });
+      }
+    })();
+  </script>
+
   {%- if site.active_lang == 'ja' -%}{%- assign t_newwin = '（新しいウィンドウで開く）' -%}
   {%- elsif site.active_lang == 'en-US' -%}{%- assign t_newwin = ' (opens in a new window)' -%}
   {%- else -%}{%- assign t_newwin = ' (새 창에서 열림)' -%}{%- endif -%}

@@ -529,6 +529,62 @@ a.pagination__item:hover { background: var(--brand); color: #fff; border-color: 
 .site-footer__email:hover { color: #fff; text-decoration: underline; }
 .site-footer__copy { font-size: 0.8rem; margin: 0; color: #7d7c8f; }
 
+/* ── 공유 위젯 (우측 하단 고정) ─────────────── */
+.share-widget { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 60; }
+.share-widget[hidden] { display: none; }
+
+/* 데스크톱: 가로 바 — 반투명 흰색 + 블러 */
+.share-bar {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.7rem;
+  background: rgba(255, 255, 255, 0.72);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4);
+  backdrop-filter: blur(14px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 999px;
+  box-shadow: 0 8px 30px rgba(20, 16, 40, 0.16);
+}
+.share-widget.is-desktop .share-bar { display: flex; }
+.share-bar__label { font-size: 0.85rem; font-weight: 700; color: #2a2a33; margin: 0 0.15rem 0 0.4rem; }
+.share-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; padding: 0;
+  border: none; border-radius: 50%; cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.12s ease, filter 0.12s ease, box-shadow 0.12s ease;
+}
+.share-btn:hover { transform: translateY(-2px); filter: brightness(0.96); box-shadow: 0 4px 12px rgba(0,0,0,0.18); }
+.share-btn:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+.share-btn svg { width: 20px; height: 20px; display: block; }
+.share-btn--kakao { background: #FEE500; }
+.share-btn--facebook { background: #1877F2; }
+.share-btn--x { background: #000; }
+
+/* 데스크톱 아님: 우측 하단 플로팅 버튼 + 네이티브 공유 */
+.share-fab {
+  display: none;
+  width: 52px; height: 52px; padding: 0;
+  border: none; border-radius: 50%; cursor: pointer;
+  background: var(--brand);
+  box-shadow: 0 8px 24px rgba(101, 38, 217, 0.42);
+  align-items: center; justify-content: center;
+}
+.share-fab:active { transform: scale(0.94); }
+.share-widget.is-mobile .share-fab { display: inline-flex; }
+.share-fab svg { width: 24px; height: 24px; }
+
+/* 토스트 (링크 복사 등) */
+.share-toast {
+  position: fixed; left: 50%; bottom: 5.5rem; transform: translateX(-50%);
+  background: rgba(20, 16, 40, 0.9); color: #fff;
+  padding: 0.55rem 1rem; border-radius: 999px;
+  font-size: 0.85rem; z-index: 70; pointer-events: none;
+  opacity: 0; transition: opacity 0.2s ease;
+}
+.share-toast.is-show { opacity: 1; }
+
 /* ── 반응형 ─────────────────────────────── */
 @media (max-width: 600px) {
   .site { font-size: 16px; }
