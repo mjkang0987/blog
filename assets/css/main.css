@@ -628,11 +628,11 @@ a.pagination__item:hover { background: var(--brand); color: #fff; border-color: 
   .search-backdrop[hidden] { display: none; }
   .site-search.is-open {
     display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem;
-    position: fixed; top: 0.7rem; left: 0.7rem; right: 0.7rem; z-index: 200;
-    margin: 0; padding: 0.8rem 0.9rem;
-    border: 1px solid var(--border); border-radius: 16px;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    margin: 0; padding: 0.9rem 1rem 1rem;
+    border: none; border-radius: 0 0 18px 18px;
     background: var(--bg);
-    box-shadow: 0 20px 56px rgba(15, 12, 30, 0.35);
+    box-shadow: 0 14px 44px rgba(15, 12, 30, 0.38);
   }
   .site-search.is-open .site-search__icon { order: 0; color: var(--muted); opacity: 1; }
   .site-search.is-open .site-search__input { order: 1; flex: 1 1 auto; width: auto; max-width: none; color: var(--text); }
@@ -648,8 +648,10 @@ a.pagination__item:hover { background: var(--brand); color: #fff; border-color: 
   .site-search.is-open .site-search__results {
     order: 3; flex: 0 0 100%; position: static; min-width: 0;
     margin: 0.6rem 0 0; padding: 0; border: none; box-shadow: none;
-    max-height: calc(100vh - 5rem);
+    max-height: calc(100dvh - 6rem); overflow-y: auto;
   }
+  /* 레이어 열림 시 뒤 배경 스크롤 잠금 */
+  body.search-open { overflow: hidden; }
   /* 모바일: 발행글 카드 썸네일 이미지 숨김 (실제 이미지·플레이스홀더 모두) */
   .post-card__thumb { display: none; }
   /* 모바일: 푸터 여백 축소 */

@@ -452,6 +452,7 @@
 
       function open() {
         search.classList.add('is-open');
+        document.body.classList.add('search-open');
         openBtn.setAttribute('aria-expanded', 'true');
         if (!backdrop) {
           backdrop = document.createElement('div');
@@ -464,6 +465,7 @@
       }
       function close() {
         search.classList.remove('is-open');
+        document.body.classList.remove('search-open');
         openBtn.setAttribute('aria-expanded', 'false');
         if (backdrop) { backdrop.hidden = true; }
         if (input) { input.blur(); }
