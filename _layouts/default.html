@@ -89,9 +89,9 @@
   </footer>
 
   {%- comment -%} 공유 위젯: (UA) 데스크톱=가로 바(카카오·페북·X), 그 외=플로팅 버튼+네이티브 공유 {%- endcomment -%}
-  {%- if site.active_lang == 'ja' -%}{%- assign t_share = '共有' -%}{%- assign t_copied = 'リンクをコピーしました' -%}
-  {%- elsif site.active_lang == 'en-US' -%}{%- assign t_share = 'Share' -%}{%- assign t_copied = 'Link copied' -%}
-  {%- else -%}{%- assign t_share = '공유' -%}{%- assign t_copied = '링크가 복사되었어요' -%}{%- endif -%}
+  {%- if site.active_lang == 'ja' -%}{%- assign t_share = '共有' -%}{%- assign t_copied = 'リンクをコピーしました' -%}{%- assign t_copy = 'リンクをコピー' -%}
+  {%- elsif site.active_lang == 'en-US' -%}{%- assign t_share = 'Share' -%}{%- assign t_copied = 'Link copied' -%}{%- assign t_copy = 'Copy link' -%}
+  {%- else -%}{%- assign t_share = '공유' -%}{%- assign t_copied = '링크가 복사되었어요' -%}{%- assign t_copy = '링크 복사' -%}{%- endif -%}
   <div class="share-widget" data-share data-kakao="{{ site.kakao_js_key }}" data-copied="{{ t_copied }}" hidden>
     <div class="share-bar" role="group" aria-label="{{ t_share }}">
       <span class="share-bar__label">{{ t_share }}</span>
@@ -104,9 +104,12 @@
       <a class="share-btn share-btn--x" data-share-x target="_blank" rel="noopener" aria-label="{{ t_share }} X">
         <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26L22.82 21.75h-6.66l-5.21-6.82-5.97 6.82H1.67l7.73-8.84L1.18 2.25h6.83l4.71 6.23 5.52-6.23zm-1.16 17.52h1.83L7.01 4.13H5.05L17.08 19.77z"/></svg>
       </a>
+      <button type="button" class="share-btn share-btn--copy" data-share-copy aria-label="{{ t_copy }}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#4a4a55" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+      </button>
     </div>
     <button type="button" class="share-fab" data-share-native aria-label="{{ t_share }}">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
     </button>
   </div>
   {%- if site.kakao_js_key and site.kakao_js_key != '' -%}
@@ -167,6 +170,8 @@
           } else { copyLink(); }
         });
       }
+      var copyBtn = widget.querySelector('[data-share-copy]');
+      if (copyBtn) { copyBtn.addEventListener('click', copyLink); }
       var fab = widget.querySelector('[data-share-native]');
       if (fab) {
         fab.addEventListener('click', function () {
