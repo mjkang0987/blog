@@ -125,14 +125,16 @@
 .site-brand:hover { opacity: 0.9; }
 .site-brand__logo { height: 1.75rem; width: auto; display: block; }
 
-/* ── 헤더 검색: 로고 오른쪽에 붙고, 나머지 메뉴는 오른쪽으로 밀어냄 ── */
+/* ── 헤더 검색: (데스크톱) 로고 줄 아래에 풀 너비 바로 배치 ── */
 .site-search {
   position: relative;
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  margin-right: auto;
-  padding: 0.3rem 0.7rem;
+  order: 3;               /* 로고(0)·메뉴(1)·언어(2) 다음 → 줄바꿈되어 아랫줄 */
+  flex: 0 0 100%;         /* 한 줄 전체 차지 */
+  margin: 0;
+  padding: 0.4rem 0.9rem;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 999px;
@@ -144,8 +146,9 @@
 }
 .site-search__icon { font-size: 0.85rem; line-height: 1; opacity: 0.85; }
 .site-search__input {
-  width: 12rem;
-  max-width: 42vw;
+  flex: 1 1 auto;
+  width: auto;
+  max-width: none;
   border: 0;
   background: transparent;
   color: #fff;
@@ -249,7 +252,7 @@
 .site-search__close { display: none; }
 .search-backdrop { display: none; }
 
-.site-nav { display: flex; gap: 1.1rem; }
+.site-nav { display: flex; gap: 1.1rem; order: 1; margin-left: auto; }
 .site-nav__link {
   color: #d7d6e4;
   text-decoration: none;
@@ -259,7 +262,7 @@
 .site-nav__link:hover { color: #fff; }
 .site-nav__link--cat { font-weight: 600; }
 
-.lang-switch { display: flex; align-items: center; gap: 0.4rem; }
+.lang-switch { display: flex; align-items: center; gap: 0.4rem; order: 2; }
 .lang-switch__label { font-size: 1rem; line-height: 1; cursor: pointer; }
 .lang-switch__select {
   appearance: none;
@@ -614,7 +617,7 @@ a.pagination__item:hover { background: var(--brand); color: #fff; border-color: 
   .site-search-toggle svg { width: 22px; height: 22px; display: block; }
   .site-search-toggle:active { opacity: 0.6; }
   /* 2번째 줄: 메뉴는 좌측, 언어는 우측 끝. 간격·폰트 줄여 한 줄에 수용 */
-  .site-nav { gap: 0.5rem; }
+  .site-nav { gap: 0.5rem; margin-left: 0; }
   .site-nav__link { font-size: 0.9rem; }
   .lang-switch { margin-left: auto; gap: 0.3rem; }
   .lang-switch__label { font-size: 0.9rem; }
