@@ -163,11 +163,21 @@
       if (kakao) {
         kakao.addEventListener('click', function () {
           if (window.Kakao && window.Kakao.isInitialized() && window.Kakao.Share) {
-            window.Kakao.Share.sendDefault({
-              objectType: 'feed',
-              content: { title: title, description: desc, imageUrl: image, link: { mobileWebUrl: url, webUrl: url } }
-            });
-          } else { copyLink(); }
+            try {
+              window.Kakao.Share.sendDefault({
+                objectType: 'feed',
+                content: { title: title, description: desc, imageUrl: image, link: { mobileWebUrl: url, webUrl: url } }
+              });
+            } catch (err) {
+              console.error('[share] Kakao.Share failed:', err);
+              copyLink();
+            }
+          } else {
+            console.warn('[share] Kakao not ready — key:', kakaoKey ? 'set' : 'empty',
+              '| SDK:', !!window.Kakao, '| initialized:', window.Kakao ? window.Kakao.isInitialized() : false,
+              '→ copy fallback');
+            copyLink();
+          }
         });
       }
       var copyBtn = widget.querySelector('[data-share-copy]');
