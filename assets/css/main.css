@@ -244,6 +244,10 @@
 }
 .site-search__recent-btn:hover { background: var(--bg-soft); }
 .site-search__recent-ico { color: var(--muted); font-size: 0.85rem; }
+/* 모바일 검색 토글/닫기/백드롭 — 기본(데스크톱)은 숨김, 모바일 미디어쿼리에서 노출 */
+.site-search-toggle { display: none; }
+.site-search__close { display: none; }
+.search-backdrop { display: none; }
 
 .site-nav { display: flex; gap: 1.1rem; }
 .site-nav__link {
@@ -597,12 +601,46 @@ a.pagination__item:hover { background: var(--brand); color: #fff; border-color: 
   .site-header__inner { gap: 0.6rem 1rem; }
   .site-brand { width: 100%; margin-right: 0; }
   .site-brand__logo { height: 1.5rem; }
-  /* 모바일: 검색은 로고 아래 한 줄 전체 차지 */
-  .site-search { width: 100%; margin-right: 0; order: 1; }
-  .site-search__input { width: auto; max-width: none; flex: 1 1 auto; }
-  .site-search__results { min-width: 0; }
-  /* 모바일: 로고가 한 줄 차지 → 둘째 줄에서 언어 셀렉트 우측 정렬 */
-  .lang-switch { margin-left: auto; }
+  /* 모바일: 검색바 → 아이콘 버튼 + 상단 오버레이 레이어 */
+  .site-search { display: none; }
+  .site-search-toggle {
+    display: inline-flex; align-items: center; justify-content: center;
+    order: 1; margin-left: auto;
+    width: 38px; height: 38px; padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff; font-size: 1rem; line-height: 1; cursor: pointer;
+  }
+  .site-search-toggle:active { background: rgba(255, 255, 255, 0.2); }
+  .lang-switch { margin-left: 0.5rem; }
+  /* 오버레이(레이어) */
+  .search-backdrop { display: block; position: fixed; inset: 0; z-index: 190; background: rgba(0, 0, 0, 0.45); }
+  .search-backdrop[hidden] { display: none; }
+  .site-search.is-open {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    margin: 0; padding: 0.85rem 1rem;
+    border: none; border-bottom: 1px solid var(--border); border-radius: 0;
+    background: var(--bg);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  }
+  .site-search.is-open .site-search__icon { order: 0; color: var(--muted); opacity: 1; }
+  .site-search.is-open .site-search__input { order: 1; flex: 1 1 auto; width: auto; max-width: none; color: var(--text); }
+  .site-search.is-open .site-search__input::placeholder { color: var(--muted); }
+  .site-search.is-open .site-search__input::-webkit-search-cancel-button { filter: none; opacity: 0.6; }
+  .site-search.is-open .site-search__close {
+    display: inline-flex; align-items: center; justify-content: center; order: 2;
+    width: 32px; height: 32px; padding: 0;
+    border: none; background: transparent; color: var(--muted);
+    font-size: 1.05rem; line-height: 1; cursor: pointer; border-radius: 50%;
+  }
+  .site-search.is-open .site-search__close:hover { background: var(--bg-soft); }
+  .site-search.is-open .site-search__results {
+    order: 3; flex: 0 0 100%; position: static; min-width: 0;
+    margin: 0.6rem 0 0; padding: 0; border: none; box-shadow: none;
+    max-height: calc(100vh - 5rem);
+  }
   /* 모바일: 발행글 카드 썸네일 이미지 숨김 (실제 이미지·플레이스홀더 모두) */
   .post-card__thumb { display: none; }
   /* 모바일: 푸터 여백 축소 */

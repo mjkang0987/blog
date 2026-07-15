@@ -28,9 +28,9 @@
         <img class="site-brand__logo" src="{{ '/assets/logo.svg' | relative_url }}" alt="{{ site.title }}" width="683" height="98">
       </a>
 
-      {%- if site.active_lang == 'ja' -%}{%- assign t_search_ph = '記事を検索' -%}{%- assign t_search_lbl = '検索' -%}{%- assign t_search_none = '該当する記事がありません' -%}{%- assign t_search_recent = '最近の検索' -%}{%- assign t_search_clear = 'クリア' -%}
-      {%- elsif site.active_lang == 'en-US' -%}{%- assign t_search_ph = 'Search posts' -%}{%- assign t_search_lbl = 'Search' -%}{%- assign t_search_none = 'No matching posts' -%}{%- assign t_search_recent = 'Recent searches' -%}{%- assign t_search_clear = 'Clear' -%}
-      {%- else -%}{%- assign t_search_ph = '글 검색' -%}{%- assign t_search_lbl = '검색' -%}{%- assign t_search_none = '검색 결과가 없습니다' -%}{%- assign t_search_recent = '최근 검색어' -%}{%- assign t_search_clear = '지우기' -%}{%- endif -%}
+      {%- if site.active_lang == 'ja' -%}{%- assign t_search_ph = '記事を検索' -%}{%- assign t_search_lbl = '検索' -%}{%- assign t_search_none = '該当する記事がありません' -%}{%- assign t_search_recent = '最近の検索' -%}{%- assign t_search_clear = 'クリア' -%}{%- assign t_search_close = '閉じる' -%}
+      {%- elsif site.active_lang == 'en-US' -%}{%- assign t_search_ph = 'Search posts' -%}{%- assign t_search_lbl = 'Search' -%}{%- assign t_search_none = 'No matching posts' -%}{%- assign t_search_recent = 'Recent searches' -%}{%- assign t_search_clear = 'Clear' -%}{%- assign t_search_close = 'Close' -%}
+      {%- else -%}{%- assign t_search_ph = '글 검색' -%}{%- assign t_search_lbl = '검색' -%}{%- assign t_search_none = '검색 결과가 없습니다' -%}{%- assign t_search_recent = '최근 검색어' -%}{%- assign t_search_clear = '지우기' -%}{%- assign t_search_close = '닫기' -%}{%- endif -%}
       {%- assign search_lp = '' -%}
       {%- unless site.active_lang == site.default_lang -%}{%- assign search_lp = '/' | append: site.active_lang -%}{%- endunless -%}
       <div class="site-search" data-index="{{ search_lp | append: '/search.json' | relative_url }}" data-empty="{{ t_search_none }}" data-recent="{{ t_search_recent }}" data-clear="{{ t_search_clear }}">
@@ -39,8 +39,12 @@
         <input class="site-search__input" id="site-search-input" type="search" placeholder="{{ t_search_ph }}"
                autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list"
                aria-controls="site-search-results">
+        <button type="button" class="site-search__close" data-search-close aria-label="{{ t_search_close }}">✕</button>
         <ul class="site-search__results" id="site-search-results" role="listbox" aria-label="{{ t_search_lbl }}" hidden></ul>
       </div>
+      <button type="button" class="site-search-toggle" data-search-open aria-label="{{ t_search_lbl }}" aria-expanded="false">
+        <span aria-hidden="true">🔍</span>
+      </button>
 
       <nav class="site-nav" aria-label="주 메뉴">
         {% if site.active_lang == 'ja' %}{% assign nav_home = 'ホーム' %}{% assign nav_about = '概要' %}{% assign nav_tags = 'タグ' %}{% assign cat_re = '不動産' %}{% assign cat_ec = '経済' %}
@@ -433,6 +437,42 @@
         } else if (e.key === 'Escape') { input.value = ''; close(); }
       });
       document.addEventListener('click', function (e) { if (!box.contains(e.target)) { close(); } });
+    })();
+  </script>
+
+  <script>
+    // 모바일: 검색 아이콘 버튼 → 상단 검색 레이어(오버레이) 토글
+    (function () {
+      var search = document.querySelector('.site-search');
+      var openBtn = document.querySelector('[data-search-open]');
+      if (!search || !openBtn) { return; }
+      var input = search.querySelector('.site-search__input');
+      var closeBtn = search.querySelector('[data-search-close]');
+      var backdrop = null;
+
+      function open() {
+        search.classList.add('is-open');
+        openBtn.setAttribute('aria-expanded', 'true');
+        if (!backdrop) {
+          backdrop = document.createElement('div');
+          backdrop.className = 'search-backdrop';
+          backdrop.addEventListener('click', close);
+          document.body.appendChild(backdrop);
+        }
+        backdrop.hidden = false;
+        if (input) { setTimeout(function () { input.focus(); }, 30); }
+      }
+      function close() {
+        search.classList.remove('is-open');
+        openBtn.setAttribute('aria-expanded', 'false');
+        if (backdrop) { backdrop.hidden = true; }
+        if (input) { input.blur(); }
+      }
+      openBtn.addEventListener('click', function (e) { e.stopPropagation(); open(); });
+      if (closeBtn) { closeBtn.addEventListener('click', close); }
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && search.classList.contains('is-open')) { close(); }
+      });
     })();
   </script>
 </body>
