@@ -19,7 +19,7 @@ twitter:
 # 카카오톡 공유용 JavaScript 키(공개 키, 브라우저 노출 정상).
 # 보안은 Kakao Developers → 플랫폼 → Web → 사이트 도메인(https://blog.pikaworks.kr) 등록으로 처리.
 # 비워두면 카카오 버튼은 '링크 복사'로 폴백.
-kakao_js_key: "f367b9cfa49ef8a2c488f352ccd36872"
+kakao_js_key: "4e6690de5a32ba18e8075ee22b826715"
 
 plugins:
   - jekyll-feed
