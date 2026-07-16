@@ -50,6 +50,32 @@ def clean(s):
     return s.strip(" -–—·")
 
 
+def _char_units(ch):
+    """표시 폭 단위: 한/중/일 등 전각 글자=1.0, 그 외(영문·숫자·공백)=0.5."""
+    o = ord(ch)
+    if (0x1100 <= o <= 0x11FF or 0x2E80 <= o <= 0x9FFF or 0xAC00 <= o <= 0xD7A3
+            or 0x3040 <= o <= 0x30FF or 0xFF00 <= o <= 0xFFEF):
+        return 1.0
+    return 0.5
+
+
+def shorten(s, max_units):
+    """제목이 max_units(표시 폭)보다 길면 앞에서부터 잘라 '…'를 붙인다.
+    가능하면 단어 경계(공백)에서 끊어 어중간한 절단을 피한다."""
+    if max_units <= 0:
+        return s
+    total = 0.0
+    for i, ch in enumerate(s):
+        total += _char_units(ch)
+        if total > max_units:
+            cut = s[:i].rstrip()
+            sp = cut.rfind(" ")
+            if sp > len(cut) * 0.6:          # 공백이 뒤쪽(끝 40% 이내)에 있으면 거기서 끊기
+                cut = cut[:sp]
+            return cut.rstrip(" -–—·,") + "…"
+    return s
+
+
 def load_font(size):
     for p in FONT_BOLD:
         try:
@@ -109,6 +135,10 @@ def main():
                     help="상단에 칩 대신 넣을 로고 이미지(PNG) 경로")
     ap.add_argument("--logo-h", type=int, default=78,
                     help="로고 높이(px)")
+    ap.add_argument("--max-chars", type=float, default=30,
+                    help="카드 제목 최대 표시 폭(전각 글자=1, 영문=0.5). 초과분은 …로 축약")
+    ap.add_argument("--max-lines", type=int, default=2,
+                    help="카드 제목 최대 줄 수(이 줄 수를 넘지 않게 잘라 …로 마무리)")
     args = ap.parse_args()
     c = THEMES[args.theme]
 
@@ -139,17 +169,25 @@ def main():
         d.text((MARGIN + pad + bolt_w + gap, y + 8), args.category, font=cfont, fill=c["chip_fg"])
         y += 92
 
-    title = clean(args.title)
+    title = shorten(clean(args.title), args.max_chars)
     max_w = W - MARGIN * 2
+    max_lines = max(1, args.max_lines)
     size = 70
     while size >= 44:
         tfont = load_font(size)
         lines = wrap(d, title, tfont, max_w)
         line_h = int(size * 1.32)
-        if len(lines) * line_h <= (H - y - 130):
+        if len(lines) <= max_lines and len(lines) * line_h <= (H - y - 130):
             break
         size -= 6
-    for ln in lines[:6]:
+    # 최소 폰트에서도 줄 수가 넘치면 마지막 허용 줄을 잘라 …로 마무리
+    if len(lines) > max_lines:
+        lines = lines[:max_lines]
+        last = lines[-1].rstrip()
+        while last and d.textlength(last + "…", font=tfont) > max_w:
+            last = last[:-1].rstrip()
+        lines[-1] = last.rstrip(" -–—·,") + "…"
+    for ln in lines[:max_lines]:
         d.text((MARGIN, y), ln, font=tfont, fill=c["title"])
         y += line_h
 
