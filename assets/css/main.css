@@ -534,6 +534,9 @@ a.pagination__item:hover { background: var(--brand); color: #fff; border-color: 
 .site-footer__contact { font-size: 0.85rem; margin: 0 0 0.75rem; }
 .site-footer__email { color: #c9c8d6; text-decoration: none; }
 .site-footer__email:hover { color: #fff; text-decoration: underline; }
+.site-footer__home { font-size: 0.85rem; margin: 0 0 0.75rem; }
+.site-footer__home-link { color: #c9c8d6; text-decoration: none; font-weight: 600; letter-spacing: 0.02em; }
+.site-footer__home-link:hover { color: #fff; text-decoration: underline; }
 .site-footer__copy { font-size: 0.8rem; margin: 0; color: #7d7c8f; }
 
 /* ── 공유 위젯 (우측 하단 고정) ─────────────── */
