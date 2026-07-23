@@ -31,11 +31,7 @@ The upside of this shape is content viewing. Watching wide content such as video
 
 ## 🖥️ The flagship is the 'Fold8 Ultra' — 8-inch, 4.1 mm
 
-**The tall, traditional book-type carries the name 'Galaxy Z Fold8 Ultra', and it leads the lineup on specs.**
-
-- **Screen and thickness**: It opens to an approximately 8-inch (203.1 mm) display, and at **4.1 mm** folded it is the thinnest Fold yet. It weighs 215 g.
-- **Camera**: On top of a 200 MP main camera, it adds the Fold series' first 50 MP ultra-wide.
-- **Battery and charging**: It packs a 5,000 mAh battery and, in a Galaxy Z first, supports 45 W fast charging and dual-path charging.
+**The tall, traditional book-type carries the name 'Galaxy Z Fold8 Ultra', and it leads the lineup on specs.** At 4.1 mm folded it is the thinnest Fold yet, and on top of a 200 MP main camera it adds the Fold series' first 50 MP ultra-wide. A 5,000 mAh battery brings 45 W fast charging and dual-path charging, both a Galaxy Z first. The full per-model figures are laid out in the comparison table below.
 
 So if the Fold8 is the 'wide, light content device', the Ultra is the 'big, powerful work device'. Samsung has placed two foldables of different character side by side in a single generation.
 
@@ -45,17 +41,21 @@ So if the Fold8 is the 'wide, light content device', the Ultra is the 'big, powe
 
 Next-generation CPU, GPU and NPU lift its on-device AI processing, and the cover display puts widgets, the Quick Panel, Samsung Health Insights and the home app tray within immediate reach. It is a layout aimed at the Flip habit of using the phone while it is still shut.
 
+## 📊 The Three Models at a Glance
+
+| Model | Form factor | Key specs | Price (12 GB / 256 GB) |
+|---|---|---|---|
+| **Galaxy Z Fold8** | Passport-style wide (4:3) | 7.6-inch inner · 5.5-inch cover · 201 g | KRW 2,278,100 |
+| **Galaxy Z Fold8 Ultra** | Large-screen book-type | ~8-inch (203.1 mm) · 4.1 mm (thinnest ever) · 215 g · 200 MP + 50 MP ultra-wide · 5,000 mAh · 45 W | KRW 2,577,300 |
+| **Galaxy Z Flip8** | Compact clamshell | 4,300 mAh (up to 31 hrs) · next-gen CPU·GPU·NPU | KRW 1,683,000 |
+
+Specs are as announced by Samsung; undisclosed items are omitted.
+
 ## 💰 Price was the real surprise — and it held
 
 **The biggest surprise of this Unpacked is the price.** Many had expected sharp increases from rising memory costs — so-called chipflation — but the actual figures stayed near the previous generation.
 
-Here they are, for the 12 GB RAM / 256 GB storage models.
-
-- Galaxy Z Fold8 Ultra: **KRW 2,577,300**
-- Galaxy Z Fold8: **KRW 2,278,100**
-- Galaxy Z Flip8: **KRW 1,683,000**
-
-Holding the 2-million-won range even while adding a new form factor is a favorable signal for adoption. Korea pre-orders run July 28 to August 3, with the on-sale date on August 7. From that same day the phones roll out in stages to major markets including the U.S., U.K., India and Brazil.
+As the table above shows, the three models land between KRW 1.68M and 2.58M for 12 GB / 256 GB. Holding the 2-million-won range even while adding a new form factor is a favorable signal for adoption. Korea pre-orders run July 28 to August 3, with the on-sale date on August 7. From that same day the phones roll out in stages to major markets including the U.S., U.K., India and Brazil.
 
 ## 🔬 The crease-fighting 'Flex Titanium' is really in there
 
