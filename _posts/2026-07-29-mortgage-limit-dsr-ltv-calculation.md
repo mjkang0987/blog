@@ -1,24 +1,161 @@
 ---
 layout: post
-title: "주택담보대출 한도 계산법 — LTV·DSR·스트레스 DSR로 내 한도 구하기 🏠"
+title: "주택담보대출 한도 계산법 — LTV·DSR 계산기로 내 한도 구하기 🏠"
 date: 2026-07-29 07:00:00 +0900
 lang: ko
 permalink: /2026/07/29/mortgage-limit-dsr-ltv-calculation/
 page_id: 2026-07-29-mortgage-limit-dsr-ltv-calculation
 image: /assets/og/2026-07-29-mortgage-limit-dsr-ltv-calculation-ko.png
-summary: "주택담보대출 한도는 LTV·DSR·스트레스 DSR 세 가지 관문 중 가장 작은 금액으로 정해집니다. 연소득과 집값으로 내 한도를 직접 계산하는 법을 정리했습니다."
-description: "주택담보대출 한도는 LTV·DSR·스트레스 DSR 세 관문 중 가장 작은 값으로 결정됩니다. 연소득·집값으로 주담대 한도를 직접 계산하는 법과 규제 기준을 정리했습니다."
+summary: "주택담보대출 한도는 LTV·DSR·스트레스 DSR 중 가장 작은 값으로 정해집니다. 아래 계산기에 연소득·집값을 넣어 내 한도를 바로 계산해 보세요."
+description: "주택담보대출 한도를 정하는 LTV·DTI·DSR과 스트레스 DSR 계산법을 예시로 정리하고, 연소득·집값으로 한도를 바로 구하는 계산기를 넣었습니다."
 categories: [부동산]
-tags: [주택담보대출, 주담대한도, DSR, DSR계산, LTV, 스트레스DSR, 대출한도계산, 주담대금리, 무주택대출, 생애최초, 총부채원리금상환비율, 담보인정비율, 6·27대책, 내집마련, 대출규제]
+tags: [주택담보대출, 주담대한도, 주담대계산기, DSR, DSR계산, LTV, DTI, 스트레스DSR, 대출한도계산, 생애최초, 총부채원리금상환비율, 담보인정비율, 6·27대책, 내집마련, 대출규제]
 ---
 
-주택담보대출 한도는 한 가지 기준이 아니라 세 관문을 모두 통과해야 정해집니다. 집값을 기준으로 하는 LTV, 소득을 기준으로 하는 DSR, 그리고 미래 금리 상승분을 미리 얹어 심사하는 스트레스 DSR입니다. 실제로 받을 수 있는 금액은 이 셋이 각각 계산한 한도 중 '가장 작은 값'으로 정해집니다. 그래서 집값이 충분해도 소득이 낮으면 한도가 막히고, 소득이 높아도 규제지역이면 LTV에서 걸립니다. 아래에서 세 관문을 하나씩 계산하는 법을 정리했습니다. 🏠
+주택담보대출 한도는 한 가지 기준이 아니라 세 관문을 모두 통과해야 정해집니다. 집값을 기준으로 하는 LTV, 소득을 기준으로 하는 DSR, 그리고 미래 금리 상승분을 미리 얹어 심사하는 스트레스 DSR입니다. 실제로 받을 수 있는 금액은 이 셋이 각각 계산한 한도 가운데 '가장 작은 값'으로 정해집니다. 그래서 집값이 충분해도 소득이 낮으면 한도가 막히고, 소득이 높아도 규제지역이면 LTV에서 걸립니다. 아래 계산기에 값을 넣으면 세 관문을 한 번에 계산해 주고, 이어지는 본문에서 각 관문을 손으로 따져 보는 법을 정리했습니다. 🏠
 
 **핵심 요약 (TL;DR)**
 
 - 주담대 한도 = LTV 한도, DSR 한도, 정책상 절대 상한 중 **가장 작은 값**으로 결정됩니다.
 - DSR은 연간 원리금 상환액이 연소득에서 차지하는 비율로, 은행권 40%·제2금융권 50%가 상한입니다(총대출 1억원 초과 차주 대상).
 - 스트레스 DSR 3단계(2025년 7월 시행)는 심사 때 금리에 가산금리를 더해, 실제 한도를 이전보다 약 10~15% 줄입니다.
+
+## 🧮 내 주담대 한도 계산기
+
+연소득과 집값, 지역, 기존 대출, 금리, 만기를 넣으면 LTV·DSR·스트레스 DSR·수도권 6억 상한을 모두 적용해 실제 한도(가장 낮은 값)를 계산합니다. 값을 바꾸면 결과가 바로 갱신됩니다.
+
+{% raw %}
+<div class="dsr-calc" id="dsr-calc">
+  <style>
+    .dsr-calc { border: 1px solid #e2e2e2; border-radius: 12px; padding: 20px; margin: 8px 0 4px; background: #fafafa; }
+    .dsr-calc .dsr-calc__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px 18px; }
+    .dsr-calc .dsr-calc__label { display: block; font-size: 13px; color: #555; margin-bottom: 4px; }
+    .dsr-calc .dsr-calc__field { width: 100%; box-sizing: border-box; height: 38px; padding: 0 10px; border: 1px solid #ccc; border-radius: 8px; font-size: 15px; background: #fff; }
+    .dsr-calc .dsr-calc__checks { display: flex; flex-wrap: wrap; gap: 18px; margin: 16px 0 4px; font-size: 14px; }
+    .dsr-calc .dsr-calc__check { display: flex; align-items: center; gap: 8px; }
+    .dsr-calc .dsr-calc__cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 18px; }
+    .dsr-calc .dsr-calc__card { background: #fff; border: 1px solid #ececec; border-radius: 8px; padding: 14px; }
+    .dsr-calc .dsr-calc__card-label { font-size: 13px; color: #666; }
+    .dsr-calc .dsr-calc__card-value { font-size: 19px; font-weight: 600; margin-top: 4px; }
+    .dsr-calc .dsr-calc__final { background: #eef4ff; border: 1px solid #cdddff; border-radius: 12px; padding: 16px 18px; margin-top: 14px; }
+    .dsr-calc .dsr-calc__final-label { font-size: 13px; color: #1b4fa0; }
+    .dsr-calc .dsr-calc__final-value { font-size: 26px; font-weight: 700; color: #1b4fa0; margin-top: 2px; }
+    .dsr-calc .dsr-calc__note { font-size: 12px; color: #888; margin-top: 12px; line-height: 1.6; }
+  </style>
+
+  <div class="dsr-calc__grid">
+    <div>
+      <label class="dsr-calc__label" for="dsr-income">연소득 (만원)</label>
+      <input class="dsr-calc__field" type="number" id="dsr-income" value="6000" min="0" step="100">
+    </div>
+    <div>
+      <label class="dsr-calc__label" for="dsr-price">주택가격 (만원)</label>
+      <input class="dsr-calc__field" type="number" id="dsr-price" value="50000" min="0" step="1000">
+    </div>
+    <div>
+      <label class="dsr-calc__label" for="dsr-region">지역</label>
+      <select class="dsr-calc__field" id="dsr-region">
+        <option value="reg">수도권·규제지역</option>
+        <option value="non" selected>비규제지역</option>
+      </select>
+    </div>
+    <div>
+      <label class="dsr-calc__label" for="dsr-existing">기존 대출 연 원리금 (만원)</label>
+      <input class="dsr-calc__field" type="number" id="dsr-existing" value="0" min="0" step="10">
+    </div>
+    <div>
+      <label class="dsr-calc__label" for="dsr-rate">대출 금리 (%)</label>
+      <input class="dsr-calc__field" type="number" id="dsr-rate" value="4.5" min="0" step="0.1">
+    </div>
+    <div>
+      <label class="dsr-calc__label" for="dsr-term">만기 (년)</label>
+      <input class="dsr-calc__field" type="number" id="dsr-term" value="30" min="1" max="50" step="1">
+    </div>
+  </div>
+
+  <div class="dsr-calc__checks">
+    <label class="dsr-calc__check" for="dsr-first"><input type="checkbox" id="dsr-first"> 생애최초 구입</label>
+    <label class="dsr-calc__check" for="dsr-stress"><input type="checkbox" id="dsr-stress" checked> 스트레스 DSR 적용</label>
+  </div>
+
+  <div class="dsr-calc__cards">
+    <div class="dsr-calc__card">
+      <div class="dsr-calc__card-label">LTV 상한 <span id="dsr-ltvpct"></span></div>
+      <div class="dsr-calc__card-value" id="dsr-ltvout">–</div>
+    </div>
+    <div class="dsr-calc__card">
+      <div class="dsr-calc__card-label">DSR 상한 <span id="dsr-stresspct"></span></div>
+      <div class="dsr-calc__card-value" id="dsr-dsrout">–</div>
+    </div>
+    <div class="dsr-calc__card">
+      <div class="dsr-calc__card-label">수도권 6억 상한</div>
+      <div class="dsr-calc__card-value" id="dsr-capout">–</div>
+    </div>
+  </div>
+
+  <div class="dsr-calc__final" aria-live="polite">
+    <div class="dsr-calc__final-label">예상 대출 한도 <span id="dsr-bindtag"></span></div>
+    <div class="dsr-calc__final-value" id="dsr-finalout">–</div>
+  </div>
+
+  <p class="dsr-calc__note">DSR 40%(은행권)·원리금균등 기준 추정치입니다. 스트레스 금리는 수도권·규제지역 주택담보대출 3.0%p, 그 외 1.5%p(2025.12.31 공시 기준)를 심사금리에 더해 계산합니다. LTV는 규제지역 50%·비규제지역 70%·생애최초 70%를 가정했으며, 실제 비율·한도는 지정 구역과 은행에 따라 달라집니다. 참고용이며 실제 심사 결과와 다를 수 있습니다.</p>
+
+  <script>
+  (function(){
+    var el = function(id){ return document.getElementById(id); };
+    var won = function(manwon){
+      var v = Math.max(0, Math.round(manwon));
+      var eok = Math.floor(v / 10000);
+      var man = v % 10000;
+      if(eok > 0 && man > 0){ return eok + "억 " + man.toLocaleString() + "만원"; }
+      if(eok > 0){ return eok + "억원"; }
+      return man.toLocaleString() + "만원";
+    };
+    function calc(){
+      var income = +el("dsr-income").value || 0;
+      var price = +el("dsr-price").value || 0;
+      var reg = el("dsr-region").value === "reg";
+      var existing = +el("dsr-existing").value || 0;
+      var rate = +el("dsr-rate").value || 0;
+      var term = +el("dsr-term").value || 1;
+      var first = el("dsr-first").checked;
+      var useStress = el("dsr-stress").checked;
+      var ltvPct = first ? 70 : (reg ? 50 : 70);
+      var stressAdd = useStress ? (reg ? 3.0 : 1.5) : 0;
+      el("dsr-ltvpct").textContent = "(" + ltvPct + "%)";
+      el("dsr-stresspct").textContent = useStress ? ("+" + stressAdd.toFixed(1) + "%p") : "(미적용)";
+      var ltvCap = price * ltvPct / 100;
+      var allowedAnnual = income * 0.4 - existing;
+      var dsrCap = 0;
+      if(allowedAnnual > 0){
+        var monthly = allowedAnnual / 12;
+        var i = (rate + stressAdd) / 100 / 12;
+        var n = term * 12;
+        dsrCap = i > 0 ? monthly * (1 - Math.pow(1 + i, -n)) / i : monthly * n;
+      }
+      var cap6 = reg ? 60000 : Infinity;
+      el("dsr-ltvout").textContent = won(ltvCap);
+      el("dsr-dsrout").textContent = allowedAnnual > 0 ? won(dsrCap) : "0원 (기존 대출 과다)";
+      el("dsr-capout").textContent = reg ? won(cap6) : "해당 없음";
+      var caps = [{ n: "LTV", v: ltvCap }, { n: "DSR", v: dsrCap }];
+      if(reg){ caps.push({ n: "6억 상한", v: cap6 }); }
+      var bind = caps.reduce(function(a, b){ return b.v < a.v ? b : a; });
+      el("dsr-finalout").textContent = won(bind.v);
+      el("dsr-bindtag").textContent = "· " + bind.n + "에서 결정";
+    }
+    var ids = ["dsr-income","dsr-price","dsr-region","dsr-existing","dsr-rate","dsr-term","dsr-first","dsr-stress"];
+    ids.forEach(function(id){
+      var node = el(id);
+      node.addEventListener("input", calc);
+      node.addEventListener("change", calc);
+    });
+    calc();
+  })();
+  </script>
+</div>
+{% endraw %}
+
+계산기가 뽑아 주는 숫자가 어떻게 나오는지, 세 관문을 하나씩 손으로 따져 보겠습니다.
 
 ## LTV — 집값이 정하는 한도
 
@@ -29,7 +166,7 @@ LTV(담보인정비율)는 집값 대비 얼마까지 빌려주느냐를 정하�
 | 구분 | 비규제지역 | 규제지역(투기과열·조정대상) |
 | --- | --- | --- |
 | 무주택·1주택(처분 조건) | 70% | 상대적으로 낮게 적용 |
-| 생애최초 구입 | 80% | 70% |
+| 생애최초 구입 | 80% → 70%(6·27 이후) | 70% |
 
 규제지역은 주택 가격 구간과 지정 현황에 따라 비율이 더 세분화되므로, 정확한 수치는 해당 시점의 지정 여부와 은행 확인이 필요합니다. 표의 비율은 제도의 기본 골격입니다.
 
@@ -49,6 +186,17 @@ DSR(%) = (모든 대출의 연간 원리금 상환액 합계 ÷ 연소득) × 10
 | 제2금융권(보험·저축은행 등) | 50% |
 
 연소득 6,000만원인 사람이 은행에서 받는다면, 1년에 갚을 수 있는 원리금 상한은 6,000만원 × 40% = 2,400만원, 월로 나누면 약 200만원입니다. 이 월 상환액을 대출로 환산하면 DSR 관문에서의 한도가 나옵니다. 다만 정책모기지(디딤돌·버팀목 등)는 DSR 규제에서 빠지므로 계산이 달라집니다.
+
+## DTI는 DSR과 무엇이 다른가
+
+DTI(총부채상환비율)는 DSR의 '완화판'이라고 보면 이해가 쉽습니다. 계산에 넣는 빚의 범위가 다르기 때문입니다. DTI는 이번에 받는 주담대의 원리금은 그대로 넣되, 기존에 있던 다른 대출은 '이자'만 반영합니다. 반면 DSR은 기존 대출의 원금까지 전부 더합니다. 같은 사람이라도 DSR로 계산하면 갚아야 할 금액이 더 크게 잡히고, 그만큼 한도는 더 줄어듭니다.
+
+| 지표 | 기존 대출 반영 방식 | 성격 |
+| --- | --- | --- |
+| DTI | 원리금 중 이자만 반영 | 상대적으로 느슨 |
+| DSR | 원금·이자 모두 반영 | 더 엄격(현행 핵심 규제) |
+
+규제지역에서는 DTI 40~50%, 비규제지역에서는 60%가 기준으로 함께 쓰이지만, 총대출 1억원을 넘는 대부분의 주담대에서는 DSR 40%가 더 낮은 한도를 만들어 냅니다. 그래서 실무에서 최종 한도를 좌우하는 건 DTI가 아니라 DSR인 경우가 많습니다.
 
 ## 스트레스 DSR — 한도를 한 번 더 깎는 장치
 
@@ -74,7 +222,7 @@ DSR(%) = (모든 대출의 연간 원리금 상환액 합계 ÷ 연소득) × 10
 | LTV | 집값 5억원 × 70% | 3억5,000만원 |
 | 절대 상한 | 비수도권이라 6억원 상한 미적용 | 해당 없음 |
 
-세 관문 중 가장 작은 값이 최종 한도이므로, 이 경우 DSR이 걸려 약 3억3,000만원이 실제 한도가 됩니다. 만약 스트레스 금리를 빼고 4.5%로만 계산하면 한도는 약 3억9,000만원까지 늘어나는데, 스트레스 DSR 때문에 6,000만원가량 줄어드는 셈입니다.
+세 관문 중 가장 작은 값이 최종 한도이므로, 이 경우 DSR이 걸려 약 3억3,000만원이 실제 한도가 됩니다. 만약 스트레스 금리를 빼고 4.5%로만 계산하면 한도는 약 3억9,000만원까지 늘어나는데, 스트레스 DSR 때문에 6,000만원가량 줄어드는 셈입니다. 위 계산기에서 같은 값을 넣고 스트레스 DSR 체크를 껐다 켜 보면 이 차이를 바로 확인할 수 있습니다.
 
 같은 조건이라도 수도권 규제지역이라면 LTV 비율이 낮아지고 스트레스 가산금리가 커지며, 6억원 절대 상한까지 겹쳐 한도가 더 내려갑니다. 반대로 연소득이 높거나 기존 대출이 없을수록 DSR 관문이 넓어져 LTV가 최종 한도를 정하는 경우가 많습니다.
 
@@ -84,7 +232,7 @@ DSR(%) = (모든 대출의 연간 원리금 상환액 합계 ÷ 연소득) × 10
 
 ## 총평
 
-주담대 한도를 물어보는 사람 대부분은 "집값의 몇 %"만 생각하지만, 실제로는 LTV·DSR·스트레스 DSR이라는 세 관문 중 가장 좁은 문이 한도를 정합니다. 특히 스트레스 DSR 3단계가 자리 잡은 뒤로는 소득 관문(DSR)이 한도를 좌우하는 경우가 부쩍 늘었습니다. 본인의 연소득과 기존 대출, 사려는 집의 지역과 가격을 위 순서대로 각각 계산해 보면, 은행에 가기 전에 대략적인 한도를 스스로 가늠할 수 있습니다. 규제 비율과 스트레스 금리는 정책에 따라 조정되므로, 실제 실행 직전에는 최신 기준을 다시 확인하는 것이 좋습니다.
+주담대 한도를 물어보는 사람 대부분은 "집값의 몇 %"만 생각하지만, 실제로는 LTV·DSR·스트레스 DSR이라는 세 관문 중 가장 좁은 문이 한도를 정합니다. 특히 스트레스 DSR 3단계가 자리 잡은 뒤로는 소득 관문(DSR)이 한도를 좌우하는 경우가 부쩍 늘었습니다. 본인의 연소득과 기존 대출, 사려는 집의 지역과 가격을 위 계산기와 순서대로 각각 계산해 보면, 은행에 가기 전에 대략적인 한도를 스스로 가늠할 수 있습니다. 규제 비율과 스트레스 금리는 정책에 따라 조정되므로, 실제 실행 직전에는 최신 기준을 다시 확인하는 것이 좋습니다.
 
 ※ 본 글은 정보 제공 목적이며 투자 조언이 아닙니다.
 
@@ -94,4 +242,5 @@ DSR(%) = (모든 대출의 연간 원리금 상환액 합계 ÷ 연소득) × 10
 - [스트레스 DSR 3단계 시행 안내 (토스뱅크)](https://www.tossbank.com/articles/stressdsr3)
 - [3단계 스트레스 DSR 7월부터 시행 (대한민국 정책브리핑)](https://www.korea.kr/multi/visualNewsView.do?newsId=148943522)
 - [6.27 부동산 대책에 7월 DSR까지, 내 대출 한도 어떤 변화가 생길까요? (토스피드)](https://toss.im/tossfeed/article/tossmoment-14)
+- [주택담보대출 LTV·DTI·DSR 뜻과 계산방법 (창원특례신문)](https://www.cwtr.co.kr/news/articleView.html?idxno=16741)
 - [규제지역 비켜간 생애최초…대출한도 2.5배 차이 (한국경제)](https://www.hankyung.com/article/2025111448861)
