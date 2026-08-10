@@ -61,7 +61,7 @@ tags: [취득세, 주택취득세, 취득세계산, 취득세율, 취득세계�
 
 ## 🧮 취득세 계산기
 
-매매가와 전용면적, 주택 상황만 고르면 취득세·지방교육세·농어촌특별세와 총 세액이 바로 계산됩니다.
+매매가와 전용면적, 주택 상황만 고르면 취득세·지방교육세·농어촌특별세와 총 세액이 바로 계산됩니다. 취득가액은 만원 단위로 넣고(8억 5천만원이면 85000), 결과는 억·만원으로 읽기 쉽게 보여 주면서 정확한 원 단위 금액을 함께 답니다.
 
 {% raw %}
 <div class="acqtax-calc" id="acqtax-calc">
@@ -70,22 +70,27 @@ tags: [취득세, 주택취득세, 취득세계산, 취득세율, 취득세계�
     .acqtax-calc .acqtax-calc__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px 18px; }
     .acqtax-calc .acqtax-calc__label { display: block; font-size: 13px; color: #555; margin-bottom: 4px; }
     .acqtax-calc .acqtax-calc__field { width: 100%; box-sizing: border-box; height: 38px; padding: 0 10px; border: 1px solid #ccc; border-radius: 8px; font-size: 15px; background: #fff; }
+    .acqtax-calc .acqtax-calc__hint { font-size: 14px; font-weight: 600; color: #1b4fa0; margin: 6px 0 0; min-height: 20px; line-height: 1.45; }
+    .acqtax-calc .acqtax-calc__hint--empty { font-size: 12px; font-weight: 400; color: #999; }
     .acqtax-calc .acqtax-calc__checks { display: flex; flex-wrap: wrap; gap: 18px; margin: 16px 0 4px; font-size: 14px; }
     .acqtax-calc .acqtax-calc__check { display: flex; align-items: center; gap: 8px; }
-    .acqtax-calc .acqtax-calc__cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 18px; }
+    .acqtax-calc .acqtax-calc__cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-top: 18px; align-items: start; }
     .acqtax-calc .acqtax-calc__card { background: #fff; border: 1px solid #ececec; border-radius: 8px; padding: 14px; }
     .acqtax-calc .acqtax-calc__card-label { font-size: 13px; color: #666; }
     .acqtax-calc .acqtax-calc__card-value { font-size: 19px; font-weight: 600; margin-top: 4px; }
+    .acqtax-calc .acqtax-calc__card-sub { font-size: 12px; color: #999; margin-top: 3px; }
     .acqtax-calc .acqtax-calc__final { background: #eef4ff; border: 1px solid #cdddff; border-radius: 12px; padding: 16px 18px; margin-top: 14px; }
     .acqtax-calc .acqtax-calc__final-label { font-size: 13px; color: #1b4fa0; }
     .acqtax-calc .acqtax-calc__final-value { font-size: 26px; font-weight: 700; color: #1b4fa0; margin-top: 2px; }
+    .acqtax-calc .acqtax-calc__final-sub { font-size: 13px; color: #4a5b78; margin-top: 4px; }
     .acqtax-calc .acqtax-calc__note { font-size: 12px; color: #888; margin-top: 12px; line-height: 1.6; }
   </style>
 
   <div class="acqtax-calc__grid">
     <div>
       <label class="acqtax-calc__label" for="acqtax-price">취득가액 (만원)</label>
-      <input class="acqtax-calc__field" type="number" id="acqtax-price" value="85000" min="0" step="1000">
+      <input class="acqtax-calc__field" type="number" id="acqtax-price" value="85000" min="0" step="1000" aria-describedby="acqtax-price-hint">
+      <p class="acqtax-calc__hint" id="acqtax-price-hint" aria-live="polite">= 8억 5천만원</p>
     </div>
     <div>
       <label class="acqtax-calc__label" for="acqtax-tier">주택 상황</label>
@@ -105,32 +110,61 @@ tags: [취득세, 주택취득세, 취득세계산, 취득세율, 취득세계�
     <div class="acqtax-calc__card">
       <div class="acqtax-calc__card-label">취득세 <span id="acqtax-acqrate"></span></div>
       <div class="acqtax-calc__card-value" id="acqtax-acqout">–</div>
+      <div class="acqtax-calc__card-sub" id="acqtax-acqsub"></div>
     </div>
     <div class="acqtax-calc__card">
       <div class="acqtax-calc__card-label">지방교육세 <span id="acqtax-edurate"></span></div>
       <div class="acqtax-calc__card-value" id="acqtax-eduout">–</div>
+      <div class="acqtax-calc__card-sub" id="acqtax-edusub"></div>
     </div>
     <div class="acqtax-calc__card">
       <div class="acqtax-calc__card-label">농어촌특별세 <span id="acqtax-farmrate"></span></div>
       <div class="acqtax-calc__card-value" id="acqtax-farmout">–</div>
+      <div class="acqtax-calc__card-sub" id="acqtax-farmsub"></div>
     </div>
   </div>
 
   <div class="acqtax-calc__final" aria-live="polite">
     <div class="acqtax-calc__final-label">총 납부 세액 <span id="acqtax-totalrate"></span></div>
     <div class="acqtax-calc__final-value" id="acqtax-totalout">–</div>
+    <div class="acqtax-calc__final-sub" id="acqtax-totalsub"></div>
   </div>
 
-  <p class="acqtax-calc__note">개인의 주택 유상취득 기준 추정치입니다. 6억~9억 구간은 (취득가액[억]×2/3−3)%로 계산해 소수점 넷째 자리에서 반올림했고, 지방교육세는 표준구간에서 취득세율의 1/10, 중과구간에서 0.4%로 적용했습니다. 농어촌특별세는 85㎡ 초과 시 표준·8%·12% 각각 0.2%·0.6%·1.0%입니다. 원 단위 이하 절사, 생애최초 감면·지방 저가주택 예외는 반영하지 않았으니 실제 신고 세액은 위택스·관할 지자체 기준과 다를 수 있습니다.</p>
+  <p class="acqtax-calc__note">개인의 주택 유상취득 기준 추정치입니다. 6억~9억 구간은 (취득가액[억]×2/3−3)%로 계산해 소수점 넷째 자리에서 반올림했고, 지방교육세는 표준구간에서 취득세율의 1/10, 중과구간에서 0.4%로 적용했습니다. 농어촌특별세는 85㎡ 초과 시 표준·8%·12% 각각 0.2%·0.6%·1.0%입니다. 카드에 크게 뜨는 억·만원 금액은 읽기 편하도록 만원 단위에서 반올림한 값이고('약' 표시), 정확한 금액은 그 아래 원 단위 숫자입니다. 원 단위 이하 절사, 생애최초 감면·지방 저가주택 예외는 반영하지 않았으니 실제 신고 세액은 위택스·관할 지자체 기준과 다를 수 있습니다.</p>
 
   <script>
   (function(){
     var el = function(id){ return document.getElementById(id); };
-    var wonTax = function(v){ return Math.round(v).toLocaleString() + "원"; };
+    var wonTax = function(v){ return Math.round(v).toLocaleString("ko-KR") + "원"; };
     var pct = function(r){ return parseFloat(r.toFixed(4)) + "%"; };
     var round4 = function(x){ return Math.round(x * 10000) / 10000; };
+    var unit = function(manwon){
+      var t = Math.max(0, Math.round(manwon));
+      if(t === 0){ return "0원"; }
+      var eok = Math.floor(t / 10000);
+      var rest = t % 10000;
+      var restText = rest % 1000 === 0 ? (rest / 1000) + "천만원" : rest.toLocaleString("ko-KR") + "만원";
+      if(eok > 0 && rest > 0){ return eok.toLocaleString("ko-KR") + "억 " + restText; }
+      if(eok > 0){ return eok.toLocaleString("ko-KR") + "억원"; }
+      return restText;
+    };
+    var brief = function(v){
+      var t = Math.round(v);
+      if(t <= 0){ return "0원"; }
+      if(t < 10000){ return t.toLocaleString("ko-KR") + "원"; }
+      return (t % 10000 === 0 ? "" : "약 ") + unit(t / 10000);
+    };
     function calc(){
-      var price = (+el("acqtax-price").value || 0) * 10000;
+      var priceMan = +el("acqtax-price").value || 0;
+      var price = priceMan * 10000;
+      var hint = el("acqtax-price-hint");
+      if(priceMan > 0){
+        hint.textContent = "= " + unit(priceMan);
+        hint.className = "acqtax-calc__hint";
+      } else {
+        hint.textContent = "만원 단위로 입력 · 8억 5천만원이면 85000";
+        hint.className = "acqtax-calc__hint acqtax-calc__hint--empty";
+      }
       var over85 = el("acqtax-over85").checked;
       var tier = el("acqtax-tier").value;
       var acqRate, eduRate, farmRate;
@@ -155,10 +189,14 @@ tags: [취득세, 주택취득세, 취득세계산, 취득세율, 취득세계�
       el("acqtax-edurate").textContent = "(" + pct(eduRate) + ")";
       el("acqtax-farmrate").textContent = farmRate > 0 ? "(" + pct(farmRate) + ")" : "(비과세)";
       el("acqtax-totalrate").textContent = "· 합산 " + pct(totalRate);
-      el("acqtax-acqout").textContent = wonTax(acqTax);
-      el("acqtax-eduout").textContent = wonTax(eduTax);
-      el("acqtax-farmout").textContent = farmRate > 0 ? wonTax(farmTax) : "0원";
-      el("acqtax-totalout").textContent = wonTax(total);
+      el("acqtax-acqout").textContent = brief(acqTax);
+      el("acqtax-acqsub").textContent = wonTax(acqTax);
+      el("acqtax-eduout").textContent = brief(eduTax);
+      el("acqtax-edusub").textContent = wonTax(eduTax);
+      el("acqtax-farmout").textContent = farmRate > 0 ? brief(farmTax) : "0원";
+      el("acqtax-farmsub").textContent = farmRate > 0 ? wonTax(farmTax) : "";
+      el("acqtax-totalout").textContent = brief(total);
+      el("acqtax-totalsub").textContent = wonTax(total);
     }
     var ids = ["acqtax-price", "acqtax-tier", "acqtax-over85"];
     ids.forEach(function(id){
