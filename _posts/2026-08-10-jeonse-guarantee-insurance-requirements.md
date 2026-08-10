@@ -50,7 +50,7 @@ HUG 반환보증에서 가장 많이 걸려 넘어지는 문턱이 이른바 '12
 
 ## 🧮 가입 가능 전세보증금 계산기
 
-공시가격과 전세보증금을 넣으면 HUG의 126% 룰 기준으로 가입 가능 여부를 바로 확인할 수 있습니다.
+공시가격과 전세보증금을 넣으면 HUG의 126% 룰 기준으로 가입 가능 여부를 바로 확인할 수 있습니다. 금액은 만원 단위로 넣고(1억원이면 10000), 입력칸 아래와 결과 카드에 억·천만원 단위로 환산된 금액이 함께 나옵니다.
 
 {% raw %}
 <div class="jbg-calc" id="jbg-calc">
@@ -59,13 +59,17 @@ HUG 반환보증에서 가장 많이 걸려 넘어지는 문턱이 이른바 '12
     .jbg-calc .jbg-calc__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px 18px; }
     .jbg-calc .jbg-calc__label { display: block; font-size: 13px; color: #555; margin-bottom: 4px; }
     .jbg-calc .jbg-calc__field { width: 100%; box-sizing: border-box; height: 38px; padding: 0 10px; border: 1px solid #ccc; border-radius: 8px; font-size: 15px; background: #fff; }
-    .jbg-calc .jbg-calc__cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-top: 18px; }
+    .jbg-calc .jbg-calc__hint { font-size: 14px; font-weight: 600; color: #1b4fa0; margin: 6px 0 0; min-height: 20px; line-height: 1.45; }
+    .jbg-calc .jbg-calc__hint--empty { font-size: 12px; font-weight: 400; color: #999; }
+    .jbg-calc .jbg-calc__cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 18px; align-items: start; }
     .jbg-calc .jbg-calc__card { background: #fff; border: 1px solid #ececec; border-radius: 8px; padding: 14px; }
     .jbg-calc .jbg-calc__card-label { font-size: 13px; color: #666; }
     .jbg-calc .jbg-calc__card-value { font-size: 19px; font-weight: 600; margin-top: 4px; }
+    .jbg-calc .jbg-calc__card-sub { font-size: 12px; color: #999; margin-top: 3px; }
     .jbg-calc .jbg-calc__final { background: #eef4ff; border: 1px solid #cdddff; border-radius: 12px; padding: 16px 18px; margin-top: 14px; }
     .jbg-calc .jbg-calc__final-label { font-size: 13px; color: #1b4fa0; }
     .jbg-calc .jbg-calc__final-value { font-size: 22px; font-weight: 700; margin-top: 2px; }
+    .jbg-calc .jbg-calc__final-sub { font-size: 13px; color: #4a5b78; margin-top: 4px; }
     .jbg-calc .jbg-ok { color: #147a3d; }
     .jbg-calc .jbg-no { color: #c0392b; }
     .jbg-calc .jbg-neutral { color: #1b4fa0; }
@@ -74,43 +78,77 @@ HUG 반환보증에서 가장 많이 걸려 넘어지는 문턱이 이른바 '12
   <div class="jbg-calc__grid">
     <div>
       <label class="jbg-calc__label" for="jbg-gongsi">주택 공시가격 (만원)</label>
-      <input class="jbg-calc__field" id="jbg-gongsi" type="number" inputmode="numeric" min="0" step="100" placeholder="예: 30000">
+      <input class="jbg-calc__field" id="jbg-gongsi" type="number" inputmode="numeric" min="0" step="100" placeholder="예: 30000 (3억원)" aria-describedby="jbg-gongsi-hint">
+      <p class="jbg-calc__hint jbg-calc__hint--empty" id="jbg-gongsi-hint" aria-live="polite">만원 단위로 입력 · 3억원이면 30000</p>
     </div>
     <div>
       <label class="jbg-calc__label" for="jbg-deposit">전세보증금 (만원)</label>
-      <input class="jbg-calc__field" id="jbg-deposit" type="number" inputmode="numeric" min="0" step="100" placeholder="예: 35000">
+      <input class="jbg-calc__field" id="jbg-deposit" type="number" inputmode="numeric" min="0" step="100" placeholder="예: 35000 (3억 5천만원)" aria-describedby="jbg-deposit-hint">
+      <p class="jbg-calc__hint jbg-calc__hint--empty" id="jbg-deposit-hint" aria-live="polite">만원 단위로 입력 · 3억 5천만원이면 35000</p>
     </div>
   </div>
   <div class="jbg-calc__cards" aria-live="polite">
     <div class="jbg-calc__card">
       <div class="jbg-calc__card-label">가입 가능 최대 보증금</div>
       <div class="jbg-calc__card-value" id="jbg-limit">-</div>
+      <div class="jbg-calc__card-sub" id="jbg-limit-sub"></div>
     </div>
     <div class="jbg-calc__card jbg-calc__final">
       <div class="jbg-calc__final-label">가입 가능 여부 (HUG 126% 기준)</div>
       <div class="jbg-calc__final-value jbg-neutral" id="jbg-verdict">공시가격과 전세보증금을 입력하세요</div>
+      <div class="jbg-calc__final-sub" id="jbg-gap"></div>
     </div>
   </div>
   <p class="jbg-calc__note">공시가격 × 1.26으로 계산한 개략치입니다. 아파트 등 시세가 명확한 주택은 시세가 우선 적용되고, 선순위 근저당·다른 임차보증금이 있으면 한도가 더 줄어듭니다. 실제 가입 가능 여부는 안심전세앱 등 공식 채널에서 확인하세요.</p>
   <script>
   (function(){
     function el(id){ return document.getElementById(id); }
-    function won(v){ return Math.round(v).toLocaleString("ko-KR"); }
+    function man(v){ return Math.round(v).toLocaleString("ko-KR") + "만원"; }
+    function won(v){
+      var t = Math.max(0, Math.round(v));
+      if (t === 0) { return "0원"; }
+      var eok = Math.floor(t / 10000);
+      var rest = t % 10000;
+      var restText = rest % 1000 === 0 ? (rest / 1000) + "천만원" : rest.toLocaleString("ko-KR") + "만원";
+      if (eok > 0 && rest > 0) { return eok.toLocaleString("ko-KR") + "억 " + restText; }
+      if (eok > 0) { return eok.toLocaleString("ko-KR") + "억원"; }
+      return restText;
+    }
+    function hint(id, value){
+      var node = el(id + "-hint");
+      var guide = id === "jbg-gongsi" ? "만원 단위로 입력 · 3억원이면 30000" : "만원 단위로 입력 · 3억 5천만원이면 35000";
+      if (value > 0) {
+        node.textContent = "= " + won(value);
+        node.className = "jbg-calc__hint";
+      } else {
+        node.textContent = guide;
+        node.className = "jbg-calc__hint jbg-calc__hint--empty";
+      }
+    }
     function calc(){
       var g = parseFloat(el("jbg-gongsi").value) || 0;
       var d = parseFloat(el("jbg-deposit").value) || 0;
+      hint("jbg-gongsi", g);
+      hint("jbg-deposit", d);
       var limit = g * 1.26;
-      el("jbg-limit").textContent = g > 0 ? won(limit) + "만원" : "-";
+      el("jbg-limit").textContent = g > 0 ? won(limit) : "-";
+      el("jbg-limit-sub").textContent = g > 0 ? man(limit) : "";
       var v = el("jbg-verdict");
+      var gap = el("jbg-gap");
       if (g <= 0 || d <= 0) {
         v.textContent = "공시가격과 전세보증금을 입력하세요";
         v.className = "jbg-calc__final-value jbg-neutral";
+        gap.textContent = "";
       } else if (d <= limit) {
+        var room = Math.round(limit - d);
         v.textContent = "가입 가능 — 한도 이내";
         v.className = "jbg-calc__final-value jbg-ok";
+        gap.textContent = room > 0 ? "한도까지 " + won(room) + " 여유" : "한도에 꼭 맞는 금액";
       } else {
+        var over = Math.round(d - limit);
         v.textContent = "한도 초과 — 가입 어려움";
         v.className = "jbg-calc__final-value jbg-no";
+        gap.textContent = over > 0 ? "한도보다 " + won(over) + " 초과" : "한도를 근소하게 초과";
       }
     }
     ["jbg-gongsi", "jbg-deposit"].forEach(function(id){
