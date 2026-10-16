@@ -297,6 +297,9 @@
 .post { position: relative; }
 /* 글·소개 본문은 넓은 .wrap 안에서 기존 읽기 폭(--maxw, 좌우 padding 제외)으로 가운데 정렬 */
 .post, .page { max-width: calc(var(--maxw) - 2.5rem); margin: 0 auto; }
+/* 글 하단 관련 글: 글 본문과 같은 폭, 2열 */
+.related { max-width: calc(var(--maxw) - 2.5rem); margin: 3rem auto 0; padding-top: 2rem; border-top: 1px solid var(--border); }
+.related .related__grid { grid-template-columns: repeat(2, 1fr); }
 .post__sticky-sentinel { position: absolute; top: 0; left: 0; width: 1px; height: 1px; pointer-events: none; }
 
 /* 홈 글 목록 */
@@ -685,6 +688,7 @@ a.pagination__item:hover { background: var(--brand); color: #fff; border-color: 
 
   /* 모바일: 가로형 컴팩트 카드 (썸네일 좌 + 텍스트 우) */
   .post-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+  .related .related__grid { grid-template-columns: 1fr; }
   .post-card__link {
     flex-direction: row;
     align-items: center;
