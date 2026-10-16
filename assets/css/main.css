@@ -13,7 +13,8 @@
   --text: #23232a;
   --muted: #74747f;
   --border: #e8e7f0;
-  --maxw: 44rem;
+  --maxw: 44rem;       /* 글·소개 본문 폭(가독성) */
+  --maxw-wide: 72rem;  /* 헤더·푸터·목록 페이지 폭 */
   --radius: 12px;
   /* sticky 사이트 헤더의 실측 높이(경계선 3px 포함) — 글 헤더가 이 값만큼 아래에 고정됨.
      헤더는 폭에 따라 줄바꿈되므로 아래 미디어 쿼리에서 구간별로 재정의(한/영/일 중 최대값) */
@@ -40,7 +41,7 @@
 
 .wrap {
   width: 100%;
-  max-width: var(--maxw);
+  max-width: var(--maxw-wide);
   margin: 0 auto;
   padding: 0 1.25rem;
 }
@@ -294,6 +295,8 @@
 /* sticky 고정 감지용 센티널: 레이아웃에 영향 없도록 글 상단에 absolute 배치.
    이 지점이 sticky 라인 위로 올라가면 JS 가 .post__header 에 is-sticky 를 토글 */
 .post { position: relative; }
+/* 글·소개 본문은 넓은 .wrap 안에서 기존 읽기 폭(--maxw, 좌우 padding 제외)으로 가운데 정렬 */
+.post, .page { max-width: calc(var(--maxw) - 2.5rem); margin: 0 auto; }
 .post__sticky-sentinel { position: absolute; top: 0; left: 0; width: 1px; height: 1px; pointer-events: none; }
 
 /* 홈 글 목록 */
@@ -361,9 +364,10 @@ a.pagination__item:hover { background: var(--brand); color: #fff; border-color: 
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.4rem;
 }
+@media (max-width: 900px) { .post-grid { grid-template-columns: repeat(2, 1fr); } }
 .post-card { display: flex; }
 .post-card__link {
   display: flex;
