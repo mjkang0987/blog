@@ -1,11 +1,18 @@
 ---
 layout: default
 ---
-{% if site.active_lang == 'ja' %}{% assign t_latest = '最新の記事' %}{% assign t_empty = 'まだ記事がありません。' %}{% assign t_prev = '前へ' %}{% assign t_next = '次へ' %}{% assign t_pageword = 'ページ' %}
-{% elsif site.active_lang == 'en-US' %}{% assign t_latest = 'Latest posts' %}{% assign t_empty = 'No posts yet.' %}{% assign t_prev = 'Prev' %}{% assign t_next = 'Next' %}{% assign t_pageword = 'Page' %}
-{% else %}{% assign t_latest = '최근 글' %}{% assign t_empty = '아직 글이 없습니다.' %}{% assign t_prev = '이전' %}{% assign t_next = '다음' %}{% assign t_pageword = '페이지' %}{% endif %}
+{% if site.active_lang == 'ja' %}{% assign t_latest = '最新の記事' %}{% assign t_empty = 'まだ記事がありません。' %}{% assign t_prev = '前へ' %}{% assign t_next = '次へ' %}{% assign t_pageword = 'ページ' %}{% assign t_calc_lead = '不動産計算機' %}{% assign t_calc_unit = '種' %}{% assign t_calc_cta = 'すべて見る' %}
+{% elsif site.active_lang == 'en-US' %}{% assign t_latest = 'Latest posts' %}{% assign t_empty = 'No posts yet.' %}{% assign t_prev = 'Prev' %}{% assign t_next = 'Next' %}{% assign t_pageword = 'Page' %}{% assign t_calc_lead = 'Real estate calculators' %}{% assign t_calc_unit = '' %}{% assign t_calc_cta = 'View all' %}
+{% else %}{% assign t_latest = '최근 글' %}{% assign t_empty = '아직 글이 없습니다.' %}{% assign t_prev = '이전' %}{% assign t_next = '다음' %}{% assign t_pageword = '페이지' %}{% assign t_calc_lead = '부동산 계산기' %}{% assign t_calc_unit = '종' %}{% assign t_calc_cta = '전체 보기' %}{% endif %}
 
 <section class="home">
+  {%- assign calc_posts = site.posts | where_exp: "p", "p.url contains '-calculation/'" | where_exp: "p", "p.canonical_url == nil" -%}
+  {% if calc_posts.size > 0 %}
+  <p class="home-calc">
+    <span class="home-calc__text">🔢 {{ t_calc_lead }} <strong class="home-calc__count">{{ calc_posts.size }}{{ t_calc_unit }}</strong></span>
+    <a class="chip home-calc__link" href="{{ '/calculators/' | relative_url }}">{{ t_calc_cta }}</a>
+  </p>
+  {% endif %}
   <h1 class="home__title">{{ t_latest }}</h1>
 
   {% if site.posts.size == 0 %}
@@ -13,22 +20,7 @@ layout: default
   {% else %}
     <ul class="post-grid" id="home-grid">
       {% for post in site.posts %}
-        <li class="post-card">
-          <a class="post-card__link" href="{{ post.url | relative_url }}">
-            {% if post.image %}
-              <img class="post-card__thumb" src="{{ post.image | relative_url }}" alt="" loading="lazy" width="1200" height="630">
-            {% else %}
-              <span class="post-card__thumb post-card__thumb--placeholder" aria-hidden="true">pikaworks</span>
-            {% endif %}
-            <span class="post-card__body">
-              <time class="post-card__date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y.%m.%d' }}</time>
-              <span class="post-card__title">{{ post.title }}</span>
-              {% assign card_summary = post.summary | default: post.description | default: post.excerpt %}
-              {% if card_summary %}<span class="post-card__summary">{{ card_summary | strip_html | strip_newlines | truncate: 90 }}</span>{% endif %}
-              {% if post.categories.size > 0 %}<span class="post-card__cat">{{ post.categories | join: ', ' }}</span>{% endif %}
-            </span>
-          </a>
-        </li>
+        {% include post-card.html post=post %}
       {% endfor %}
     </ul>
     <nav class="pagination" id="home-pagination" aria-label="{{ t_pageword }}" hidden></nav>
