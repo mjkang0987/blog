@@ -6,6 +6,7 @@ layout: default
 {%- if site.active_lang == 'ja' -%}{%- assign t_tag = 'タグ' -%}{%- assign t_cat = 'カテゴリ' -%}{%- assign t_by = '著者' -%}
 {%- elsif site.active_lang == 'en-US' -%}{%- assign t_tag = 'Tag' -%}{%- assign t_cat = 'Category' -%}{%- assign t_by = 'Author' -%}
 {%- else -%}{%- assign t_tag = '태그' -%}{%- assign t_cat = '카테고리' -%}{%- assign t_by = '작성자' -%}{%- endif -%}
+{%- if site.active_lang == 'ja' -%}{%- assign t_related = '関連記事' -%}{%- elsif site.active_lang == 'en-US' -%}{%- assign t_related = 'Related posts' -%}{%- else -%}{%- assign t_related = '함께 보면 좋은 글' -%}{%- endif -%}
 {%- assign author_name = site.author.name | default: site.title -%}
 {%- comment -%} 구조화 데이터: 글(BlogPosting) + 빵부스러기(BreadcrumbList) — 검색·AI 인용 최적화 {%- endcomment -%}
 {%- assign og_img = page.image | default: '/assets/og/home.png' -%}
@@ -68,3 +69,40 @@ layout: default
     </footer>
   {% endif %}
 </article>
+
+{%- comment -%}
+  관련 글 4개: 계산기 글(-calculation)은 다른 계산기 글, 주간 정리(weekly)는 다른 주간 정리,
+  그 외는 태그가 많이 겹치는 순(주간 정리 제외) → 부족하면 같은 카테고리 최신 글로 채움. canonical_url 로 통합된 글은 제외.
+{%- endcomment -%}
+{%- assign rel_pool = site.posts | where_exp: "p", "p.url != page.url" | where_exp: "p", "p.canonical_url == nil" -%}
+{%- if page.url contains '-calculation/' -%}
+  {%- assign related = rel_pool | where_exp: "p", "p.url contains '-calculation/'" -%}
+{%- elsif page.url contains 'weekly' -%}
+  {%- assign related = rel_pool | where_exp: "p", "p.url contains 'weekly'" -%}
+{%- else -%}
+  {%- comment -%} 시의성 글(주간 정리)은 빼고, 태그 2개 이상 겹치는 글 → 1개 겹치는 글 → 같은 카테고리 순 {%- endcomment -%}
+  {%- assign rel2 = "" | split: "" -%}{%- assign rel1 = "" | split: "" -%}
+  {%- for p in rel_pool -%}
+    {%- if p.url contains 'weekly' -%}{%- continue -%}{%- endif -%}
+    {%- assign shared = 0 -%}
+    {%- for tag in p.tags -%}{%- if page.tags contains tag -%}{%- assign shared = shared | plus: 1 -%}{%- endif -%}{%- endfor -%}
+    {%- if shared >= 2 -%}{%- assign rel2 = rel2 | push: p -%}{%- elsif shared == 1 -%}{%- assign rel1 = rel1 | push: p -%}{%- endif -%}
+  {%- endfor -%}
+  {%- assign related = rel2 | concat: rel1 -%}
+  {%- if related.size < 4 -%}
+    {%- assign cat = page.categories | first -%}
+    {%- for p in rel_pool -%}
+      {%- if related.size >= 4 -%}{%- break -%}{%- endif -%}
+      {%- if p.url contains 'weekly' -%}{%- continue -%}{%- endif -%}
+      {%- if p.categories contains cat -%}{%- unless related contains p -%}{%- assign related = related | push: p -%}{%- endunless -%}{%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+{%- endif -%}
+{% if related.size > 0 %}
+<aside class="related" aria-labelledby="related-title">
+  <h2 class="home__title related__title" id="related-title">{{ t_related }}</h2>
+  <ul class="post-grid related__grid">
+    {% for post in related limit: 4 %}{% include post-card.html post=post %}{% endfor %}
+  </ul>
+</aside>
+{% endif %}
