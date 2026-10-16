@@ -48,19 +48,28 @@
       </button>
 
       <nav class="site-nav" aria-label="주 메뉴">
-        {% if site.active_lang == 'ja' %}{% assign nav_home = 'ホーム' %}{% assign nav_about = '概要' %}{% assign nav_tags = 'タグ' %}{% assign cat_re = '不動産' %}{% assign cat_ec = '経済' %}
-        {% elsif site.active_lang == 'en-US' %}{% assign nav_home = 'Home' %}{% assign nav_about = 'About' %}{% assign nav_tags = 'Tags' %}{% assign cat_re = 'Real Estate' %}{% assign cat_ec = 'Economy' %}
-        {% else %}{% assign nav_home = '홈' %}{% assign nav_about = '소개' %}{% assign nav_tags = '태그' %}{% assign cat_re = '부동산' %}{% assign cat_ec = '경제' %}{% endif %}
-        {%- assign tags_url = '/tags/' | relative_url -%}
-        <a class="site-nav__link" href="{{ '/' | relative_url }}">{{ nav_home }}</a>
-        <a class="site-nav__link site-nav__link--cat" href="{{ tags_url }}?cat={{ cat_re | uri_escape }}">{{ cat_re }}</a>
-        <a class="site-nav__link site-nav__link--cat" href="{{ tags_url }}?cat={{ cat_ec | uri_escape }}">{{ cat_ec }}</a>
-        <a class="site-nav__link site-nav__link--cat" href="{{ tags_url }}?cat=IT">IT</a>
-        <a class="site-nav__link" href="{{ tags_url }}">{{ nav_tags }}</a>
-        <a class="site-nav__link" href="{{ '/about/' | relative_url }}">{{ nav_about }}</a>
+        {% if site.active_lang == 'ja' %}{% assign nav_calc = '計算機' %}{% assign nav_weekly = '週間市況' %}{% assign nav_all = 'すべての記事' %}
+        {% elsif site.active_lang == 'en-US' %}{% assign nav_calc = 'Calculators' %}{% assign nav_weekly = 'Weekly' %}{% assign nav_all = 'All posts' %}
+        {% else %}{% assign nav_calc = '계산기' %}{% assign nav_weekly = '주간 시황' %}{% assign nav_all = '전체 글' %}{% endif %}
+        <a class="site-nav__link" href="{{ '/calculators/' | relative_url }}"{% if page.url contains '/calculators/' %} aria-current="page"{% endif %}>{{ nav_calc }}</a>
+        <a class="site-nav__link" href="{{ '/weekly/' | relative_url }}"{% if page.url contains '/weekly/' %} aria-current="page"{% endif %}>{{ nav_weekly }}</a>
+        <a class="site-nav__link" href="{{ '/tags/' | relative_url }}"{% if page.url contains '/tags/' %} aria-current="page"{% endif %}>{{ nav_all }}</a>
       </nav>
+    </div>
+  </header>
 
-      <form class="lang-switch" aria-label="언어 선택">
+  <main class="site-main wrap" id="content">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap site-footer__inner">
+      <img class="site-footer__logo" src="{{ '/assets/logo.svg' | relative_url }}" alt="{{ site.title }}" width="688" height="98">
+      <p class="site-footer__desc">{{ site.description }}</p>
+      <p class="site-footer__contact"><a class="site-footer__email" href="mailto:pikaworks.help@gmail.com">pikaworks.help@gmail.com</a></p>
+      {%- if site.active_lang == 'ja' -%}{%- assign nav_about = '概要' -%}{%- elsif site.active_lang == 'en-US' -%}{%- assign nav_about = 'About' -%}{%- else -%}{%- assign nav_about = '소개' -%}{%- endif %}
+      <p class="site-footer__home"><a class="site-footer__home-link" href="{{ '/about/' | relative_url }}">{{ nav_about }}</a></p>
+      <form class="lang-switch site-footer__lang" aria-label="언어 선택">
         <label class="lang-switch__label" for="lang-select" aria-label="언어 선택">🌐</label>
         <select class="lang-switch__select" id="lang-select" onchange="if(this.value){location.href=this.value;}">
           {%- comment -%} 현재 경로에서 언어 프리픽스만 교체 → 같은 페이지의 해당 언어 버전으로 {%- endcomment -%}
@@ -77,18 +86,6 @@
           {% endfor %}
         </select>
       </form>
-    </div>
-  </header>
-
-  <main class="site-main wrap" id="content">
-    {{ content }}
-  </main>
-
-  <footer class="site-footer">
-    <div class="wrap site-footer__inner">
-      <img class="site-footer__logo" src="{{ '/assets/logo.svg' | relative_url }}" alt="{{ site.title }}" width="688" height="98">
-      <p class="site-footer__desc">{{ site.description }}</p>
-      <p class="site-footer__contact"><a class="site-footer__email" href="mailto:pikaworks.help@gmail.com">pikaworks.help@gmail.com</a></p>
       <p class="site-footer__home"><a class="site-footer__home-link" href="https://pikaworks.kr" target="_blank" rel="noopener noreferrer">PIKAWORKS&nbsp;↗</a></p>
       <p class="site-footer__copy">© {{ site.time | date: '%Y' }} pikaworks. All rights reserved.</p>
     </div>

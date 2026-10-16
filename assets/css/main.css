@@ -95,15 +95,8 @@
 }
 /* 헤더 높이 = 글 헤더 sticky top. 폰트·OS별로 헤더 높이가 달라 JS(default.html)가
    실측값으로 --header-h 를 덮어쓰며, 아래 값들은 JS 미실행 시의 폴백(근사)이다.
-   ko: >600px→104 · ≤600→135(로고·검색 줄바꿈) · ≤418→171(메뉴 줄바꿈) */
+   >600px→104 · ≤600→135(1줄: 로고·검색 / 2줄: 메뉴 3개). 언어 선택은 푸터로 옮겨 메뉴가 더 줄바꿈되지 않는다 */
 @media (max-width: 600px) { :root { --header-h: 135px; } }
-@media (max-width: 418px) { :root { --header-h: 171px; } }
-/* 영어: 라벨이 길어 더 이른 폭에서 줄바꿈 (≤539→171 · ≤403→198) */
-@media (max-width: 539px) { html[lang="en-US"] { --header-h: 171px; } }
-@media (max-width: 403px) { html[lang="en-US"] { --header-h: 198px; } }
-/* 일본어: (≤448→171 · ≤321→198) */
-@media (max-width: 448px) { html[lang="ja"] { --header-h: 171px; } }
-@media (max-width: 321px) { html[lang="ja"] { --header-h: 198px; } }
 .site-header__inner {
   display: flex;
   flex-wrap: wrap;
@@ -260,9 +253,10 @@
   font-weight: 500;
 }
 .site-nav__link:hover { color: #fff; }
-.site-nav__link--cat { font-weight: 600; }
+.site-nav__link[aria-current="page"] { color: #fff; font-weight: 700; }
 
-.lang-switch { display: flex; align-items: center; gap: 0.4rem; order: 2; }
+.lang-switch { display: flex; align-items: center; gap: 0.4rem; }
+.site-footer__lang { margin: 0 0 0.75rem; }
 .lang-switch__label { font-size: 1rem; line-height: 1; cursor: pointer; }
 .lang-switch__select {
   appearance: none;
@@ -630,12 +624,9 @@ a.pagination__item:hover { background: var(--brand); color: #fff; border-color: 
   }
   .site-search-toggle svg { width: 22px; height: 22px; display: block; }
   .site-search-toggle:active { opacity: 0.6; }
-  /* 2번째 줄: 메뉴는 좌측, 언어는 우측 끝. 간격·폰트 줄여 한 줄에 수용 */
-  .site-nav { gap: 0.5rem; margin-left: 0; }
+  /* 2번째 줄: 메뉴 3개 */
+  .site-nav { gap: 1rem; margin-left: 0; }
   .site-nav__link { font-size: 0.9rem; }
-  .lang-switch { margin-left: auto; gap: 0.3rem; }
-  .lang-switch__label { font-size: 0.9rem; }
-  .lang-switch__select { padding: 0.3rem 1.5rem 0.3rem 0.55rem; font-size: 0.8rem; background-position: right 0.5rem center; }
   /* 오버레이(레이어) — 상단에 떠 있는 카드형 패널 + 딤/블러 배경 */
   .search-backdrop {
     display: block; position: fixed; inset: 0; z-index: 190;
