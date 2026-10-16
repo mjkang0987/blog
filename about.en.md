@@ -6,15 +6,15 @@ lang: en-US
 page_id: about
 ---
 
-An economy, real-estate, and tech insights blog run by **pikaworks**. 🪙🏙️💡
+A Korean real-estate blog run by **pikaworks**. 🏙️🧮
 
-Every day we read the day's major stories ourselves, cross-check them across multiple outlets, and publish concise summaries with our own perspective in Korean, English, and Japanese.
+We build calculators for the numbers you have to work out yourself (taxes, loans, housing subscriptions) and explain the policies and market trends behind them.
 
-- **Topics**: Economy · Real Estate · IT (AI & semiconductors)
-- **Cadence**: Daily (morning & afternoon)
+- **Topics**: Korean real-estate taxes, loans and subscription scoring, policy explainers, market reviews, practical guides
+- **Calculators**: [Real-estate calculators](https://blog.pikaworks.kr/calculators/) (Korean)
 - **Run by**: pikaworks
 - **Contact**: [pikaworks.help@gmail.com](mailto:pikaworks.help@gmail.com)
 
-Every post links to the original source articles it cites.
+Every post is written from cross-checked public sources such as government and statistics agencies, and links to the original material it cites. New posts are published in Korean; some earlier posts, including past economy and tech posts, are also available in English.
 
-* All posts are for information only and are not investment advice.
+* All posts and calculator results are for information only and are not investment or tax advice.
