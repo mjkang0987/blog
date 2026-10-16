@@ -1,14 +1,22 @@
 <!DOCTYPE html>
-<html lang="{{ site.active_lang | default: 'ko' }}">
+{%- comment -%} 글은 실제 존재하는 언어판만 다국어로 취급(_plugins/post_langs.rb). 번역이 없는 글의 /en-US/·/ja/ 폴백 페이지는 본문이 한국어라 lang=ko·noindex {%- endcomment -%}
+{%- assign avail_langs = nil -%}
+{%- if page.collection == 'posts' -%}{%- assign avail_langs = site.data.post_langs[page.permalink] -%}{%- endif -%}
+{%- assign is_fallback = false -%}
+{%- if avail_langs and avail_langs contains site.active_lang -%}{%- else -%}{%- if avail_langs -%}{%- assign is_fallback = true -%}{%- endif -%}{%- endif -%}
+<html lang="{% if is_fallback %}{{ page.lang | default: site.default_lang }}{% else %}{{ site.active_lang | default: 'ko' }}{% endif %}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="naver-site-verification" content="088e95e2791517e250257e4b5f6aed4b290b03d4">
+  {% if is_fallback %}<meta name="robots" content="noindex, follow">{% endif %}
   {% seo %}
   {% feed_meta %}
   {% comment %} 다국어 hreflang — 번역은 동일 permalink를 공유하므로 언어 프리픽스만 붙임 {% endcomment %}
-  {% if page.permalink %}
-    {% for lang in site.languages %}
+  {%- assign hreflangs = site.languages -%}
+  {%- if avail_langs -%}{%- assign hreflangs = avail_langs -%}{%- endif -%}
+  {% if page.permalink and hreflangs.size > 1 and is_fallback == false %}
+    {% for lang in hreflangs %}
       {% if lang == site.default_lang %}{% assign hpfx = '' %}{% else %}{% assign hpfx = lang | append: '/' %}{% endif %}
       <link rel="alternate" hreflang="{{ lang }}" {% static_href %}href="{{ site.url }}{{ site.baseurl }}/{{ hpfx }}{{ page.permalink | remove_first: '/' }}"{% endstatic_href %}>
     {% endfor %}

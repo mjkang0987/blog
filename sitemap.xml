@@ -33,17 +33,22 @@ sitemap: false
 {%- comment -%} ── 글(posts) ── {%- endcomment -%}
 {%- for post in site.posts -%}
   {%- if post.sitemap == false -%}{%- continue -%}{%- endif -%}
+  {%- if post.canonical_url -%}{%- continue -%}{%- endif -%}
   {%- assign base = post.permalink | default: post.url | remove_first: '/' -%}
-  {%- for lang in langs -%}
+  {%- comment -%} 실제 번역판이 있는 언어만 출력(번역 없는 /en-US/·/ja/ 폴백은 noindex 라 제외) {%- endcomment -%}
+  {%- assign plangs = site.data.post_langs[post.permalink] | default: langs -%}
+  {%- for lang in plangs -%}
     {%- if lang == site.default_lang -%}{%- assign pfx = '' -%}{%- else -%}{%- assign pfx = lang | append: '/' -%}{%- endif -%}
   <url>
     <loc>{{ site.url }}{{ site.baseurl }}/{{ pfx }}{{ base }}</loc>
     <lastmod>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</lastmod>
-    {%- for alt in langs -%}
+    {%- if plangs.size > 1 -%}
+    {%- for alt in plangs -%}
       {%- if alt == site.default_lang -%}{%- assign apfx = '' -%}{%- else -%}{%- assign apfx = alt | append: '/' -%}{%- endif -%}
     <xhtml:link rel="alternate" hreflang="{{ alt }}" href="{{ site.url }}{{ site.baseurl }}/{{ apfx }}{{ base }}" />
     {%- endfor -%}
     <xhtml:link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ site.baseurl }}/{{ base }}" />
+    {%- endif -%}
   </url>
   {%- endfor -%}
 {%- endfor -%}
