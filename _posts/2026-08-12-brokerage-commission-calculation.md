@@ -6,6 +6,7 @@ lang: ko
 permalink: /2026/08/12/brokerage-commission-calculation/
 page_id: 2026-08-12-brokerage-commission-calculation
 image: /assets/og/2026-08-12-brokerage-commission-calculation-ko.png
+canonical_url: "https://blog.pikaworks.kr/2026/09/30/brokerage-fee-calculation/"
 summary: "부동산 중개보수(복비)는 거래금액에 구간별 상한요율을 곱한 금액 안에서 중개인과 협의해 정하며, 낮은 구간에는 한도액이 따로 있습니다. 주택 매매·전세·월세와 오피스텔·상가별 요율표, 월세 거래금액 환산법, 실전 계산 예시와 계산기를 한 번에 정리했습니다."
 description: "부동산 중개보수(복비) 계산법을 매매·전세·월세 구간별 상한요율표와 계산기로 정리했습니다. 거래금액별 한도액과 부가세·협의 요령까지 확인하세요."
 categories: [부동산]
