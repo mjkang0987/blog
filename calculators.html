@@ -1,0 +1,18 @@
+---
+layout: default
+permalink: /calculators/
+title: 부동산 계산기 모음
+description: 주담대 한도·DSR·취득세·양도세·보유세·중개보수·청약 가점 등 부동산 계산기를 한곳에 모았습니다. 금액만 넣으면 바로 계산됩니다.
+---
+{%- if site.active_lang == 'ja' -%}{%- assign t_title = '不動産計算機' -%}{%- assign t_lead = '金額を入れるとすぐ計算できる計算機付きの記事です。' -%}
+{%- elsif site.active_lang == 'en-US' -%}{%- assign t_title = 'Real estate calculators' -%}{%- assign t_lead = 'Posts with built-in calculators. Enter an amount and get the result right away.' -%}
+{%- else -%}{%- assign t_title = '부동산 계산기' -%}{%- assign t_lead = '금액만 넣으면 바로 계산되는 계산기가 들어 있는 글을 모았습니다.' -%}{%- endif -%}
+{%- comment -%} 계산기 글 = 슬러그가 -calculation 으로 끝나는 글. canonical_url 로 다른 글에 통합된 글은 제외 {%- endcomment -%}
+{%- assign list = site.posts | where_exp: "p", "p.url contains '-calculation/'" | where_exp: "p", "p.canonical_url == nil" -%}
+<section class="home">
+  <h1 class="home__title">{{ t_title }} <span class="chip__count">{{ list.size }}</span></h1>
+  <p class="list-lead">{{ t_lead }}</p>
+  <ul class="post-grid">
+    {% for post in list %}{% include post-card.html post=post %}{% endfor %}
+  </ul>
+</section>

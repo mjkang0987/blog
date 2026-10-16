@@ -1,0 +1,16 @@
+<li class="post-card">
+  <a class="post-card__link" href="{{ include.post.url | relative_url }}">
+    {% if include.post.image %}
+      <img class="post-card__thumb" src="{{ include.post.image | relative_url }}" alt="" loading="lazy" width="1200" height="630">
+    {% else %}
+      <span class="post-card__thumb post-card__thumb--placeholder" aria-hidden="true">pikaworks</span>
+    {% endif %}
+    <span class="post-card__body">
+      <time class="post-card__date" datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date: '%Y.%m.%d' }}</time>
+      <span class="post-card__title">{{ include.post.title }}</span>
+      {% assign card_summary = include.post.summary | default: include.post.description | default: include.post.excerpt %}
+      {% if card_summary %}<span class="post-card__summary">{{ card_summary | strip_html | strip_newlines | truncate: 90 }}</span>{% endif %}
+      {% if include.post.categories.size > 0 %}<span class="post-card__cat">{{ include.post.categories | join: ', ' }}</span>{% endif %}
+    </span>
+  </a>
+</li>

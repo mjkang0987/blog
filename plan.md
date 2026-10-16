@@ -154,6 +154,22 @@
 ### 기존 강점(유지)
 - jekyll-seo-tag, sitemap.xml, hreflang(ko/en/ja+x-default), 글별 OG 이미지, 정적 사이트(SSR), 시맨틱 HTML
 
+## 작업 J: 계산기 모음·주간 시황 페이지 + 헤더 정리 (진행 중)
+### 요구사항
+- 계산기 글을 모아 보여주는 페이지를 만들고 블로그 메인·헤더에서 노출한다(pikaworks.kr 홈에서 링크할 대상).
+- 모바일 헤더가 3줄(≤418px 171px)로 줄바꿈되는 문제를 메뉴 정리로 해소한다.
+### 구현 방식
+- `/calculators/`: 슬러그가 `-calculation` 으로 끝나는 글 중 `canonical_url` 이 없는 글을 카드로 나열. `/weekly/`: 슬러그에 `weekly` 가 들어간 부동산 글.
+- 카드 마크업을 `_includes/post-card.html` 로 추출해 홈·두 목록 페이지가 공유.
+- 홈 "최근 글" 위에 계산기 띠(개수 + 전체 보기 칩).
+- 헤더 메뉴: 홈·부동산·경제·IT·태그·소개 → 계산기·주간 시황·전체 글(/tags/). 소개·언어 선택은 푸터로 이동. 경제·IT 는 /tags/ 카테고리 칩으로 계속 접근 가능.
+- 자동 발행 규칙: 계산기 글은 슬러그를 `-calculation`, 금요일 주간 정리는 `-weekly-review` 로 끝내야 목록에 잡힌다.
+### 영향받는 파일
+- `_includes/post-card.html`(신규) · `calculators.html`(신규) · `weekly.html`(신규) · `_layouts/home.html` · `_layouts/default.html` · `assets/css/main.css` · `llms.txt`
+### 기대 결과
+- 360px 폭에서 헤더 1줄 메뉴(헤더 높이 110px 실측, ko/en/ja 동일), 가로 스크롤 없음.
+- /calculators/ 12건(08-12 중개보수 글 제외), /weekly/ 11건.
+
 ## 발행 로그
 - 2026-06-22 [경제] 원/달러 1,500원대 고환율·외국인 순매도 점검 (ko/en/ja)
 - 2026-06-22 [부동산] 수도권 전세난·서울 전셋값 1년 내 최고·경기 남부 확산 (ko/en/ja) — 같은 날 2번째 글, 경제글과 카테고리 분리
