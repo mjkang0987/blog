@@ -101,8 +101,8 @@ layout: default
 {% if related.size > 0 %}
 <aside class="related" aria-labelledby="related-title">
   <h2 class="home__title related__title" id="related-title">{{ t_related }}</h2>
-  <ul class="post-grid related__grid">
-    {% for post in related limit: 4 %}{% include post-card.html post=post %}{% endfor %}
+  <ul class="related__list">
+    {% for post in related limit: 4 %}<li class="related__item"><a class="related__link" href="{{ post.url | relative_url }}"><span class="related__title-text">{{ post.title }}</span><time class="related__date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y.%m.%d' }}</time></a></li>{% endfor %}
   </ul>
 </aside>
 {% endif %}
