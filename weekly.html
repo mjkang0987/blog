@@ -2,11 +2,11 @@
 layout: default
 permalink: /weekly/
 title: 주간 부동산 시황
-description: 매주 금요일, 한 주의 서울 아파트값·금리·부동산 정책 흐름을 한 번에 정리합니다.
+description: 격주 금요일, 2주간의 서울 아파트값·금리·부동산 정책 흐름을 한 번에 정리합니다.
 ---
-{%- if site.active_lang == 'ja' -%}{%- assign t_title = '週間市況' -%}{%- assign t_lead = '毎週金曜日、1週間のマンション価格・金利・政策の動きをまとめます。' -%}
-{%- elsif site.active_lang == 'en-US' -%}{%- assign t_title = 'Weekly market' -%}{%- assign t_lead = 'Every Friday: the week in apartment prices, rates and policy.' -%}
-{%- else -%}{%- assign t_title = '주간 시황' -%}{%- assign t_lead = '매주 금요일, 한 주의 아파트값·금리·정책 흐름을 한 번에 정리합니다.' -%}{%- endif -%}
+{%- if site.active_lang == 'ja' -%}{%- assign t_title = '週間市況' -%}{%- assign t_lead = '隔週金曜日、2週間のマンション価格・金利・政策の動きをまとめます。' -%}
+{%- elsif site.active_lang == 'en-US' -%}{%- assign t_title = 'Weekly market' -%}{%- assign t_lead = 'Every other Friday: two weeks of apartment prices, rates and policy.' -%}
+{%- else -%}{%- assign t_title = '주간 시황' -%}{%- assign t_lead = '격주 금요일, 2주간의 아파트값·금리·정책 흐름을 한 번에 정리합니다.' -%}{%- endif -%}
 {%- comment -%} 주간 정리 글 = 슬러그에 weekly 가 들어간 부동산 글(예전 경제·IT 주간 회고 제외) {%- endcomment -%}
 {%- assign list = site.posts | where_exp: "p", "p.url contains 'weekly'" | where_exp: "p", "p.categories contains '부동산' or p.categories contains 'Real Estate' or p.categories contains '不動産'" -%}
 <section class="home">
