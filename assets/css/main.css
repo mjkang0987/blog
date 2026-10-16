@@ -299,7 +299,12 @@
 .post, .page { max-width: calc(var(--maxw) - 2.5rem); margin: 0 auto; }
 /* 글 하단 관련 글: 글 본문과 같은 폭, 2열 */
 .related { max-width: calc(var(--maxw) - 2.5rem); margin: 3rem auto 0; padding-top: 2rem; border-top: 1px solid var(--border); }
-.related .related__grid { grid-template-columns: repeat(2, 1fr); }
+.related__list { list-style: none; margin: 0; padding: 0; }
+.related__item { border-bottom: 1px solid var(--border); }
+.related__link { display: flex; align-items: baseline; justify-content: space-between; gap: 0.4rem 1rem; padding: 0.85rem 0; color: var(--text); text-decoration: none; }
+.related__title-text { font-weight: 600; line-height: 1.45; }
+.related__date { flex: none; font-size: 0.8rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.related__link:hover .related__title-text { color: var(--brand); }
 .post__sticky-sentinel { position: absolute; top: 0; left: 0; width: 1px; height: 1px; pointer-events: none; }
 
 /* 홈 글 목록 */
@@ -688,7 +693,7 @@ a.pagination__item:hover { background: var(--brand); color: #fff; border-color: 
 
   /* 모바일: 가로형 컴팩트 카드 (썸네일 좌 + 텍스트 우) */
   .post-grid { grid-template-columns: 1fr; gap: 0.75rem; }
-  .related .related__grid { grid-template-columns: 1fr; }
+  .related__link { flex-direction: column; gap: 0.2rem; }  /* 모바일: 제목 아래 발행일 */
   .post-card__link {
     flex-direction: row;
     align-items: center;
